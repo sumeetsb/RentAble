@@ -1,0 +1,135 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+* { 
+    margin: 0;
+    padding: 0;
+}
+/*---------------------Css Reset End---------------------*/
+
+
+
+/*------------------Desktop CSS---------------------------*/
+
+
+body{
+font-family: 'Roboto Slab', serif;
+
+}
+
+header {
+   font-size: 1.3em;
+   background-color: #fbf195; 
+   height: 60px;
+   text-align: center;
+}
+
+#logo {
+    position: absolute;
+    margin-left: -98px;
+    margin-top: 20px;
+}
+
+header li, footer li {
+    display: inline;
+    margin: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #2c2d2d;
+}
+
+nav{
+    padding-top: 20px;
+     margin: 0 auto;
+}
+ul {
+    text-align: center;
+}
+
+header li:nth-child(3){
+    margin-left: 200px;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 146px;
+    font-size: 22px;
+    color: #808080;
+}
+
+footer {
+    background-color: #fbf195;
+    position:fixed;
+   left:0px;
+   bottom:0px;
+   height:40px;
+   width:100%;
+}
+
+footer ul {
+    padding: 11px 0 0 0; 
+}
+
+/*----------------------------Desktop CSS end-----------------------------*/
+
+
+
+/*------------------------------Mobile CSS-----------------------*/
+
+@media (max-width: 768px) {
+  
+  li {
+      display: block;
+    padding: 15px 0px 0px 0px;
+}  
+    
+nav {
+    padding-top: 0px;
+}
+
+
+    
+}

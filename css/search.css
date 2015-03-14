@@ -1,0 +1,20 @@
+#textbox {
+    padding: 15px 0 0 0;
+    margin:0 auto;
+    width: 385px;
+}
+
+.searchbar{
+    margin: 0 auto;
+    width: 380px;
+    height: 32px;
+    font-size: 22px;
+    font-family: 'Roboto Slab', serif;
+    color: #2c2d2d;
+    
+}
+
+input:focus {
+    outline: none; 
+}
+
