@@ -11,7 +11,7 @@ class Db_connect {
     public static function getDB(){
         if (!isset(self::$db)){
             try{
-                self::$db = new PDO(self::$dns, self::$user, self::pass);
+                self::$db = new PDO(self::$dns, self::$user, self::$pass);
             } catch (PDOException $ex) {
                 echo $ex->getMessage();
                 exit();
