@@ -1,10 +1,9 @@
 <?php
-include ('db_connect.php');
 
 class PropertiesClass {
     
-    private function __construct(){
-        
+    public static function getPropertiesByLandlord($landlord_id){
+        $db = Db_connect::getDB();
     }
     
 }
