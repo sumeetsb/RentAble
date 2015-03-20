@@ -22,6 +22,7 @@
                 $_SESSION['role'] = $login->getRole();
                 $_SESSION['fname'] = $login->getFname();
                 $_SESSION['lname'] = $login->getLname();
+                $_SESSION['props'] = UsersClass::getPropertiesOfTenant($login->getId());
                 header("Location: ../user_dash");
             } else {
                 $error = "Invalid username or password provided.";

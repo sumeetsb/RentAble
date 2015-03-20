@@ -14,6 +14,7 @@ class User {
     private $smoking_status;
     private $employment;
     private $pets;
+    private $properties = array();
     
     public function __construct($fname, $lname, $uname, $pword, $email, $phone, 
             $role, $age, $gender = null, $smoking_status = null, $employment = null,
@@ -135,5 +136,13 @@ class User {
     
     public function setPets($pets){
         $this->pets = $pets;
+    }
+    
+    public function getProperties(){
+        return $this->properties;
+    }
+    
+    public function setProperties($props){
+        $this->properties = $props;
     }
 }

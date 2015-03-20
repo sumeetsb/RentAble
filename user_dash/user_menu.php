@@ -4,7 +4,13 @@
 
 <nav>
     <ul>
-        <li><a href="<?php echo ROOT; ?>Sublet">Sublet your place</a></li>
-        <li></li>
+        <?php
+            if(!empty($_SESSION['props'])){
+                $props = $_SESSION['props'];
+                foreach($props as $prop){
+                    echo '<li>' . $prop . ' <a href="'. ROOT. 'Sublet?pid='.$prop.'">Sublet</a>';
+                }
+            }
+        ?>
     </ul>
 </nav>

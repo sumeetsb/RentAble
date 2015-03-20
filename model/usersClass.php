@@ -28,4 +28,20 @@ class UsersClass {
         $db = Db_connect::getDB();
     }
     
+    public static function getPropertiesOfTenant($tenant_id){
+        $db = Db_connect::getDB();
+        $q = "SELECT p_id FROM tenants t JOIN properties p WHERE t.tenant_id = :id";
+        $stm = $db->prepare($q);
+        $stm->bindParam(":id", $tenant_id);
+        $stm->setFetchMode(PDO::FETCH_ASSOC);
+        $stm->execute();
+        $props = $stm->fetchAll();
+        $pArray = array();
+        foreach($props as $prop){
+            $pArray[] = $prop['p_id'];
+        }
+        
+        return $pArray;
+    }
+    
 }
