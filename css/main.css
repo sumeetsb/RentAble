@@ -107,6 +107,10 @@ h1 {
     padding-right: 5px;
 }
 
+.error {
+    color: red;
+}
+
 footer {
     background-color: #fbf195;
     position:fixed;

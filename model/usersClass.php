@@ -13,7 +13,7 @@ class UsersClass {
         $stm->setFetchMode(PDO::FETCH_ASSOC);
         $stm->execute();
         $result = $stm->fetchAll();
-        if(length($result) == 1){
+        if(count($result) == 1){
             foreach ($result as $u){
                 $person = new User($u["first_name"], $u["last_name"], $u["user_name"], $u["password"], $u["email"], $u["phone"], $u["role"], $u["age"]);
                 $person->setId($u["id"]);
