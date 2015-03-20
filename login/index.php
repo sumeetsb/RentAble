@@ -15,9 +15,9 @@
         if(isset($_POST["login"])){
             $login = UsersClass::getUser($_POST["user"], $_POST["pass"]);
             if($login != null){
-                config::$username = $login->getUname();
-                config::$id = $login->getId();
-                $_SESSION['user'] = config::$username;
+                session_start();
+                $_SESSION['user'] = $login->getUname();
+                $_SESSION['id'] = $login->getId();
                 header("Location: ../user_dash");
             } else {
                 $error = "Invalid username or password provided.";
