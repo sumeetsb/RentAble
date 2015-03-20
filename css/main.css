@@ -67,7 +67,7 @@ header {
 
 #logo {
     position: absolute;
-    margin-left: -98px;
+    margin-left: -80px;
     margin-top: 20px;
 }
 
@@ -83,14 +83,13 @@ a {
 
 nav{
     padding-top: 20px;
-     margin: 0 auto;
+    margin: 0 auto;
 }
 ul {
-    text-align: center;
 }
 
 header li:nth-child(3){
-    margin-left: 200px;
+    margin-left: 250px;
 }
 
 h1 {
@@ -98,6 +97,18 @@ h1 {
     margin-top: 146px;
     font-size: 22px;
     color: #808080;
+}
+
+#headerlog {
+    font-size: .8em;
+    position: absolute;
+    right: 0;
+    padding-top: 20px;
+    padding-right: 5px;
+}
+
+.error {
+    color: red;
 }
 
 footer {

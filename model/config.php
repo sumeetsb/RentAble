@@ -9,3 +9,5 @@ if ($deploy){
 }
 
 $cssArray = array();
+
+session_start();

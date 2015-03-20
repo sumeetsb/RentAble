@@ -15,10 +15,10 @@ class User {
     private $employment;
     private $pets;
     
-    private function __construct($id, $fname, $lname, $uname, $pword, $email, $phone, 
+    public function __construct($fname, $lname, $uname, $pword, $email, $phone, 
             $role, $age, $gender = null, $smoking_status = null, $employment = null,
             $pets = null){
-        $this->id = $id;
+        //$this->id = $id;
         $this->first_name = $fname;
         $this->last_name = $lname;
         $this->user_name = $uname;
