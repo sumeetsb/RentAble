@@ -3,8 +3,7 @@
 
 
 
-include ('../model/config.php');
-
+include 'db_connect.php';
 
 
 ////////////////////////////////////////////////////////////////////////////////////
@@ -16,7 +15,7 @@ class Sublets {
     public static function getSublets(){
         
         //connect to the database
-        $db = Database::getDB();
+        $db = Db_connect::getDB();
         
         //the sql statement in a variable
         $SQL = 'SELECT * FROM Sublets';
@@ -52,17 +51,14 @@ class SubletDB {
         
         
         //the sql statement variable
-        $SQL = "INSERT INTO sublets (u_id, p_id, info, roomAmount, startDate, endDate) VALUES ($u_id, $p_id, '$description', $rentAmount, '$startDate', '$endDate')";
+        $SQL = "INSERT INTO sublets (u_id, p_id, info, rentAmount, startDate, endDate) VALUES ($u_id, $p_id, '$description', $rentAmount, '$startDate', '$endDate')";
         
         //stm is a variable passing the the prepared sql query into the database
         $stm = $db->prepare($SQL);
         
+        //putting the values into the database
         $row_count = $stm->execute();
-        
-        //returning the results from the query into db
-        return $row_count;
  
     }
 }
 
-SubletDB::insertSublets('My descirption', '34', '2015-04-04', '2015-05-15');

@@ -22,7 +22,7 @@
   </script>
   
   <?php
-    require '../model/db_connect.php';
+    require '../model/subletDB.php';
     require 'insert.php';
   ?>
   
@@ -46,20 +46,22 @@
             
             //sublet object is a variable containing an object, which garuntees the required properties.
             //have yet to include the p_id and u_id through sessions.
-            $subletObject = new Sublet(9, 9, $description, $rentAmount, $startDate, $endDate);
+            $user_id = $_SESSION['id'];
+            $property_id = $_GET['pid'];
+            $subletObject = new Sublet($user_id, $property_id, $description, $rentAmount, $startDate, $endDate);
             
             //variables being passed to properties as parameters, (insertSublets) is the function inside the class - called a method
             //SubletDB is a class containing a static method 
-            $insertSublet = SubletDB::insertSublets($description, $roomAmount, $startDate, $endDate);        
+            $insertSublet = SubletDB::insertSublets($subletObject);        
             
-            
+            header("location: ../index.php");
             
         }
     ?>
     
     <h1>Post a Notice for Sublet</h1>
     
-    <form action="../index.php" method="post">
+    <form action="index.php" method="post">
         <p>Room Description</p>
         <textarea name="roomDescription" rows="10" cols="50"></textarea>
         <p>Rent Amount</p>
