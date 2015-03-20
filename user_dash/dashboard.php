@@ -1,7 +1,7 @@
 <?php
 
 include('../view/header.php');
-
+include('user_menu.php');
 ?>
 
 
