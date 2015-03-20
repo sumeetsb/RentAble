@@ -2,6 +2,11 @@
 //Craig Veenstra
 
 
+
+include ('../model/config.php');
+
+
+
 ////////////////////////////////////////////////////////////////////////////////////
 /////////       this class gets all sublets from database         //////////////////
 ////////////////////////////////////////////////////////////////////////////////////
@@ -47,7 +52,7 @@ class SubletDB {
         
         
         //the sql statement variable
-        $SQL = "INSERT INTO sublets (u_id, p_id, info, roomAmount, startDate, endDate) VALUES ($u_id, $p_id, '$description', $roomAmount, '$startDate', '$endDate')";
+        $SQL = "INSERT INTO sublets (u_id, p_id, info, roomAmount, startDate, endDate) VALUES ($u_id, $p_id, '$description', $rentAmount, '$startDate', '$endDate')";
         
         //stm is a variable passing the the prepared sql query into the database
         $stm = $db->prepare($SQL);

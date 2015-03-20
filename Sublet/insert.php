@@ -1,5 +1,8 @@
 <?php
 
+include ('../model/config.php');
+
+
 //template for objects
 class Sublet {
     
@@ -13,6 +16,8 @@ class Sublet {
     //the parameters are taken and assigned into the private variables using $this
     public function __construct($u_id, $p_id, $description, $rentAmount, $startDate, $endDate){
         
+        $this->u_id = $u_id;
+        $this->p_id = $p_id;
         $this->description = $description;
         $this->rentAmount = $rentAmount;
         $this->startDate = $startDate;
@@ -66,7 +71,7 @@ class Sublet {
     //sets allow to change the current value
     public function setstartDate($startDate){
         //overwriting any previous set values
-        $this->startDate = $stateDate;
+        $this->startDate = $startDate;
     }
     
      public function getendDate(){

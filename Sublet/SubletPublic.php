@@ -8,6 +8,11 @@
  * Public side
  */
 
+
+include ('../model/config.php');
+
+
+
 ?>
 
 
