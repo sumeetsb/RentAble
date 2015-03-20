@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 
 <?php
-include ('../model/config.php');
 /* 
  * Craig Veenstra
  * Sublet feature for tenants
