@@ -38,7 +38,7 @@ class SubletDB {
     public static function insertSublets($subletObject){
         
         //connect to the database
-        $db = Database::getDB();
+        $db = Db_connect::getDB();
         
         //un packing the object sent into the static method
         $u_id = $subletObject->getu_id();
@@ -48,8 +48,9 @@ class SubletDB {
         $startDate = $subletObject->getstartDate();
         $endDate = $subletObject->getendDate();
         
-        
-        
+        $startDate = DateTime::createFromFormat('m/d/Y', $startDate)->format('Y-m-d');
+        $endDate = DateTime::createFromFormat('m/d/Y', $endDate)->format('Y-m-d');
+
         //the sql statement variable
         $SQL = "INSERT INTO sublets (u_id, p_id, info, rentAmount, startDate, endDate) VALUES ($u_id, $p_id, '$description', $rentAmount, '$startDate', '$endDate')";
         

@@ -57,11 +57,13 @@
             header("location: ../index.php");
             
         }
+            $property_id = $_GET['pid'];
+
     ?>
     
     <h1>Post a Notice for Sublet</h1>
     
-    <form action="index.php" method="post">
+    <form action="index.php?pid=<?php echo $property_id; ?>" method="post">
         <p>Room Description</p>
         <textarea name="roomDescription" rows="10" cols="50"></textarea>
         <p>Rent Amount</p>
