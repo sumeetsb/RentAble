@@ -1,5 +1,5 @@
 <?php
-    include ('model/config.php');
+    require_once('model/config.php');
     $cssArray[] = "search.css";
     include ('view/header.php');
 ?>

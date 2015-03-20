@@ -1,6 +1,6 @@
 <?php
-    include('../model/config.php');
-    include('../model/usersClass.php');
+    require_once('../model/config.php');
+    require_once('../model/usersClass.php');
     
     if(isset($_GET["logout"])){
             if($_GET["logout"] == "true"){

@@ -8,7 +8,8 @@
             if(!empty($_SESSION['props'])){
                 $props = $_SESSION['props'];
                 foreach($props as $prop){
-                    echo '<li>' . $prop . ' <a href="'. ROOT. 'Sublet/index.php?pid='.$prop.'">Sublet</a>';
+                    $p = PropertiesClass::getPropertyById($prop);
+                    echo '<li>' . $p->getName() . ' <a href="'. ROOT. 'Sublet/index.php?pid='.$prop.'">Sublet</a>';
                 }
             }
         ?>
