@@ -17,12 +17,15 @@
     </head>
     <body>
         <header>
+            <div id="headerlog">
+            <?php include('loginreg.php'); ?>
+            </div>
             <img id="logo" src="<?php echo ROOT;?>images/RentAble_HeaderLogo_197x62px.png" alt="RentAble" height="62" width="197">
             <nav>
                 <ul>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Sign up</a></li>
-                    <li><a href="#">Log in</a></li>
+                    <li><a href= "#">Filler</a></li>
                     <li><a href="#">FAQ</a></li>                 
                 </ul>
             </nav>

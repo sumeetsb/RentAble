@@ -9,3 +9,15 @@ if ($deploy){
 }
 
 $cssArray = array();
+
+session_start();
+
+class config{
+    public static $username = "";
+    public static $id = "";
+    
+    public static function reset(){
+        self::$username = "";
+        self::$id = "";
+    }
+}
