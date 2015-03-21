@@ -132,6 +132,7 @@ header li:nth-child(3){
 }
 
 table {
+    text-align: left;
     border-collapse: separate;
     border-spacing: 5px;
 }

@@ -26,6 +26,8 @@ class UsersClass {
     
     public static function makeUser($user){
         $db = Db_connect::getDB();
+        $q = "INSERT INTO users (first_name, last_name, user_name, password, email, phone, role, age";
+        $stm = $db->prepare($q);
     }
     
     public static function getPropertiesOfTenant($tenant_id){
