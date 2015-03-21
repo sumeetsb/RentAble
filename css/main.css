@@ -76,16 +76,23 @@ header li, footer li {
     margin: 0 20px;
 }
 
+h1 {
+    text-align: center;
+    margin-top: 146px;
+    font-size: 22px;
+    color: #808080;
+}
+
 h2 {
     font-size: 1.3em;
     font-weight: bold;
-    margin: 10px;
+    margin: 10px 0;
 }
 
 h3 {
     font-size: 1.1em;
     font-weight: bold;
-    margin: 5px;
+    margin: 10px 0;
 }
 
 a {
@@ -108,13 +115,6 @@ header li:nth-child(3){
     margin-left: 250px;
 }
 
-h1 {
-    text-align: center;
-    margin-top: 146px;
-    font-size: 22px;
-    color: #808080;
-}
-
 #headerlog {
     font-size: .8em;
     position: absolute;
@@ -129,6 +129,19 @@ h1 {
 #wrapper {
     width: 1100px;
     margin: 50px auto;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 5px;
+}
+
+input[type="submit"] {
+    font-family: "Roboto Slab", serif;
+    font-size: 1.1em;
+    background-color: #eee;
+    border: none;
+    padding: 10px;
 }
 
 footer {
