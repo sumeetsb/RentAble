@@ -2,12 +2,6 @@
     require_once('../model/config.php');
     require_once('../model/usersClass.php');
     
-    if(isset($_GET["logout"])){
-            if($_GET["logout"] == "true"){
-                session_destroy();
-                header("Location: ../index.php");
-            }
-        }
     
     if(isset($_SESSION['user'])){
        header("Location: ../user_dash");
