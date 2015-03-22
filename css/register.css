@@ -1,0 +1,11 @@
+table td:nth-child(2n) {
+    text-align: center;
+}
+
+table {
+    border-spacing: 15px;
+}
+
+td {
+    padding-bottom: 10px;
+}

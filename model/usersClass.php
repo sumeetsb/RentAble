@@ -24,10 +24,20 @@ class UsersClass {
         }
     }
     
-    public static function makeUser($user){
+    public static function makeUser(User $user){
         $db = Db_connect::getDB();
-        $q = "INSERT INTO users (first_name, last_name, user_name, password, email, phone, role, age";
+        $fname = $user->getFname();
+        $lname = $user->getLname();
+        $uname = $user->getUname();
+        $email = $user->getEmail();
+        $pass = $user->getPword();
+        $age = $user->getAge();
+        $phone = $user->getPhone();
+        $role = $user->getRole();
+        $q = "INSERT INTO users (first_name, last_name, user_name, password, email, phone, role, age) "
+                . "VALUES('$fname', '$lname', '$uname', '$pass', '$email', '$phone', '$role', $age)";
         $stm = $db->prepare($q);
+        $stm->execute();
     }
     
     public static function getPropertiesOfTenant($tenant_id){

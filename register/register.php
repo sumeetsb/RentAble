@@ -1,9 +1,9 @@
 <?php
-
+$cssArray[] = "register.css";
 include('../view/header.php');
 ?>
 
-<div id="regiser">
+<div id="register">
     <form action="index.php" method="post">
         <table>
             <tr>
@@ -18,16 +18,28 @@ include('../view/header.php');
                 <td><input type="text" name="lname" /></td>
             </tr>
             <tr>
-                <td>Enter Birth Date (M/D/Y):</td>
+                <td>Enter Birth Date:<br /> (M/D/Y)</td>
                 <td>
                     <select name="month">
-                        
+                        <?php 
+                            foreach($months as $month){
+                                echo '<option value="'.$month.'">'.$month.'</option>';
+                            }
+                        ?>
                     </select>/
                     <select name="day">
-                        
+                        <?php
+                            for ( $i = 1; $i < 32; $i++ ){
+                                echo '<option value="'.$i.'">'.$i.'</option>';
+                            }
+                        ?>
                     </select>/
                     <select name="year">
-                        
+                        <?php
+                            for($y=1900;$y<date('Y');$y++){
+                                echo '<option value="'.$y.'">'.$y.'</option>';
+                            }
+                        ?>
                     </select>
                 </td>
             </tr>
@@ -52,12 +64,18 @@ include('../view/header.php');
                 <td><input type="password" name="pass2" /></td>
             </tr>
             <tr>
-                <td>Are you registering as a Landlord?</td>
-                <td><input type="checkbox" name="role" /> Yes</td>
+                <td>Are you registering <br /> as a Landlord?</td>
+                <td><input type="checkbox" name="role" value="landlord" /> Yes</td>
             </tr>
-            
+            <tr>
+                <td colspan="2"><input type="submit" name="register" value="Register" /></td>
+                
+            </tr>
         </table>
     </form>
+    <?php 
+        echo '<p class="error">'.$error.'</p>';
+    ?>
 </div>
 
 
