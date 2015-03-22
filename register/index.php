@@ -47,7 +47,7 @@ if(isset($_SESSION['user'])){
             try {
                 $user = new User($fname, $lname, $uname, $pass, $email, $phone, $role, $age);
                 UsersClass::makeUser($user);
-            } catch (PDOException $ex) {
+            } catch (Exception $ex) {
                 echo $ex->getMessage();
             }
         } else {

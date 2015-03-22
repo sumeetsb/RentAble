@@ -49,8 +49,12 @@ class UsersClass {
         $stm->execute();
         $props = $stm->fetchAll();
         $pArray = array();
-        foreach($props as $prop){
-            $pArray[] = $prop['p_id'];
+        if(count($props)< 1){
+            
+        } else {
+            foreach($props as $prop){
+                $pArray[] = $prop['p_id'];
+            }
         }
         
         return $pArray;
