@@ -51,7 +51,7 @@ if(isset($_SESSION['user'])){
                 echo $ex->getMessage();
             }
         } else {
-            $error .= "FORM WHAT?!";
+            $error .= "FORM ERROR WHAT?!";
         }
     }
     
