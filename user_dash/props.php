@@ -16,7 +16,7 @@
                 $props = $_SESSION['props'];
                 foreach($props as $prop){
                     $p = PropertiesClass::getPropertyById($prop);
-                    echo '<li>' . $p->getName() . '</li>';
+                    echo '<li><a href="'.ROOT.'property/?propid='.$prop.'">'. $p->getName() . '</a></li>';
             }
             }
         ?>

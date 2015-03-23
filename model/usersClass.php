@@ -58,4 +58,21 @@ class UsersClass {
         return $pArray;
     }
     
+    public static function getPropertiesofLandlord($landlord_id){
+        $db = Db_connect::getDB();
+        $q = "SELECT id FROM properties WHERE landlord_id = :id";
+        $stm = $db->prepare($q);
+        $stm->bindParam(":id", $landlord_id);
+        $stm->setFetchMode(PDO::FETCH_ASSOC);
+        $stm->execute();
+        $props = $stm->fetchAll();
+        $pArray = array();
+        if(count($props) > 0){
+            foreach($props as $prop){
+                $pArray[] = $prop['id'];
+            }
+        }
+        return $pArray;
+    }
+    
 }
