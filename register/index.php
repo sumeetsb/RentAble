@@ -47,6 +47,8 @@ if(isset($_SESSION['user'])){
             try {
                 $user = new User($fname, $lname, $uname, $pass, $email, $phone, $role, $age);
                 UsersClass::makeUser($user);
+                include('thankyou.php');
+                exit();
             } catch (Exception $ex) {
                 echo $ex->getMessage();
             }

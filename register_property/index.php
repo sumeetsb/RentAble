@@ -1,8 +1,8 @@
 <?php
+require_once('../model/config.php');
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+if($_SESSION['role'] == 'landlord'){
+    include('register_prop.php');
+} else {
+    header("Location: ../index.php");
+}

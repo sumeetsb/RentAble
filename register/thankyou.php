@@ -1,8 +1,13 @@
 <?php
+include('../view/header.php');
+?>
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+<div id="thanks">
+    <h3>Thanks for registering, <?php echo $fname; ?>. Welcome to Rentable!</h3>
+    <p>Log In to continue</p>
+</div>
 
+<?php
+include('../view/footer.php');
+
+?>
