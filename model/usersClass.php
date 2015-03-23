@@ -4,6 +4,7 @@ require_once('user.php');
 
 class UsersClass {
     
+    //Method to obtain user for login
     public static function getUser($user, $pass){
         $db = Db_connect::getDB();
         $q = "SELECT * FROM users WHERE user_name = :user AND password = :pass";
@@ -24,6 +25,7 @@ class UsersClass {
         }
     }
     
+    //Method to make new user for users table
     public static function makeUser(User $user){
         $db = Db_connect::getDB();
         $fname = $user->getFname();
@@ -40,6 +42,7 @@ class UsersClass {
         $stm->execute();
     }
     
+    //Method to obtain current residences of user if tenant
     public static function getPropertiesOfTenant($tenant_id){
         $db = Db_connect::getDB();
         $q = "SELECT p_id FROM tenants WHERE tenant_id = :id";
@@ -58,6 +61,7 @@ class UsersClass {
         return $pArray;
     }
     
+    //Method to obtain all properties of user if landlord
     public static function getPropertiesofLandlord($landlord_id){
         $db = Db_connect::getDB();
         $q = "SELECT id FROM properties WHERE landlord_id = :id";

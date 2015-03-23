@@ -2,11 +2,19 @@
     require_once('../model/config.php');
     require_once('../model/usersClass.php');
     
+    ///IF user is already logged in, redirect to user dashboard
+    ///ELSE show login form
     
     if(isset($_SESSION['user'])){
        header("Location: ../user_dash");
     } else {
         if(isset($_POST["login"])){
+            
+            ///IF login button hit, grab user from users table and store details in session
+            // and redirect to user dashboard
+            ///ELSE reload login page with error message
+            
+            
             $login = UsersClass::getUser($_POST["user"], $_POST["pass"]);
             if($login != null){
                 

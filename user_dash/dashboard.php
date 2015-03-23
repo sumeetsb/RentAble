@@ -7,6 +7,9 @@ include('user_menu.php');
 
 <div id="props">
 <?php
+
+///SHOW properties of user
+
 include('props.php');
 ?>
 </div>

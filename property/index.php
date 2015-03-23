@@ -3,11 +3,17 @@ require_once('../model/config.php');
 require_once('../model/property.php');
 require_once('../model/propertiesClass.php');
 
+
+///IF user logged in and propid GET variable exists AND propid is a property that user is a part of then
+// show property details
+//
+///ELSE return to home page
+
 if(isset($_SESSION['role']) && isset($_GET['propid'])){
     $properties = $_SESSION['props'];
     $propid = $_GET['propid'];
     if(in_array($propid, $properties)){
-        
+        ///Grab property from database and unpack details
         $property = PropertiesClass::getPropertyById($propid);
         $p_name = $property->getName();
         $p_street = $property->getStreet();

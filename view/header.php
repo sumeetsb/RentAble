@@ -24,7 +24,7 @@
             <nav>
                 <ul>
                     <li><a href="#">About</a></li>
-                    <li><a href="#">Sign up</a></li>
+                    <li><a href="<?php echo ROOT; ?>register">Sign up</a></li>
                     <li><a href= "#">Filler</a></li>
                     <li><a href="#">FAQ</a></li>                 
                 </ul>
