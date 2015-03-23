@@ -2,29 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/xampp/htdocs/RentAble/login/login.php</file>
-            <file>file:/C:/xampp/htdocs/RentAble/view/footer.php</file>
-            <file>file:/C:/xampp/htdocs/RentAble/user_dash/index.php</file>
-            <file>file:/C:/xampp/htdocs/RentAble/model/property.php</file>
-            <file>file:/C:/xampp/htdocs/RentAble/view/header.php</file>
-            <file>file:/C:/xampp/htdocs/RentAble/login/index.php</file>
-            <file>file:/C:/xampp/htdocs/RentAble/view/loginreg.php</file>
-            <file>file:/C:/xampp/htdocs/RentAble/css/login.css</file>
-            <file>file:/C:/xampp/htdocs/RentAble/model/propertiesClass.php</file>
-            <file>file:/C:/xampp/htdocs/RentAble/Sublet/insert.php</file>
-            <file>file:/C:/xampp/htdocs/RentAble/model/usersClass.php</file>
-            <file>file:/C:/xampp/htdocs/RentAble/css/main.css</file>
-            <file>file:/C:/xampp/htdocs/RentAble/model/config.php</file>
-            <file>file:/C:/xampp/htdocs/RentAble/index.php</file>
-            <file>file:/C:/xampp/htdocs/RentAble/user_dash/user_menu.php</file>
-            <file>file:/C:/xampp/htdocs/RentAble/user_dash/dashboard.php</file>
-            <file>file:/C:/xampp/htdocs/RentAble/model/subletDB.php</file>
-            <file>file:/C:/xampp/htdocs/RentAble/register/register.php</file>
-            <file>file:/C:/xampp/htdocs/RentAble/Sublet/index.php</file>
-            <file>file:/C:/xampp/htdocs/RentAble/register/index.php</file>
-            <file>file:/C:/xampp/htdocs/RentAble/search/index.php</file>
-            <file>file:/C:/xampp/htdocs/RentAble/model/db_connect.php</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
