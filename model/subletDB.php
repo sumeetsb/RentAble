@@ -2,6 +2,7 @@
 //Craig Veenstra
 
 require_once 'db_connect.php';
+require_once '../Sublet/insert.php';
 
 ////////////////////////////////////////////////////////////////////////////////////
 /////////       Interacting with the Sublets table              ////////////////////
@@ -107,7 +108,7 @@ class SubletDB {
     /// Updating sublets from the table /////
     //////////////////////////////////////////
     
-    public static function updateSublet($subletObject){
+    public static function updateSublet(Sublet $subletObject){
         
         //connect to the database
         $db = Db_connect::getDB();
@@ -119,9 +120,8 @@ class SubletDB {
         $rentAmount = $subletObject->getrentAmount();
         $startDate = $subletObject->getstartDate();
         $endDate = $subletObject->getendDate();
-        
         //the sql statement in a variable
-        $SQL = 'UPDATE Sublets SET info = ' . $description . ', rentAmount = ' . $rentAmount . ', startDate = ' . $startDate . ', endDate = '. $endDate . ' WHERE p_id = ' . $p_id . ' AND u_id = ' . $u_id;
+        $SQL = "UPDATE Sublets SET info = '$description', rentAmount = '$rentAmount', startDate = '$startDate', endDate = '$endDate' WHERE p_id = $p_id AND u_id = $u_id";
             
         //stm stands for statement
         $stm = $db->prepare($SQL);

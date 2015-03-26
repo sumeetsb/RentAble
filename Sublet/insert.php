@@ -1,6 +1,6 @@
 <?php
 
-include ('../model/config.php');
+require_once('../model/config.php');
 
 
 //template for objects
