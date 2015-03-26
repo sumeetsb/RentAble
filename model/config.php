@@ -5,7 +5,7 @@ $deploy = false;
 if ($deploy){
     define('ROOT', 'http://rentable.sumeetb.com/');
 } else {
-    define('ROOT', 'http://localhost/rentable/');
+    define('ROOT', 'http://' . $_SERVER['HTTP_HOST'] . '/RentAble/');
 }
 
 $cssArray = array();
