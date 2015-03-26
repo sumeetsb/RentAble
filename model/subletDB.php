@@ -44,6 +44,30 @@ class SubletDB {
     
     
     //////////////////////////////////////////
+    /// Getting sublet by id from the table ///
+    //////////////////////////////////////////
+    
+    public static function getSubletbyID($id){
+        
+        //connect to the database
+        $db = Db_connect::getDB();
+        
+        //the sql statement in a variable
+        $SQL = 'SELECT * FROM Sublets WHERE u_id = ' . $id;
+    
+        //stm stands for statement
+        $stm = $db->prepare($SQL);
+        $stm->execute();
+        
+        $row = $stm->fetch(PDO::FETCH_ASSOC); 
+        
+        return $row;    
+        
+    }   
+    
+    
+    
+     //////////////////////////////////////////
     /// Getting all sublets from the table ///
     //////////////////////////////////////////
     
@@ -58,7 +82,7 @@ class SubletDB {
         //returning the results from the query into $getSublets
         $getSublets = $db->query($SQL);
         return $getSublets;    
-    }   
+    }  
     
     
     
@@ -80,7 +104,7 @@ class SubletDB {
     
     
     //////////////////////////////////////////
-    /// Updateing sublets from the table /////
+    /// Updating sublets from the table /////
     //////////////////////////////////////////
     
     public static function updateSublet($subletObject){
@@ -98,9 +122,12 @@ class SubletDB {
         
         //the sql statement in a variable
         $SQL = 'UPDATE Sublets SET info = ' . $description . ', rentAmount = ' . $rentAmount . ', startDate = ' . $startDate . ', endDate = '. $endDate . ' WHERE p_id = ' . $p_id . ' AND u_id = ' . $u_id;
-               
-        $updateSublets = $db->query($SQL);
-        return $updateSublets;
+            
+        //stm stands for statement
+        $stm = $db->prepare($SQL);
+        $row_count = $stm->execute();
+        
+        return $row_count;
     }
 }
 

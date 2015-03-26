@@ -36,6 +36,14 @@
     ------------------------------------------------------>
     
     <?php
+    
+        //The variables responsible for the empty forms presubmission    
+            $description = "";
+            $rentAmount = "";
+            $startDate = "";
+            $endDate = "";
+            
+            
         //check if the form was posted
         if(isset($_POST['insert'])){
             
@@ -45,7 +53,6 @@
             $endDate = $_POST["endDate"];
             
             //sublet object is a variable containing an object, which garuntees the required properties.
-            //have yet to include the p_id and u_id through sessions.
             $user_id = $_SESSION['id'];
             $property_id = $_GET['pid'];
             $subletObject = new Sublet($user_id, $property_id, $description, $rentAmount, $startDate, $endDate);
@@ -63,18 +70,20 @@
     
     <h1>Post a Notice for Sublet</h1>
     
-    <form action="index.php?pid=<?php echo $property_id; ?>" method="post">
+    <form action="../user_dash/index.php?pid=<?php echo $property_id; ?>" method="post">
         <p>Room Description</p>
-        <textarea name="roomDescription" rows="10" cols="50"></textarea>
+        <textarea name="roomDescription" rows="10" cols="50"><?php echo $description; ?></textarea>
         <p>Rent Amount</p>
-        <input type="text" name="rentAmount" />
+        <input type="text" name="rentAmount" value="<?php echo $rentAmount; ?>" />
         <p>Start Date</p>
-        <input type="text" class="datepicker" name="startDate" />
+        <input type="text" class="datepicker" name="startDate" value="<?php echo $startDate; ?>" />
         <p>End Date</p>
-        <input type="text" class="datepicker" name="endDate" />
+        <input type="text" class="datepicker" name="endDate" value="<?php echo $endDate; ?>" />
         <input type="submit" value="Post" name="insert" />
         <input type="submit" value="Delete" />
         
     </form>
+    
+   
 </body>
 </html>
