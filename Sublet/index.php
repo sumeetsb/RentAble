@@ -80,7 +80,6 @@
         <p>End Date</p>
         <input type="text" class="datepicker" name="endDate" value="<?php echo $endDate; ?>" />
         <input type="submit" value="Post" name="insert" />
-        <input type="submit" value="Delete" />
         
     </form>
     

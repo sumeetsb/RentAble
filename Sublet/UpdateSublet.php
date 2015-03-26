@@ -32,7 +32,22 @@ $usergeneric = subletDB::getSubletbyID($id);
             
         }
 
-
+        if(isset($_POST['Delete'])){
+            
+            $description = $_POST["roomDescription"];
+            $rentAmount = $_POST["rentAmount"];
+            $startDate = $_POST["startDate"];
+            $endDate = $_POST["endDate"];
+            $user_id = $_SESSION['id'];
+            $property_id = $_GET['pid'];
+            $subletObject = new Sublet($user_id, $property_id, $description, $rentAmount, $startDate, $endDate);
+            //variables being passed to properties as parameters, (insertSublets) is the function inside the class - called a method
+            //SubletDB is a class containing a static method 
+            SubletDB::deleteSublet($subletObject);        
+            
+            header("location: ../index.php");
+            
+        }
 ?>
 
  <h1>Update Sublet Information</h1>
@@ -47,6 +62,6 @@ $usergeneric = subletDB::getSubletbyID($id);
         <p>End Date</p>
         <input type="text" class="datepicker" name="endDate" value="<?php echo $usergeneric["endDate"] ?>"/>
         <input type="submit" value="Post" name="update" />
-        <input type="submit" value="Delete" />
+        <input type="submit" value="Delete" name="Delete"/>
         
     </form>

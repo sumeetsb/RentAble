@@ -91,16 +91,19 @@ class SubletDB {
     /// Deleting sublets from the table //////
     //////////////////////////////////////////
     
-    public static function deleteSublet($p_id, $u_id){
+    public static function deleteSublet(Sublet $subletObject){
         
         //connect to the database
         $db = Db_connect::getDB();
         
-        //the sql statement in a variable
-        $SQL = 'DELETE FROM Sublets WHERE p_id =' . $p_id . ' AND u_id =' . $u_id;
+         //un packing the object sent into the static method
+        $u_id = $subletObject->getu_id();
+        $p_id = $subletObject->getp_id();
         
-        $deleteSublets = $db->query($SQL);
-        return $deleteSublets;   
+        //the sql statement in a variable
+        $SQL = "DELETE FROM Sublets WHERE p_id = $p_id AND u_id = $u_id";
+        
+        $db->query($SQL);        
     }
     
     
