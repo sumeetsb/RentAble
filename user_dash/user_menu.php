@@ -7,6 +7,7 @@ if($_SESSION['role'] == 'landlord'){
 } else {
     echo '<li><a href="#">Search for Rents</a></li>';
 }
+    echo '<li><a href="'.ROOT.'postratings">Look at ratings</a></li>';
 
 ?>
     </ul>
