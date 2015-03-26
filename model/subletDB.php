@@ -78,7 +78,7 @@ class SubletDB {
         $db = Db_connect::getDB();
         
         //the sql statement in a variable
-        $SQL = 'SELECT * FROM Sublets';
+        $SQL = 'SELECT * FROM Sublets s JOIN Properties p ON s.p_id=p.p_id';
         
         //returning the results from the query into $getSublets
         $getSublets = $db->query($SQL);

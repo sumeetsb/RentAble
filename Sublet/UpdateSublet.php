@@ -4,9 +4,7 @@
  * Update Sublet Post
  * Craig Veenstra
  */
-require_once '../model/config.php';
-require_once 'insert.php';
-include "../model/subletDB.php";
+require_once '../model/subletDB.php';
 
 $id = $_SESSION['id'];
 
