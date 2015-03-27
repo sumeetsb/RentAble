@@ -22,8 +22,8 @@
   </script>
   
   <?php
-    require '../model/subletDB.php';
-    require 'insert.php';
+    require_once '../model/subletDB.php';
+    require_once 'insert.php';
   ?>
   
 </head>
@@ -70,7 +70,7 @@
     
     <h1>Post a Notice for Sublet</h1>
     
-    <form action="../user_dash/index.php?pid=<?php echo $property_id; ?>" method="post">
+    <form action="index.php?pid=<?php echo $property_id; ?>" method="post">
         <p>Room Description</p>
         <textarea name="roomDescription" rows="10" cols="50"><?php echo $description; ?></textarea>
         <p>Rent Amount</p>
@@ -80,7 +80,6 @@
         <p>End Date</p>
         <input type="text" class="datepicker" name="endDate" value="<?php echo $endDate; ?>" />
         <input type="submit" value="Post" name="insert" />
-        <input type="submit" value="Delete" />
         
     </form>
     

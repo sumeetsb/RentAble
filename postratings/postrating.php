@@ -1,7 +1,7 @@
 <?php
 require ('../model/ratings_db.php');
 require ('../model/rating.php');
-require ('../model/database.php');?>
+require ('../model/db_connect.php');?>
 <?php
 include('../view/header.php');
 
@@ -27,15 +27,15 @@ if (isset($_POST['action'])){
         $rated_id = $_POST['rated_id'];
     }
 }
-else {     $rated_id="4";
+else {     $rated_id="1";
 }
 $userlist=RatingDB::getUsers();
-$rater_id="7";
+$rater_id="3";
 $nratings = ['1','2','3','4','5'];
 $ratings = RatingDB::getRatingsbyId($rated_id);
 ?>
 <h2>See ratings for user <?php echo $rated_id?></h2>
-<form action="postrating.php" method="post">
+<form action="index.php" method="post">
     <select name="selected_user">
         <?php foreach ($userlist as $suser) {
             echo "<option value=".$suser[0]." >".$suser[0]."</option>";
@@ -55,7 +55,7 @@ $ratings = RatingDB::getRatingsbyId($rated_id);
     } ?>
 </table>
 <table>
-    <form action='postrating.php' method='post'>
+    <form action='index.php' method='post'>
     <tr>
         <td></td>
         <td>                

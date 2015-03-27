@@ -2,6 +2,7 @@
 //Craig Veenstra
 
 require_once 'db_connect.php';
+require_once '../Sublet/insert.php';
 
 ////////////////////////////////////////////////////////////////////////////////////
 /////////       Interacting with the Sublets table              ////////////////////
@@ -77,7 +78,7 @@ class SubletDB {
         $db = Db_connect::getDB();
         
         //the sql statement in a variable
-        $SQL = 'SELECT * FROM Sublets';
+        $SQL = 'SELECT * FROM Sublets s JOIN Properties p ON s.p_id=p.p_id';
         
         //returning the results from the query into $getSublets
         $getSublets = $db->query($SQL);
@@ -90,16 +91,19 @@ class SubletDB {
     /// Deleting sublets from the table //////
     //////////////////////////////////////////
     
-    public static function deleteSublet($p_id, $u_id){
+    public static function deleteSublet(Sublet $subletObject){
         
         //connect to the database
         $db = Db_connect::getDB();
         
-        //the sql statement in a variable
-        $SQL = 'DELETE FROM Sublets WHERE p_id =' . $p_id . ' AND u_id =' . $u_id;
+         //un packing the object sent into the static method
+        $u_id = $subletObject->getu_id();
+        $p_id = $subletObject->getp_id();
         
-        $deleteSublets = $db->query($SQL);
-        return $deleteSublets;   
+        //the sql statement in a variable
+        $SQL = "DELETE FROM Sublets WHERE p_id = $p_id AND u_id = $u_id";
+        
+        $db->query($SQL);        
     }
     
     
@@ -107,7 +111,7 @@ class SubletDB {
     /// Updating sublets from the table /////
     //////////////////////////////////////////
     
-    public static function updateSublet($subletObject){
+    public static function updateSublet(Sublet $subletObject){
         
         //connect to the database
         $db = Db_connect::getDB();
@@ -119,9 +123,8 @@ class SubletDB {
         $rentAmount = $subletObject->getrentAmount();
         $startDate = $subletObject->getstartDate();
         $endDate = $subletObject->getendDate();
-        
         //the sql statement in a variable
-        $SQL = 'UPDATE Sublets SET info = ' . $description . ', rentAmount = ' . $rentAmount . ', startDate = ' . $startDate . ', endDate = '. $endDate . ' WHERE p_id = ' . $p_id . ' AND u_id = ' . $u_id;
+        $SQL = "UPDATE Sublets SET info = '$description', rentAmount = '$rentAmount', startDate = '$startDate', endDate = '$endDate' WHERE p_id = $p_id AND u_id = $u_id";
             
         //stm stands for statement
         $stm = $db->prepare($SQL);
