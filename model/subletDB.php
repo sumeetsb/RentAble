@@ -1,6 +1,6 @@
 <?php
 //Craig Veenstra
-
+require_once('../Sublet/apply.php');
 require_once 'db_connect.php';
 require_once '../Sublet/insert.php';
 
@@ -9,6 +9,37 @@ require_once '../Sublet/insert.php';
 ////////////////////////////////////////////////////////////////////////////////////
 
 class SubletDB {
+    
+    ///////////////////////////////////////////////////
+    /// Inserting into the subletApplication Table  ///
+    ///////////////////////////////////////////////////
+    
+    public static function insertApplication(Apply $applyObject){
+        
+        //connect to the database
+        $db = Db_connect::getDB();
+        
+        //un packing the object sent into the static method
+        $u_id = $applyObject->getu_id();
+        $p_id = $applyObject->getp_id();
+        $message = $applyObject->getmessage();
+        $email = $applyObject->getemail();
+        
+
+        //the sql statement variable
+        $SQL = "INSERT INTO subletapplications (p_id, u_id, message, email) VALUES ($p_id, $u_id, '$message', '$email')";
+        
+        //stm is a variable passing the the prepared sql query into the database
+        $stm = $db->prepare($SQL);
+        
+        //putting the values into the database
+        $row_count = $stm->execute();
+ 
+    }
+    
+    
+    
+    
     
     
     //////////////////////////////////////////
