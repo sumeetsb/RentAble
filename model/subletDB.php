@@ -67,6 +67,25 @@ class SubletDB {
     }   
     
     
+    ////////////////////////////////////////////////////
+    /// Getting all sublets from the unique property ///
+    ////////////////////////////////////////////////////
+    
+    public static function getpropertySublets($p_id){
+        
+        //connect to the database
+        $db = Db_connect::getDB();
+        
+        //the sql statement in a variable
+        $SQL = "SELECT * FROM Sublets WHERE p_id = $p_id";
+        
+        //returning the results from the query into $getSublets
+        $getSublets = $db->query($SQL);
+        return $getSublets;    
+    }  
+    
+    
+    
     
      //////////////////////////////////////////
     /// Getting all sublets from the table ///
