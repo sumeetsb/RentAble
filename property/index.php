@@ -2,7 +2,7 @@
 require_once('../model/config.php');
 require_once('../model/property.php');
 require_once('../model/propertiesClass.php');
-
+require_once('../model/subletDB.php');
 
 ///IF user logged in and propid GET variable exists AND propid is a property that user is a part of then
 // show property details
@@ -23,6 +23,14 @@ if(isset($_SESSION['role']) && isset($_GET['propid'])){
         $p_lat = $property->getLatitude();
         $p_long = $property->getLongitude();
         $p_type = $property->getType();
+        
+        
+        //unpacking the sublets
+        $getSublets = subletDB::getpropertySublets($p_id);
+        $description = $getSublets->getinfo();
+        $rentAmount = $getSublets->getrentAmount();
+        $startDate = $getSublets->getstartDate();
+        $endDate = $getSublets->getendDate();
         
         include('propertyPage.php');
         
