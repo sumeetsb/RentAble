@@ -5,9 +5,8 @@ require_once('../model/config.php');
 
 //template for objects
 class Apply {
-    
-    private $u_id;
     private $p_id;
+    private $u_id;
     private $message;
     private $email;
     
@@ -57,5 +56,5 @@ class Apply {
     
 }
 
-?>
+
 

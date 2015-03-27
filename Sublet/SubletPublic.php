@@ -13,16 +13,14 @@ require_once ('insert.php');
 require_once('../model/subletDB.php');
 require_once('../model/config.php');
             
-        $_SESSION["u_id"] = 3;
+        //$_SESSION["u_id"] = 3;
 
         //check if the form was posted
         if(isset($_POST['apply'])){
             
             $message = $_POST["message"];
             $email = $_POST["email"];
-            
-            $u_id = $_SESSION['u_id'];
-            
+            $u_id = 3;
             //THIS MAY HAVE TO CHANGE
             $p_id = $_GET['pid'];
             
@@ -45,7 +43,7 @@ require_once('../model/config.php');
 
 <body>
     <h1>Apply for Sublet</h1>
-    <form action="SubletPublic.php?pid=<?php echo'$p_id'; ?>" method="post">
+    <form action="SubletPublic.php?pid=<?php echo $p_id; ?>" method="post">
         <p>Message</p>
         <textarea name="message" rows="10" cols="50"></textarea>
         <p>Your Email</p>
