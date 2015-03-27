@@ -6,6 +6,18 @@ class PropertiesClass {
     
     public static function getPropertiesByLandlord($landlord_id){
         $db = Db_connect::getDB();
+        $q = "SELECT * FROM properties WHERE landlord_id = :id";
+        $stm = $db->prepare($q);
+        $stm->bindParam(":id", $landlord_id);
+        $stm->setFetchMode(PDO::FETCH_ASSOC);
+        $stm->execute();
+        $results = $stm->fetchAll();
+        $props = array();
+        foreach ($results as $row){
+            $prop = new Property();
+            $props[] = $prop;
+        }
+        return $props;
     }
     
     public static function getPropertyById($p_id){
