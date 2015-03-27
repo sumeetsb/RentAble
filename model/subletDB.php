@@ -81,8 +81,15 @@ class SubletDB {
         
         //returning the results from the query into $getSublets
         $getSublets = $db->query($SQL);
-        return $getSublets;    
+        $sublets = array();
+        foreach ($getSublets as $row){
+            $sublet = new Sublet($row['u_id'], $row['p_id'], $row['info'], $row['rentAmount'], $row['startDate'], $row['endDate']);
+            $sublets[] = $sublet;
+        }
+        return $sublets;    
     }  
+    
+   
     
     
     

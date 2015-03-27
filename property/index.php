@@ -26,11 +26,8 @@ if(isset($_SESSION['role']) && isset($_GET['propid'])){
         
         
         //unpacking the sublets
-        $getSublets = subletDB::getpropertySublets($p_id);
-        $description = $getSublets->getinfo();
-        $rentAmount = $getSublets->getrentAmount();
-        $startDate = $getSublets->getstartDate();
-        $endDate = $getSublets->getendDate();
+        $getSublets = subletDB::getpropertySublets($propid);
+       
         
         include('propertyPage.php');
         
