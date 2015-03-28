@@ -16,7 +16,9 @@ include('../view/header.php');
     }
     ?>
 </table>
-
+<?php
+include('gallery.php');
+?>
 <?php
 include('../view/footer.php');
 ?>
