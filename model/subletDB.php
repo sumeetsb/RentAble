@@ -44,6 +44,20 @@ class SubletDB {
     /// Getting all the applications to a sublet on a property    ///
     /////////////////////////////////////////////////////////////////
     
+    
+    public static function deleteApplication($message){
+        $db = Db_connect::getDB();
+        $SQL = "DELETE FROM subletapplications WHERE message = $message";
+        $db->query($SQL);      
+    }
+    
+    
+    
+    
+    /////////////////////////////////////////////////////////////////
+    /// Getting all the applications to a sublet on a property    ///
+    /////////////////////////////////////////////////////////////////
+    
         public static function getApplications($pid){
             
             $db = Db_connect::getDB();
@@ -55,7 +69,7 @@ class SubletDB {
             $applications = array();
             
             foreach ($getApplications as $row){
-            $application = new Apply($row['$p_id'], $row['$u_id'], $row['$message'], $row['$email']);
+            $application = new Apply($row['p_id'], $row['u_id'], $row['message'], $row['email']);
             $applications[] = $application; 
             }
             
