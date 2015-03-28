@@ -40,6 +40,31 @@ class SubletDB {
     
     
     
+    /////////////////////////////////////////////////////////////////
+    /// Getting all the applications to a sublet on a property    ///
+    /////////////////////////////////////////////////////////////////
+    
+        public static function getApplications($pid){
+            
+            $db = Db_connect::getDB();
+            
+            $SQL = "SELECT * FROM subletapplications WHERE p_id = $pid";
+            
+            $getApplications = $db->query($SQL);
+            
+            $applications = array();
+            
+            foreach ($getApplications as $row){
+            $application = new Apply($row['$p_id'], $row['$u_id'], $row['$message'], $row['$email']);
+            $applications[] = $application; 
+            }
+            
+            return $applications;
+        }
+    
+    
+    
+   
     
     
     //////////////////////////////////////////
@@ -125,22 +150,22 @@ class SubletDB {
     
     
     
-     //////////////////////////////////////////
-    /// Getting all sublets from the table ///
-    //////////////////////////////////////////
-    
-    public static function getSublets(){
-        
-        //connect to the database
-        $db = Db_connect::getDB();
-        
-        //the sql statement in a variable
-        $SQL = 'SELECT * FROM Sublets s JOIN Properties p ON s.p_id=p.p_id';
-        
-        //returning the results from the query into $getSublets
-        $getSublets = $db->query($SQL);
-        return $getSublets;    
-    }  
+//     //////////////////////////////////////////
+//    /// Getting all sublets from the table ///
+//    //////////////////////////////////////////
+//    
+//    public static function getSublets(){
+//        
+//        //connect to the database
+//        $db = Db_connect::getDB();
+//        
+//        //the sql statement in a variable
+//        $SQL = 'SELECT * FROM Sublets s JOIN Properties p ON s.p_id=p.p_id';
+//        
+//        //returning the results from the query into $getSublets
+//        $getSublets = $db->query($SQL);
+//        return $getSublets;    
+//    }  
     
     
     

@@ -8,7 +8,7 @@ include('../view/header.php');
 <table>
     <?php
     foreach($getSublets as $sublet){
-        echo '<th>Sublet</th>';
+        echo '<th>Available Sublet</th>';
         echo '<tr><td>'.$sublet->getDescription().'<td></tr>';
         echo '<tr><td>'.$sublet->getrentAmount().'<td></tr>';
         echo '<tr><td>'.$sublet->getstartDate().'<td></tr>';

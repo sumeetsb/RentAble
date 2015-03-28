@@ -4,7 +4,7 @@ require_once('../model/config.php');
 
 
 //template for objects
-class Apply {
+class Apply{
     private $p_id;
     private $u_id;
     private $message;
