@@ -5,7 +5,6 @@ require ('../model/propimage.php');
 
 <link rel="stylesheet" type="text/css" href="../css/gallery.css" />
 
-
 <?php
     $p_id=$propid;
     $gal_images = Gallery_db::getImagesbyId($p_id);
