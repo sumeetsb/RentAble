@@ -34,7 +34,13 @@ $rater_id="3";
 $nratings = ['1','2','3','4','5'];
 $ratings = RatingDB::getRatingsbyId($rated_id);
 ?>
-<h2>See ratings for user <?php echo $rated_id?></h2>
+<h2>See ratings for user <?php 
+        $u_name_rater = RatingDB::getUserbyId($rated_id);
+        foreach ($u_name_rater as $rater){
+        $first_name=$rater[1];
+        $last_name=$rater[2];
+        }
+        echo $first_name; echo $last_name;?></h2>
 <form action="index.php" method="post">
     <select name="selected_user">
         <?php foreach ($userlist as $suser) {
@@ -51,7 +57,12 @@ $ratings = RatingDB::getRatingsbyId($rated_id);
         <td>Rating</td>
     </tr>
     <?php foreach ($ratings as $rt) {
-        echo "<tr><td>".$rt[1]."</td><td>".$rt[4]."</td><td>".$rt[3]."</td>";
+        $u_name_rater = RatingDB::getUserbyId($rt[1]);
+        foreach ($u_name_rater as $rater){
+        $first_name=$rater[1];
+        $last_name=$rater[2];
+        }
+        echo "<tr><td>".$first_name."  ".$last_name."</td><td>".$rt[4]."</td><td>".$rt[3]."</td>";
     } ?>
 </table>
 <table>

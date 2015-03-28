@@ -16,6 +16,13 @@ class RatingDB {
         $result->setFetchMode(PDO::FETCH_NUM);
         return $result;
     }
+    public static function getUserbyId($rater_id) {
+        $dbcon = Db_connect::getDB();
+        $query = "SELECT * FROM users WHERE id='$rater_id'";
+        $result = $dbcon->query($query);
+        $result->setFetchMode(PDO::FETCH_NUM);
+        return $result;
+    }
     public static function getRatingsALL() {
         $dbcon = Db_connect::getDB();
         $query = "SELECT * FROM user_rating ORDER BY approve_status";
