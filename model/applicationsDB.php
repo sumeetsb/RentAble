@@ -39,12 +39,13 @@ class ApplicationDB {
         
         //connect to the database
         $db = Db_connect::getDB();
-        
-        //un packing the object sent into the static method
-        $endDate = $subletObject->getendDate();
 
+        $property = $tenantObject->getproperty_id();
+        $user = $tenantObject->getuser_id();
+        $message = $tenantObject->getmessage();
+     
         //the sql statement variable
-        $SQL = "INSERT INTO applications (p_id, u_id, message) VALUES ($u_id, $p_id, '$description', $rentAmount, '$startDate', '$endDate')";
+        $SQL = "INSERT INTO applications (p_id, u_id, message) VALUES ($property, $user, '$message')";
         
         //stm is a variable passing the the prepared sql query into the database
         $stm = $db->prepare($SQL);

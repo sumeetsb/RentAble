@@ -3,18 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/RentAble/property/propertyPage.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/RentAble/property/index.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/RentAble/Sublet/apply.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/RentAble/model/user.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/RentAble/Sublet/index.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/RentAble/user_dash/index.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/RentAble/model/subletDB.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/RentAble/index.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/RentAble/user_dash/dashboard.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/RentAble/Sublet/UpdateSublet.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/RentAble/Sublet/insert.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/RentAble/Sublet/SubletPublic.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/RentAble/model/db_connect.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/RentAble/model/propertiesClass.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/RentAble/TenantApplication/insert.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/RentAble/model/config.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/RentAble/model/property.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/RentAble/TenantApplication/Index.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/RentAble/model/applicationsDB.php</file>
+            <file>file:/Applications/XAMPP/xamppfiles/htdocs/RentAble/Sublet/allApplications.php</file>
         </group>
     </open-files>
 </project-private>

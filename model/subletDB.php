@@ -158,28 +158,7 @@ class SubletDB {
         }
         return $sublets;    
     }  
-    
    
-    
-    
-    
-    
-//     //////////////////////////////////////////
-//    /// Getting all sublets from the table ///
-//    //////////////////////////////////////////
-//    
-//    public static function getSublets(){
-//        
-//        //connect to the database
-//        $db = Db_connect::getDB();
-//        
-//        //the sql statement in a variable
-//        $SQL = 'SELECT * FROM Sublets s JOIN Properties p ON s.p_id=p.p_id';
-//        
-//        //returning the results from the query into $getSublets
-//        $getSublets = $db->query($SQL);
-//        return $getSublets;    
-//    }  
     
     
     
