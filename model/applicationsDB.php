@@ -4,7 +4,7 @@
 
 
 require_once 'db_connect.php';
-
+require "../TenantApplication/insert.php";
 
 ////////////////////////////////////////////////////////////////////////////////////
 /////////   this class gets all Tenant Applications from the database     //////////
@@ -56,3 +56,20 @@ class ApplicationDB {
     }
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////       this gets all the tenant applciatins for a specific property         //////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+class getTenantApplications {
+    public static function getTenantApps($p_id){
+        $db = Db_connect::getDB();
+        $SQL = "SELECT * FROM applications WHERE p_id = $p_id";
+        $propertyApplications = $db->query($SQL);
+        $applicationArray = array();
+        foreach($propertyApplications as $row){
+            $appObjects = new Tenant($row['u_id'], $row['p_id'], $row['message']); 
+            $applicationArray[] = $appObjects;        
+        } 
+        return $applicationArray;
+    }
+}

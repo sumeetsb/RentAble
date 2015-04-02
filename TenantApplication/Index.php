@@ -10,21 +10,10 @@ require_once ('../model/applicationsDB.php');
 //require ('../model/db_connect.php');
 require_once ('../model/propertiesClass.php');
 
-
-
-
 //----------------------------------------------------
 //----------    The Tenant Application Logic    ------
 //----------------------------------------------------
 
-
- /////////////  getting the property information   ///////
-    $p_id = 1;
-    $property = PropertiesClass::getPropertyById($p_id); 
-    
-    
-    
-    
  /////////////  the application form logic   //////////////    
     //check if the form was posted
         if(isset($_POST['apply'])){
@@ -55,17 +44,19 @@ require_once ('../model/propertiesClass.php');
 <body>
     <h1>Apply to be a Tenant</h1>
    
+    
+    <!--/////////////  getting the property information   ///////-->
     <table>
     <?php
-    foreach($property as $prop){
+    $p_id = 4;
+    $property = PropertiesClass::getPropertyById($p_id); 
         echo '<th>Property Information</th>';
-        echo '<tr><td>' . $prop->getName().'</td></tr>'; 
-        echo '<tr><td>' . $prop->getStreet().'</td></tr>';
-        echo '<tr><td>' . $prop->getPostal().'</td></tr>';
-        echo '<tr><td>' . $prop->getCity().'</td></tr>';
-        echo '<tr><td>' . $prop->getProvince().'</td></tr>';
-        echo '<tr><td>' . $prop->getType().'</td></tr>';
-    }
+        echo '<tr><td>' . $property->getName().'</td></tr>'; 
+        echo '<tr><td>' . $property->getStreet().'</td></tr>';
+        echo '<tr><td>' . $property->getPostal().'</td></tr>';
+        echo '<tr><td>' . $property->getCity().'</td></tr>';
+        echo '<tr><td>' . $property->getProvince().'</td></tr>';
+        echo '<tr><td>' . $property->getType().'</td></tr>';
     ?>
     </table>
     
