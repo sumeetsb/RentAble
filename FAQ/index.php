@@ -8,8 +8,9 @@ $question="";
 $answer="";
 
 require('../model/FAQClass.php');
+require('../model/config.php');
 
-
+include("../view/header.php");
 
 $displayAll=getFAQ::showResults();
 
@@ -73,7 +74,7 @@ $displayAll=getFAQ::showResults();
       
     
       
-        <?php echo $output; ?>
+      <p> <?php echo $output; ?></p>
       
       
     <!--  <table>  
@@ -94,5 +95,11 @@ $displayAll=getFAQ::showResults();
       <?php// endforeach; ?>
       </table> 
         -->
+        
+        
+        
+  <?php      
+include("../view/footer.php");
+?>
     </body>
 </html>

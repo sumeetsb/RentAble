@@ -2,9 +2,8 @@
 
 
 
-require_once('FAQPage.php');
-
- require('model/FAQClass.php');
+require("../model/config.php");
+ require('../model/FAQClass.php');
 
 $FAQ_id= $_POST['FAQ_id'];
 $Question=$_POST['Question'];
@@ -22,6 +21,8 @@ $aerror="";
    <title>FAQ- Update</title>
   </head>
   <body>
+   
+   <?php include('../view/header.php'); ?>
     <form action="updateFAQ.php" method="post" name="Form"> 
         <fieldset>
 <h1>update into FAQ</h1>
@@ -54,17 +55,6 @@ $aerror="";
 if(isset($_POST['fupdate'])){
 
 
-if(empty ($_POST['Question'])){
-     $qerror= "This is Blank<br/>";
-}
-   
-
-if(empty ($_POST['Answer'])){
-     $aerror= "This is Blank<br/>";
-}
-
-
-//validate copy form values to local variables
 $FAQ_id=($_POST['FAQ_id']);
 $Question= ($_POST['Question']);
 $Answer= ($_POST['Answer']);
@@ -73,13 +63,15 @@ $Answer= ($_POST['Answer']);
 //if validate add into database
    //grab database
    
-  if(empty($qerror && $aerror)){
    getFAQ::updateFAQ($FAQ_id,$Question, $Answer);
    header('location: adminFAQ.php');
-  }
+  
 
 }
 ?>
+
+
+   <?php include('../view/footer.php'); ?>
 
   </body>
 </html>

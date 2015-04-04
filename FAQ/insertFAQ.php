@@ -1,8 +1,6 @@
 <?php
 
-
-require_once('FAQPage.php');
-
+require('../model/config.php');
 
 $qerror="";
 $aerror="";
@@ -29,7 +27,7 @@ $Answer= ($_POST['Answer']);
    
    
    if(empty($qerror && $aerror)){
-   require_once('model/FAQClass.php');
+   require_once('../model/FAQClass.php');
    getFAQ::insertFAQ($Question, $Answer);
    header('location: adminFAQ.php');
    }
@@ -45,12 +43,14 @@ $Answer= ($_POST['Answer']);
 <html>
     <head><title>FAQ- Insert</title></head>
     <body>
-    <form action="insertFAQ.php" method="post" name="Form"> 
-        <fieldset>
+      <?php include("../view/header.php"); ?>
+
+
 <h1>Insert into FAQ</h1>
 
+    <form action="insertFAQ.php" method="post" name="Form"> 
+        
 
-       
             <!--Question-->
             <p><label>Question:</label>
             <input type="input" name="Question"/>
@@ -69,6 +69,6 @@ $Answer= ($_POST['Answer']);
 
     </form>
             <!-- submit-->
-
+ <?php include("../view/footer.php"); ?>
     </body>
 </html>

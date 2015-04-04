@@ -66,7 +66,7 @@ class getFAQ{
         
     
         //get database
-        $dbcon=Database::getDB();
+        $dbcon=Db_connect::getDB();
         
         //qeury to delete selected id
         $q= "DELETE from FAQ WHERE id ='$FAQ_id'";

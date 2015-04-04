@@ -1,11 +1,10 @@
 <?php
 //add session
 
-require_once('FAQPage.php');
+require('../model/config.php');
 
 
-
-require_once('model/FAQClass.php');
+require_once('../model/FAQClass.php');
 $displayAll=getFAQ::showResults();
 $FAQ_id="";
 
@@ -28,8 +27,11 @@ if(isset($_POST['update'])){
     <head>
         <title>Admin- FAQ</title>
     </head>
+    
+    
+   
     <body>
-        
+    <?php include("../view/header.php"); ?>     
       <a href="insertFAQ.php">Insert New Question and Answer</a>
       <table>  
         <?php foreach ($displayAll as $dis ):  ?>
@@ -39,16 +41,16 @@ if(isset($_POST['update'])){
         <td>
             <p><?php $dis['id'];?></p>
         <p>Question:</p>
-        <p><?php echo $dis['Question']; ?></p></td>
+        <p><?php echo $dis['question']; ?></p></td>
 
         <td>
         <p>Answer: </p>
-       <p> <?php echo $dis['Answer']; ?></p></td>
+       <p> <?php echo $dis['answer']; ?></p></td>
     
             <td><form action="updateFAQ.php" method="post" id="UpFAQ">
             
-                <input type="hidden" name="Question" value="<?php echo $dis['Question']; ?>"/>    
-                <input type="hidden" name="Answer" value="<?php echo $dis['Answer']; ?>"/>
+                <input type="hidden" name="Question" value="<?php echo $dis['question']; ?>"/>    
+                <input type="hidden" name="Answer" value="<?php echo $dis['answer']; ?>"/>
             
                 <input type="hidden" name="FAQ_id" value="<?php echo $dis['id']; ?>"/>
                 <input type="submit" name="update" value="Update"/>
@@ -63,5 +65,7 @@ if(isset($_POST['update'])){
       <?php endforeach; ?>
       </table>  
         
+        
+         <?php include("../view/footer.php"); ?>
     </body>
 </html>
