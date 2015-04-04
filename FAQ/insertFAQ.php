@@ -2,6 +2,13 @@
 
 require('../model/config.php');
 
+
+ if(isset($_SESSION['user'])){
+        
+        
+        
+        
+        
 $qerror="";
 $aerror="";
 
@@ -69,6 +76,14 @@ $Answer= ($_POST['Answer']);
 
     </form>
             <!-- submit-->
- <?php include("../view/footer.php"); ?>
+ <?php include("../view/footer.php");
+ 
+  } else {
+        header("Location: ../login");
+    }
+
+ 
+
+?>
     </body>
 </html>

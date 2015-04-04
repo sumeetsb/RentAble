@@ -1,10 +1,6 @@
 <?php
 //add session
 
-require('../model/config.php');
-
-
-require_once('../model/FAQClass.php');
 $displayAll=getFAQ::showResults();
 $FAQ_id="";
 

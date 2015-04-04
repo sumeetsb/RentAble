@@ -4,6 +4,12 @@
 
 require("../model/config.php");
  require('../model/FAQClass.php');
+ 
+ if(isset($_SESSION['user'])){
+        
+        
+        
+        
 
 $FAQ_id= $_POST['FAQ_id'];
 $Question=$_POST['Question'];
@@ -71,7 +77,12 @@ $Answer= ($_POST['Answer']);
 ?>
 
 
-   <?php include('../view/footer.php'); ?>
+   <?php include('../view/footer.php');
+   } else {
+        header("Location: ../login");
+    }
+
+ ?>
 
   </body>
 </html>
