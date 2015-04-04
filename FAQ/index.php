@@ -40,10 +40,12 @@ $displayAll=getFAQ::showResults();
              foreach ($search as $ser)
             
             {
-               $OUTQuestion= $ser['Question'];
-                 $OUTAnswer= $ser['Answer'];
+               $OUTQuestion= $ser['question'];
+                 
+
+		$OUTAnswer= $ser['answer'];
                 
-                $output .='<div>' . $OUTQuestion . ' ' . $OUTAnswer . '</div>' ; 
+                $output .='<div> Question:' . $OUTQuestion . '<br/>Answer: ' . $OUTAnswer . '</div>' ; 
             }
          }
            
