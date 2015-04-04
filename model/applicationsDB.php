@@ -5,6 +5,7 @@
 
 require_once 'db_connect.php';
 require "../TenantApplication/insert.php";
+require "user.php";
 
 ////////////////////////////////////////////////////////////////////////////////////
 /////////   this class gets all Tenant Applications from the database     //////////
@@ -73,3 +74,26 @@ class getTenantApplications {
         return $applicationArray;
     }
 }
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////      getting the tenant information for the tenant application lsit        //////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+class getUserInfo {
+    public static function getInfo($p_id){
+        $db = Db_connect::getDB();
+        $SQL = "SELECT * FROM users u JOIN applications a ON u.id = a.id WHERE u.id = $p_id AND a.id = $p_id";
+        $fetchUserInfo = $db->query($SQL);
+        $userArray = array();
+        foreach($fetchUserInfo as $row){
+            $userObject = new User($row['first_name'], $row['last_name'], $row['user_name'], $row['password'], $row['email'], $row['phone'], $row['role'], $row['age'], $row['gender'], $row['smoker']);
+            $userArray[] = $userObject;
+            
+        }
+        return $userArray;
+    }
+}
+
