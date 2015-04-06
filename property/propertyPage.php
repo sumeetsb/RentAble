@@ -16,6 +16,8 @@ include('../view/header.php');
     }
     ?>
 </table>
+
+<a href="<?php echo ROOT; ?>TenantApplication/?propid=<?php echo $propid; ?>">Make an Application</a><br />
 <?php
 include('gallery.php');
 ?>
