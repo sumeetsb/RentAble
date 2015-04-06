@@ -100,9 +100,9 @@ class getUserInfo {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 class deleteApplicant {
-    public static function delete($a_id){
+    public static function delete($appid){
         $db = Db_connect::getDB();
-        $SQL = "DELETE FROM applications WHERE id = $a_id";
+        $SQL = "DELETE FROM applications WHERE id = $appid";
         $db->query($SQL);
     }
 }
