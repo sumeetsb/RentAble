@@ -1,0 +1,16 @@
+#a_admin th, td{
+    border: 1px solid #dddddd;
+    vertical-align:middle;
+    text-align: center;
+    padding: 3px;
+}
+
+#a_admin {
+    border-spacing: 1px;
+}
+#file_error{
+    color:red;
+}
+#valid_error{
+    color:red;
+}

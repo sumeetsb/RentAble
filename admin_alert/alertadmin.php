@@ -1,3 +1,4 @@
+
 <?php
 require ('../model/alerts_db.php');
 require ('../model/alert.php');
@@ -12,7 +13,7 @@ if (isset($_POST['action'])){
             $alert_id=$_POST['alert_id'];
             AlertDB::deleteAlert($alert_id);
             }
-        if ($_POST['action']=='insert'){
+        if ($_POST['action']=='insert'&& !empty($_POST["rent_due"])){
             $prop_id = $_POST['property_id'];
             $renter_id = $_POST['renter_id'];
             $rent_due = $_POST['rent_due'];
@@ -20,6 +21,9 @@ if (isset($_POST['action'])){
             $newalert = new alert($prop_id, $renter_id, $rent_due, $day_due);
             AlertDB::addAlert($newalert);
             $errorcomment=" ";
+            }
+        if ($_POST['action']=='insert'&& empty($_POST["rent_due"])){
+            $errorcomment="Need to enter rent due";
             }
         if ($_POST['action']=='udpate_alert'){
             $alert_id=$_POST['alert_id'];
@@ -33,31 +37,55 @@ if (isset($_POST['action'])){
             }
         }        
 $alerts = AlertDB::getAlertsALL();
+$prop_idlist=AlertDB::getPropIds();
+$rent_idlist=AlertDB::getRenterIds();
+for ($x = 1; $x <= 31; $x++) {
+    $dayslist[$x]=$x;
+} 
+
 ?>
-<table>
+<link rel="stylesheet" type="text/css" href="../css/alert.css" />
+
+<table id='a_admin'>
     <tr>
         <td>Property ID</td>
         <td>Renter ID</td>
         <td>Rent Due ($)</td>
         <td>DayOfMonth rent due</td>
+        <td>Option 1</td>
+        <td>Option 2</td>
     </tr>
     <form action='index.php' method='post'>
     <tr>
         <td>
             <input type='hidden' name='action' value='insert'/>
-            <input type='text' name='property_id'/>
+            <select name="property_id">
+            <?php foreach ($prop_idlist as $pid) {
+                echo "<option value=".$pid[0]." >".$pid[0]."</option>";
+            } ?>
+            </select>
         </td>
         <td>
-            <input type='text' name='renter_id'/>
+            <select name="renter_id">
+            <?php foreach ($rent_idlist as $rid) {
+                echo "<option value=".$rid[0]." >".$rid[0]."</option>";
+            } ?>
+            </select>
         </td>                
         <td>
             <input type='text' name='rent_due'/>
         </td>
         <td>
-            <input type='text' name='day_due'/>
+            <select name="day_due">
+            <?php foreach ($dayslist as $day) {
+                echo "<option value=".$day." >".$day."</option>";
+            } ?>
+            </select>
         </td>
-        <td>
-            <input type='submit' name='submit' value='Create' /></td>
+        <td colspan="2">
+            <input type='submit' name='submit' value='Create' />
+        <p id='valid_error'><?php echo $errorcomment ?></p>
+        </td>
     </tr>
     </form>
     <?php foreach ($alerts as $al): ?>
@@ -83,15 +111,4 @@ $alerts = AlertDB::getAlertsALL();
         </tr>
     <?php endforeach; ?>
 </table>
-<p><?php $errorcomment ?></p>
-<?php
-    $to = "orlova.nika@gmail.com"; // this is your Email address
-    $from = "orlova.nika@gmail.com"; // this is the sender's Email address
-    $subject = "Form submission";
-    $message = "yay";
 
-    $headers = "From:" . $from;
-    mail($to,$subject,$message,$headers);
-    echo "sent";
-include('../view/footer.php');
-?>
