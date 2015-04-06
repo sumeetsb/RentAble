@@ -16,6 +16,20 @@ class AlertDB {
         $result->setFetchMode(PDO::FETCH_NUM);
         return $result;
     }
+    public static function getPropIds() {
+        $dbcon = Db_connect::getDB();
+        $query = "SELECT DISTINCT id FROM properties ORDER BY id";
+        $result = $dbcon->query($query);
+        $result->setFetchMode(PDO::FETCH_NUM);
+        return $result;
+    }
+    public static function getRenterIds() {
+        $dbcon = Db_connect::getDB();
+        $query = "SELECT DISTINCT id FROM users ORDER BY id";
+        $result = $dbcon->query($query);
+        $result->setFetchMode(PDO::FETCH_NUM);
+        return $result;
+    }
     public static function addAlert($newalert) {
         $dbcon = Db_connect::getDB();
         $prop_id = $newalert->getPropId();

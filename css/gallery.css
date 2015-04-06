@@ -19,3 +19,14 @@
 form {
     display: inline-block;
 }
+#g_admin th, td{
+    border: 1px solid #dddddd;
+    vertical-align:middle;
+    text-align: center;
+}
+#g_admin {
+    border-spacing: 1px;
+}
+#file_error{
+    color:red;
+}
