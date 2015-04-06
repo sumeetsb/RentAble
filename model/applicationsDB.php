@@ -83,17 +83,14 @@ class getTenantApplications {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 class getUserInfo {
-    public static function getInfo($p_id){
+    public static function getInfo($u_id){
         $db = Db_connect::getDB();
-        $SQL = "SELECT * FROM users u JOIN applications a ON u.id = a.id WHERE u.id = $p_id AND a.id = $p_id";
-        $fetchUserInfo = $db->query($SQL);
-        $userArray = array();
-        foreach($fetchUserInfo as $row){
-            $userObject = new User($row['first_name'], $row['last_name'], $row['user_name'], $row['password'], $row['email'], $row['phone'], $row['role'], $row['age'], $row['gender'], $row['smoker']);
-            $userArray[] = $userObject;
-            
-        }
-        return $userArray;
+        $SQL = "SELECT * FROM users WHERE id = $u_id ";
+        $UserInfo = $db->query($SQL);
+        $row = $UserInfo->fetch();
+        $userObject = new User($row['first_name'], $row['last_name'], $row['user_name'], $row['password'], $row['email'], $row['phone'], $row['role'], $row['age'], $row['gender'], $row['smoker']);
+         
+        return $userObject;
     }
 }
 

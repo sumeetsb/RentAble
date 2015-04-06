@@ -19,7 +19,7 @@ require '../model/applicationsDB.php';
 <?php
 
 //NEEDS TO BE SESSION
-$p_id = 2;
+$p_id = $_SESSION['propid'];
 $a_id = 1;
 
 // a_id WILL BE PASSED THROUGH THE GET ARRAY

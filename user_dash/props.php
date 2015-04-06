@@ -17,6 +17,7 @@
                 foreach($props as $prop){
                     $p = PropertiesClass::getPropertyById($prop);
                     echo '<li><a href="'.ROOT.'property/?propid='.$prop.'">'. $p->getName() . '</a></li>';
+                    echo '<li> - <a href="'.ROOT.'TenantApplication/applicationList.php?propid='.$prop.'">Tenant Applications</a></li>';
             }
             }
         ?>

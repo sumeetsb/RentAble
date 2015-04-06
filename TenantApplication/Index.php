@@ -17,10 +17,10 @@ require_once ('../model/propertiesClass.php');
     //check if the form was posted
         if(isset($_POST['apply'])){
             
-            //$user_id = $_SESSION['id'];
-            $user_id = 4;
-            //$property_id = $_GET['pid'];
-            $property_id = 5;
+            
+            $user_id = $_SESSION['id'];
+            $property_id = $_GET['pid'];
+            
             $message = $_POST["message"];
             
             //tenant object is a variable containing an object, which garuntees the required properties.

@@ -9,7 +9,8 @@ require_once ('../model/subletDB.php');
 require_once('../model/config.php');
 require_once('apply.php');
 
-$pid = 3;
+
+    $pid = $_GET['pid'];
 
     //unpacking the applications for the property
     $applications = subletDB::getApplications($pid);    
@@ -26,8 +27,3 @@ $pid = 3;
     }
     ?>
 </table>
-
-
-
-
-
