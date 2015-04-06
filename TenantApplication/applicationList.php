@@ -14,7 +14,6 @@ require '../model/applicationsDB.php';
 
 <?php
 
-//THIS NEEDS TO BE THE SESSION
 $p_id = $_GET['propid'];
 $applicationArray = getTenantApplications::getTenantApps($p_id);
 
@@ -36,7 +35,7 @@ $applicationArray = getTenantApplications::getTenantApps($p_id);
             echo "<tr><td>Pets: </td><td>".$user->getPets()."</td></tr>";
             echo "<tr><td>Message: </td><td>".$app->getmessage()."</td></tr>";
             // this delete button link would have the applicant id in the GET array using the url?
-            echo "<a href='THE URL HERE THAT GOES TO DELTE PAGE >Delete</a>";
+            echo "<tr><td><a href=".ROOT."TenantApplication/deleteApplication.php?appid=".$app->getid().">Delete Application</a></td></tr>";
         }
     ?>
 </table>

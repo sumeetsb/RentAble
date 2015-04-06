@@ -68,7 +68,7 @@ class getTenantApplications {
         $propertyApplications = $db->query($SQL);
         $applicationArray = array();
         foreach($propertyApplications as $row){
-            $appObjects = new Tenant($row['u_id'], $row['p_id'], $row['message']); 
+            $appObjects = new Tenant($row['id'], $row['u_id'], $row['p_id'], $row['message']); 
             $applicationArray[] = $appObjects;        
         } 
         return $applicationArray;
@@ -114,15 +114,14 @@ class deleteApplicant {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 class getTenantApplication {
-    public static function getApplication($a_id){
+    public static function getApplication($appid){
         $db = Db_connect::getDB();
-        $SQL = "SELECT * FROM applications WHERE id = $a_id";
+        $SQL = "SELECT * FROM applications WHERE id = $appid";
         $Application = $db->query($SQL);
-        $applicationArray = array();
-        foreach($Application as $row){
-            $appObjects = new Tenant($row['u_id'], $row['p_id'], $row['message']); 
-            $applicationArray[] = $appObjects;        
-        } 
-        return $applicationArray;
+        $row = $Application->fetch();
+        $appObjects = new Tenant($row['id'], $row['u_id'], $row['p_id'], $row['message']); 
+        return $appObjects;       
+        
     }
 }
+
