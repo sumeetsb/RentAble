@@ -1,29 +1,32 @@
 <?php
 
 /* 
- * Tenant Application List
  * Craig Veenstra
+ * Application feature
+ * Delete Application
  */
+
 
 require '../model/db_connect.php';
 require '../model/applicationsDB.php';
 
 ?>
 
-<h1>Tenant Applications</h1>
+<h1>Delete Application</h1>
+<h2>Are you sure you want to delete this application?</h2>
+<table>
 
 <?php
 
-//THIS NEEDS TO BE THE SESSION
+//NEEDS TO BE SESSION
 $p_id = 2;
-$applicationArray = getTenantApplications::getTenantApps($p_id);
-$UserInfo = getUserInfo::getInfo($p_id);
-?>
+$a_id = 1;
 
-<table>
-    <?php  
-        foreach($UserInfo as $user){
-        echo "<th>Tenant Application</th>";
+// a_id WILL BE PASSED THROUGH THE GET ARRAY
+$applicationArray = getTenantApplication::getApplication($a_id);
+$UserInfo = getUserInfo::getInfo($p_id);
+
+
         echo "<tr><td>Username: </td><td>".$user->getUname()."</td></tr>";
         echo "<tr><td>Name: </td><td>".$user->getFname(). " " . $user->getLname()."</td></tr>";
         echo "<tr><td>Email: </td><td>".$user->getEmail()."</td></tr>";
@@ -32,12 +35,6 @@ $UserInfo = getUserInfo::getInfo($p_id);
         echo "<tr><td>Gender: </td><td>".$user->getGender()."</td></tr>";
         echo "<tr><td>Smoker: </td><td>".$user->getSstatus()."</td></tr>";
         echo "<tr><td>Employment Status: </td><td>".$user->getEmp()."</td></tr>";
-        echo "<tr><td>Pets: </td><td>".$user->getPets()."</td></tr>";
-        }
-        foreach($applicationArray as $app){
-            echo "<tr><td>Message: </td><td>".$app->getmessage()."</td></tr>";
-            // this delete button link would have the applicant id in the GET array using the url?
-            echo "<a href='THE URL HERE THAT GOES TO DELTE PAGE >Delete</a>";
-        }
-    ?>
+        echo "<tr><td>Pets: </td><td>".$user->getPets()."</td></tr>";      
+ ?>
 </table>

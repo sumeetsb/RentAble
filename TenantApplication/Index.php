@@ -4,7 +4,6 @@
  * Tenant Application feature
  */
 
-//include ('../model/config.php');
 require_once ('insert.php');
 require_once ('../model/applicationsDB.php');
 //require ('../model/db_connect.php');
@@ -48,7 +47,10 @@ require_once ('../model/propertiesClass.php');
     <!--/////////////  getting the property information   ///////-->
     <table>
     <?php
-    $p_id = 4;
+    
+    //$user_id = $_SESSION['id'];
+    
+    $p_id = $_GET['propid'];
     $property = PropertiesClass::getPropertyById($p_id); 
         echo '<th>Property Information</th>';
         echo '<tr><td>' . $property->getName().'</td></tr>'; 

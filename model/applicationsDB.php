@@ -4,8 +4,8 @@
 
 
 require_once 'db_connect.php';
-require "../TenantApplication/insert.php";
-require "user.php";
+require_once "../TenantApplication/insert.php";
+require_once "user.php";
 
 ////////////////////////////////////////////////////////////////////////////////////
 /////////   this class gets all Tenant Applications from the database     //////////
@@ -97,3 +97,35 @@ class getUserInfo {
     }
 }
 
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////      deleting the application to be a tenant        /////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+class deleteApplicant {
+    public static function delete($a_id){
+        $db = Db_connect::getDB();
+        $SQL = "DELETE FROM applications WHERE id = $a_id";
+        $db->query($SQL);
+    }
+}
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////       this gets a specific application to a property        /////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+class getTenantApplication {
+    public static function getApplication($a_id){
+        $db = Db_connect::getDB();
+        $SQL = "SELECT * FROM applications WHERE id = $a_id";
+        $Application = $db->query($SQL);
+        $applicationArray = array();
+        foreach($Application as $row){
+            $appObjects = new Tenant($row['u_id'], $row['p_id'], $row['message']); 
+            $applicationArray[] = $appObjects;        
+        } 
+        return $applicationArray;
+    }
+}
