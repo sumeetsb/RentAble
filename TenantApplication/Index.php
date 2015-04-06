@@ -14,24 +14,22 @@ require_once ('../model/propertiesClass.php');
 //----------------------------------------------------
 
  /////////////  the application form logic   //////////////    
-    //check if the form was posted
-        if(isset($_POST['apply'])){
-            
-            
-            $user_id = $_SESSION['id'];
-            $property_id = $_GET['pid'];
-            
-            $message = $_POST["message"];
-            
-            //tenant object is a variable containing an object, which garuntees the required properties.
-            $tenantObject = new Tenant($user_id, $property_id, $message);
-            
-            //variables being passed to properties as parameters, (insertApplcation) is the function inside the class - called a method
-            //applicationDB is a class containing a static method 
-            $insertTenant = ApplicationDB::insertApplications($tenantObject);        
-            
-            header("location: ../index.php");   
-        }
+ //check if the form was posted
+    if(isset($_POST['apply'])){
+
+        $user_id = $_SESSION['id'];
+        $property_id = $_GET['pid'];
+        $message = $_POST["message"];
+
+        //tenant object is a variable containing an object, which garuntees the required properties.
+        $tenantObject = new Tenant(0, $user_id, $property_id, $message);
+
+        //variables being passed to properties as parameters, (insertApplcation) is the function inside the class - called a method
+        //applicationDB is a class containing a static method 
+        $insertTenant = ApplicationDB::insertApplications($tenantObject);        
+
+        header("location: ../index.php");   
+    }
 ?>
 
 <!DOCTYPE html>
@@ -47,9 +45,7 @@ require_once ('../model/propertiesClass.php');
     <!--/////////////  getting the property information   ///////-->
     <table>
     <?php
-    
-    //$user_id = $_SESSION['id'];
-    
+        
     $p_id = $_GET['propid'];
     $property = PropertiesClass::getPropertyById($p_id); 
         echo '<th>Property Information</th>';
@@ -67,7 +63,7 @@ require_once ('../model/propertiesClass.php');
     ----------    The Tenant Application Form    --------
     ----------------------------------------------------->
  
-    <form action="index.php?pid=<?php echo $property_id; ?>" method="post">
+    <form action="index.php?pid=<?php echo $p_id; ?>" method="post">
         <p>Message to the Landlord</p>
         <textarea name="message" rows="10" cols="50"></textarea>
         <input type="submit" value="Submit" name="apply" />
