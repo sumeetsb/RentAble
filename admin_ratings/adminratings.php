@@ -43,7 +43,9 @@ if (isset($_POST['action'])){
 $ratings = RatingDB::getRatingsALL();
 $nratings = ['1','2','3','4','5'];
 ?>
-<table>
+<link rel="stylesheet" type="text/css" href="../css/rating.css" />
+
+<table id="rating_table">
     <tr>
         <td>Rated By</td>
         <td>Rated User</td>

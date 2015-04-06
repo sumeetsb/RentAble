@@ -18,6 +18,10 @@ if (isset($_POST['action'])){
         $rate = $_POST['urating'];
         $comment = $_POST['ucomment'];
         $rated_id=$_POST['rated_id'];
+        echo $raterid;
+        echo $ratedid;
+        echo $rate;
+        echo $comment;
         $newrating = new rating($raterid, $ratedid, $rate, $comment);
         RatingDB::addRating($newrating);
         $errorcomment=" Your rating has been submitted for approval ";
@@ -34,6 +38,8 @@ $rater_id="3";
 $nratings = ['1','2','3','4','5'];
 $ratings = RatingDB::getRatingsbyId($rated_id);
 ?>
+<link rel="stylesheet" type="text/css" href="../css/rating.css" />
+
 <h2>See ratings for user <?php 
         $u_name_rater = RatingDB::getUserbyId($rated_id);
         foreach ($u_name_rater as $rater){
@@ -50,7 +56,7 @@ $ratings = RatingDB::getRatingsbyId($rated_id);
     <input type='submit' name='getuser' value='Show User' />
     <input type='hidden' name='action' value='showusers' />
 </form>
-<table>
+<table id="rating_table">
     <tr>
         <td>Rated By</td>
         <td>Comments</td>
