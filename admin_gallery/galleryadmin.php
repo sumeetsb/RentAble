@@ -10,35 +10,47 @@ if (isset($_POST['action'])){
             $img_id=$_POST['img_id'];
             Gallery_db::deleteImage($img_id);
             }
-        if ($_POST['action']=='insert'){
+        if ($_POST['action']=='insert' && !empty($_FILES['fileToUpload']['tmp_name'])){
             $target_dir = "images/";
             $img_path="../images/".strtolower($_FILES['fileToUpload']['name']);
             move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $img_path);
             $p_id = $_POST['p_id'];
             $newimage = new propimage($p_id, $img_path);
             Gallery_db::addImage($newimage);
-            $errorcomment=" ";
+            $errorcomment="";
+            }
+        if ($_POST['action']=='insert' && empty($_FILES['fileToUpload']['tmp_name'])){
+            $errorcomment="select a file";
             }
         }        
 $images = Gallery_db::getAllimages();
+$prop_idlist=Gallery_db::getPropIds();
+
 ?>
 <?php
 include('../view/header.php');
 
 ?>
-<table>
+<link rel="stylesheet" type="text/css" href="../css/gallery.css" />
+
+<table id='g_admin'>
     <tr>
         <td>Property Id</td>
         <td>Image</td>
         <td>Option</td>
     </tr>
-    <form action='galleryadmin.php' method='post' enctype="multipart/form-data">
+    <form action='index.php' method='post' enctype="multipart/form-data">
     <tr>
         <td>
-            <input type='text' name='p_id'/>
+            <select name="p_id">
+            <?php foreach ($prop_idlist as $pid) {
+                echo "<option value=".$pid[0]." >".$pid[0]."</option>";
+            } ?>
+            </select>
         </td>                
         <td>
-            <input type="file" name="fileToUpload" id="fileToUpload">           
+            <input type="file" name="fileToUpload" id="fileToUpload">
+            <p id='file_error'><?php echo $errorcomment ?></p>
         </td>
         <td>
             <input type='hidden' name='action' value='insert' /> 
@@ -62,5 +74,5 @@ include('../view/header.php');
             
     <?php endforeach; ?>
 </table>
-<p><?php $errorcomment ?></p>
+
 

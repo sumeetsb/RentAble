@@ -7,3 +7,10 @@
     width: 500px;
     margin: 0 auto;
 }
+
+#alert {
+    color:red; 
+    width:5%; 
+    float:left;
+    color:red;
+}

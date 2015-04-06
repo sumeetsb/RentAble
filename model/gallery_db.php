@@ -26,6 +26,13 @@ class Gallery_db {
         $result->setFetchMode(PDO::FETCH_NUM);
         return $result;
     }
+    public static function getPropIds() {
+        $dbcon = Db_connect::getDB();
+        $query = "SELECT DISTINCT id FROM properties ORDER BY id";
+        $result = $dbcon->query($query);
+        $result->setFetchMode(PDO::FETCH_NUM);
+        return $result;
+    }
     public static function deleteImage($img_id) {
         $dbcon = Db_connect::getDB();
         $query = "DELETE FROM prop_images

@@ -19,14 +19,15 @@ foreach ($alerts as $alert){
         $daysleft=$due_date-$current_day;
     }        
     if ($daysleft>0 && $daysleft<4 && !isset($_POST['action'])){
-        echo "<p> Alert, your rent for property".$alert[1]." is due in </p>";
-        echo "<div style='color:red; width:5%; float:left'>".$daysleft." days </div>" ;        
+        echo "<p> Alert! Your rent for property".$alert[1]." is due in </p>";
+        echo "<div id='alert'>".$daysleft." days </div>" ;        
     }
     if ($daysleft==0 && !isset($_POST['action'])){
-        echo "<p> Alert, your rent for property".$alert[1]." is due today </p>" ;
+        echo "<p> Alert! Your rent for property".$alert[1]." </p><div id='alert'>is due today </div>" ;
     }
     if ($daysleft>3 && $daysleft<32 && !isset($_POST['action'])){
-        echo "<p> Take note, your rent for property".$alert[1]." is due in ".$daysleft." days </p>" ;
+       echo "<p> Alert! Your rent for property ".$alert[1]." is due in </p>";
+        echo "<div id='alert'>".$daysleft." days </div>" ;        
     }
         
 }
