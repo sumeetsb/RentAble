@@ -42,6 +42,10 @@ if (isset($_POST['action'])){
         }        
 $ratings = RatingDB::getRatingsALL();
 $nratings = ['1','2','3','4','5'];
+$user_idlist=RatingDB::getUserIds();
+$user_idlist2=RatingDB::getUserIds();
+
+
 ?>
 <link rel="stylesheet" type="text/css" href="../css/rating.css" />
 
@@ -59,10 +63,18 @@ $nratings = ['1','2','3','4','5'];
     <tr>
         <td>
             <input type='hidden' name='action' value='insert'/>
-            <input type='text' name='rater_id'/>
+            <select name="rater_id">
+            <?php foreach ($user_idlist as $rid) {
+                echo "<option value=".$rid[0]." >".$rid[0]."</option>";
+            } ?>
+            </select>
         </td>
         <td>
-            <input type='text' name='rated_id'/>
+            <select name="rated_id">
+            <?php foreach ($user_idlist2 as $rid) {
+                echo "<option value=".$rid[0]." >".$rid[0]."</option>";
+            } ?>
+            </select>
         </td>                
         <td>
             <input type='text' name='ucomment'/>

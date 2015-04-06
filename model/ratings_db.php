@@ -2,6 +2,13 @@
 class RatingDB {
 	//use category and product class
 	//four static method
+    public static function getUserIds() {
+        $dbcon = Db_connect::getDB();
+        $query = "SELECT DISTINCT id FROM users ORDER BY id";
+        $result = $dbcon->query($query);
+        $result->setFetchMode(PDO::FETCH_NUM);
+        return $result;
+    }
     public static function GetUsers() {
         $dbcon = Db_connect::getDB();
         $query = "SELECT DISTINCT rated_id FROM user_rating ORDER BY rated_id";

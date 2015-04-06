@@ -18,10 +18,6 @@ if (isset($_POST['action'])){
         $rate = $_POST['urating'];
         $comment = $_POST['ucomment'];
         $rated_id=$_POST['rated_id'];
-        echo $raterid;
-        echo $ratedid;
-        echo $rate;
-        echo $comment;
         $newrating = new rating($raterid, $ratedid, $rate, $comment);
         RatingDB::addRating($newrating);
         $errorcomment=" Your rating has been submitted for approval ";
@@ -34,7 +30,7 @@ if (isset($_POST['action'])){
 else {     $rated_id="1";
 }
 $userlist=RatingDB::getUsers();
-$rater_id="3";
+$rater_id=$_SESSION['id'];
 $nratings = ['1','2','3','4','5'];
 $ratings = RatingDB::getRatingsbyId($rated_id);
 ?>
@@ -70,11 +66,18 @@ $ratings = RatingDB::getRatingsbyId($rated_id);
         }
         echo "<tr><td>".$first_name."  ".$last_name."</td><td>".$rt[4]."</td><td>".$rt[3]."</td>";
     } ?>
-</table>
-<table>
     <form action='index.php' method='post'>
     <tr>
-        <td></td>
+        <td>
+            <?php 
+        $u_name_rater = RatingDB::getUserbyId($rater_id);
+        foreach ($u_name_rater as $rater){
+        $first_name=$rater[1];
+        $last_name=$rater[2];
+        }
+        echo $first_name." ".$last_name;  
+        ?>
+        </td>
         <td>                
             <input type='text' name='ucomment'/>
         </td>
