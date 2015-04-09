@@ -1,61 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
-        <file>
-            <url>model/applicationsDB.php</url>
-            <bookmark id="1">
-                <name/>
-                <line>13</line>
-                <key/>
-            </bookmark>
-        </file>
-    </editor-bookmarks>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
         <group/>
-=======
-        <group>
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/RentAble/TenantApplication/insert.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/RentAble/model/property.php</file>
->>>>>>> origin/master
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/RentAble/TenantApplication/Index.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/RentAble/TenantApplication/applicationList.php</file>
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/RentAble/model/applicationsDB.php</file>
-<<<<<<< HEAD
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/RentAble/TenantApplication/deleteApplication.php</file>
-=======
-            <file>file:/Applications/XAMPP/xamppfiles/htdocs/RentAble/Sublet/allApplications.php</file>
-=======
-            <file>file:/Applications/MAMP/htdocs/RentAble/postratings/postrating.php</file>
-            <file>file:/Applications/MAMP/htdocs/RentAble/user_dash/user_menu.php</file>
-            <file>file:/Applications/MAMP/htdocs/RentAble/user_dash/props.php</file>
-            <file>file:/Applications/MAMP/htdocs/RentAble/index.php</file>
-            <file>file:/Applications/MAMP/htdocs/RentAble/admin_gallery/index.php</file>
-            <file>file:/Applications/MAMP/htdocs/RentAble/postratings/index.php</file>
-            <file>file:/Applications/MAMP/htdocs/RentAble/property/gallery.php</file>
-            <file>file:/Applications/MAMP/htdocs/RentAble/user_dash/index.php</file>
-            <file>file:/Applications/MAMP/htdocs/RentAble/user_dash/alert.php</file>
-            <file>file:/Applications/MAMP/htdocs/RentAble/model/property.php</file>
-            <file>file:/Applications/MAMP/htdocs/RentAble/model/alert.php</file>
-            <file>file:/Applications/MAMP/htdocs/RentAble/admin_alert/alertadmin.php</file>
-            <file>file:/Applications/MAMP/htdocs/RentAble/admin_ratings/adminratings.php</file>
-            <file>file:/Applications/MAMP/htdocs/RentAble/admin_alert/index.php</file>
-            <file>file:/Applications/MAMP/htdocs/RentAble/model/rating.php</file>
-            <file>file:/Applications/MAMP/htdocs/RentAble/admin_ratings/index.php</file>
-            <file>file:/Applications/MAMP/htdocs/RentAble/model/ratings_db.php</file>
-            <file>file:/Applications/MAMP/htdocs/RentAble/model/gallery_db.php</file>
-            <file>file:/Applications/MAMP/htdocs/RentAble/model/alerts_db.php</file>
-            <file>file:/Applications/MAMP/htdocs/RentAble/admin_gallery/galleryadmin.php</file>
-            <file>file:/Applications/MAMP/htdocs/RentAble/property/index.php</file>
-            <file>file:/Applications/MAMP/htdocs/RentAble/user_dash/dashboard.php</file>
-            <file>file:/Applications/MAMP/htdocs/RentAble/property/propertyPage.php</file>
-            <file>file:/Applications/MAMP/htdocs/RentAble/model/config.php</file>
->>>>>>> Stashed changes
->>>>>>> origin/master
-        </group>
->>>>>>> origin/master
     </open-files>
 </project-private>

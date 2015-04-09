@@ -6,6 +6,10 @@ require_once('../model/config.php');
 ///ELSE go back to home
 
 if($_SESSION['role'] == 'landlord'){
+    $landlord_id = $_SESSION['id'];
+    
+    
+    
     include('register_prop.php');
 } else {
     header("Location: ../index.php");
