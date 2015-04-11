@@ -12,8 +12,6 @@
         
     include ('view/header.php');
 ?>
-        
-        <h1>Renting Made Easy</h1>
 
 <?php
 

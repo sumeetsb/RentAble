@@ -77,9 +77,8 @@ header li, footer li {
 }
 
 h1 {
-    text-align: center;
-    margin-top: 146px;
-    font-size: 22px;
+    margin: 20px 0;
+    font-size: 2em;
     color: #808080;
 }
 
