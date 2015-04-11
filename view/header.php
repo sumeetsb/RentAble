@@ -21,14 +21,6 @@
             <?php include('loginreg.php'); ?>
             </div>
             <a href="<?php echo ROOT; ?>"><img id="logo" src="<?php echo ROOT;?>images/RentAble_HeaderLogo_197x62px.png" alt="RentAble" height="62" width="197"></a>
-            <nav>
-                <ul>
-                    <li><a href="#">About</a></li>
-                    <li><a href="<?php echo ROOT; ?>register">Sign up</a></li>
-                    <li><a href= "#">Filler</a></li>
-                    <li><a href="#">FAQ</a></li>                 
-                </ul>
-            </nav>
             
         </header>
         <div id="wrapper">

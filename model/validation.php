@@ -2,36 +2,40 @@
 
 class Validation{
     private $formValues = array();
-    private $errors = array();
+    public $errors = array();
     
-    private function __construct() {}
+    public function __construct() {}
     
     public function todoVal($fname, $fvalue, $valType){
         $arr = array("Name" => $fname, "Value" => $fvalue, "Type" => $valType);
-        $this->formArr[] = $arr;
+        $this->formValues[] = $arr;
     }
     
     public function validate(){
         foreach ($this->formValues as $val){
             if(strtolower($val['Type']) == "required"){
-                if (!$this->required($val['Value'])){
-                    $this->errors[] = $val['Name'] . " is required.";
-                }
-            } else if (strtolower($val['Type']) == "string"){
-                if (!$this->typeString($val['Value'])){
-                    $this->errors[] = $val['Name'] . " needs to be a string.";
+                if ($this->required($val['Value']) == false){
+                    $this->errors[] = "The field " . $val['Name'] . " is required.";
                 }
             } else if (strtolower($val['Type']) == "number"){
-                
-            } else if (strtolower($val['Type']) == "coord"){
-                
+                if ($this->isNumber($val['Value']) == false){
+                    $this->errors[] = "The field " . $val['Name'] . " must be a number.";
+                }
+            } else if (strtolower($val['Type']) == "latitude"){
+                if($this->isLat($val['Value']) == false){
+                    $this->errors[] = "The field " . $val['Name'] . " must be a decimal number between -90 and 90.";
+                }
+            } else if (strtolower($val['Type']) == "longitude"){
+                if($this->isLong($val['Value']) == false){
+                    $this->errors[] = "The field " . $val['Name'] . " must be a decimal number between -180 and 180.";
+                }
             }
             
         }
     }
     
     private function required($field){
-        if($field != ""){
+        if($field == ""){
             return false;
         }else{
             return true;
@@ -54,11 +58,28 @@ class Validation{
         }
     }
 
-    private function isCoord($field){
-        if(is_float($field)){
-
-            return true;
-        }else{
+    private function isLat($field){
+        if(is_numeric($field)){
+            $decregex = "/^\d*\.?\d*$/";
+            if(!preg_match($decregex, $field)){
+                return false;
+            } else {
+                return true;
+            }
+        } else {
+            return false;
+        }
+    }
+    
+    private function isLong($field){
+        if(is_numeric($field)){
+            $decregex = "/^\d*\.?\d*$/";
+            if(!preg_match($decregex, $field)){
+                return false;
+            } else {
+                return true;
+            }
+        } else {
             return false;
         }
     }

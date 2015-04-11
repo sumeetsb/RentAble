@@ -1,0 +1,13 @@
+.errors {
+    color: red;
+    margin: 10px;
+    list-style: circle;
+}
+
+.reg_form tr td:first-child {
+    font-weight: bold;
+    padding: 10px 0;
+}
+.reg_form p {
+    font-weight: normal;
+}

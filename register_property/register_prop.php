@@ -1,5 +1,6 @@
 <?php
 
+
 include('../view/header.php');
 
 ?>
@@ -8,30 +9,34 @@ include('../view/header.php');
 
 <form action="index.php" method="post">
     
-    <table>
+    <table class="reg_form">
         <tr>
             <td>Property Name: </td>
-            <td><input type="text" id="name" name="name" /></td>
+            <td><input type="text" id="name" name="name" value="<?php echo $prop_name; ?>" /></td>
         </tr>
         <tr>
             <td>Street: </td>
-            <td><input type="text" id="street" name="street" /></td>
+            <td><input type="text" id="street" name="street" value="<?php echo $street; ?>" /></td>
         </tr>
         <tr>
             <td>City: </td>
-            <td><input type="text" id="city" name="city" /></td>
+            <td><input type="text" id="city" name="city" value="<?php echo $city; ?>" /></td>
         </tr>
         <tr>
             <td>Province: </td>
             <td><select id="province" name="province">
                     <option></option>
                 <?php foreach($provinces as $p){
-                    echo '<option value="'.$p.'">'.$p.'</option>';
+                    if($p == $province){
+                        echo '<option value="'.$p.'" selected>'.$p.'</option>';
+                    } else {
+                        echo '<option value="'.$p.'">'.$p.'</option>';
+                    }
                 }?>
                 </select></td>
         </tr>
         <tr>
-            <td colspan="2">The following data is required to allow users to see where your property is located on a map.</td>
+            <td colspan="2"><p>The following data is required to allow users to see where your property is located on a map.</p></td>
         </tr>
         <tr>
             <td>Latitude (to 6 decimal places): </td>
@@ -46,7 +51,13 @@ include('../view/header.php');
     
     
 </form>
-
+<ul class="errors">
+    <?php
+    foreach($errors as $err){
+        echo '<li>' . $err . '</li>';
+    }
+    ?>
+</ul>
 
 <?php
 
