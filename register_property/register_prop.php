@@ -40,11 +40,11 @@ include('../view/header.php');
         </tr>
         <tr>
             <td>Latitude (to 6 decimal places): </td>
-            <td><input type="text" id="latitude" name="latitude" /></td>
+            <td><input type="text" id="latitude" name="latitude" value="<?php echo $latitude; ?>" /></td>
         </tr>
         <tr>
             <td>Longitude (to 6 decimal places): </td>
-            <td><input type="text" id="longitude" name="longitude" /></td>
+            <td><input type="text" id="longitude" name="longitude" value="<?php echo $longitude; ?>" /></td>
         </tr>
     </table>
     <input type="submit" name="register" value="Register Property" />

@@ -60,6 +60,9 @@ class Validation{
 
     private function isLat($field){
         if(is_numeric($field)){
+            if($field > 90 || $field < -90){
+                return false;
+            }
             $decregex = "/^\d*\.?\d*$/";
             if(!preg_match($decregex, $field)){
                 return false;
@@ -73,6 +76,9 @@ class Validation{
     
     private function isLong($field){
         if(is_numeric($field)){
+            if($field > 180 || $field < -180){
+                return false;
+            }
             $decregex = "/^\d*\.?\d*$/";
             if(!preg_match($decregex, $field)){
                 return false;
