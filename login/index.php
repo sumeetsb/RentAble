@@ -27,7 +27,7 @@
                 if($login->getRole() == 'tenant'){
                     $_SESSION['props'] = UsersClass::getPropertiesOfTenant($login->getId());
                 } else {
-                    $_SESSION['props'] = UsersClass::getPropertiesofLandlord($login->getId());
+                    $_SESSION['props'] = UsersClass::getPropertyIDsofLandlord($login->getId());
                 }
                 header("Location: ../user_dash");
             } else {

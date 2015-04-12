@@ -21,6 +21,10 @@ class Validation{
                 if ($this->isNumber($val['Value']) == false){
                     $this->errors[] = "The field " . $val['Name'] . " must be a number.";
                 }
+            } else if(strtolower($val['Type']) == "postal"){
+                if ($this->postal($val['Value']) == false){
+                    $this->errors[] = "The field " . $val['Name'] . " must be a valid postal code.";
+                }
             } else if (strtolower($val['Type']) == "latitude"){
                 if($this->isLat($val['Value']) == false){
                     $this->errors[] = "The field " . $val['Name'] . " must be a decimal number between -90 and 90.";
@@ -57,13 +61,22 @@ class Validation{
             return true;
         }
     }
+    
+    private function postal($field){
+        $postalregex = "/^\w\d\w\s*\d\w\d$/";
+        if(!preg_match($postalregex, $field)){
+            return false;
+        } else {
+            return true;
+        }
+    }
 
     private function isLat($field){
         if(is_numeric($field)){
             if($field > 90 || $field < -90){
                 return false;
             }
-            $decregex = "/^\d*\.?\d*$/";
+            $decregex = "/^[-+]?\d*(\.\d+)?$/";
             if(!preg_match($decregex, $field)){
                 return false;
             } else {
@@ -79,7 +92,7 @@ class Validation{
             if($field > 180 || $field < -180){
                 return false;
             }
-            $decregex = "/^\d*\.?\d*$/";
+            $decregex = "/^[-+]?\d*(\.\d+)?$/";
             if(!preg_match($decregex, $field)){
                 return false;
             } else {

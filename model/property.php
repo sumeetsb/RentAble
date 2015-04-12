@@ -16,7 +16,7 @@ class Property{
         $this->landlord_id = $l_id;
         $this->name = $name;
         $this->street = $street;
-        $this->postal = $postal;
+        $this->postal = preg_replace("/\s+/", "", $postal);
         $this->city = $city;
         $this->province = $province;
         $this->latitude = $lat;

@@ -19,6 +19,10 @@ include('../view/header.php');
             <td><input type="text" id="street" name="street" value="<?php echo $street; ?>" /></td>
         </tr>
         <tr>
+            <td>Postal Code: </td>
+            <td><input type="text" id="postal" name="postal" value="<?php echo $postal; ?>"/></td>
+        </tr>
+        <tr>
             <td>City: </td>
             <td><input type="text" id="city" name="city" value="<?php echo $city; ?>" /></td>
         </tr>

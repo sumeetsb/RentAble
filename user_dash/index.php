@@ -1,7 +1,12 @@
 <?php
     require_once('../model/config.php');
-    require_once('../model/usersClass.php');
-    require_once('../model/propertiesClass.php');
+    
+    function classloader($class) {
+        $classStr = '../model/' . strtolower($class) . '.php';
+        require_once $classStr;
+    }
+
+    spl_autoload_register('classloader');
     
     ///IF a user is logged in, show dashboard
     ///ELSE go back to home page

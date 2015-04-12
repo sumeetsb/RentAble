@@ -61,8 +61,8 @@ class UsersClass {
         return $pArray;
     }
     
-    //Method to obtain all properties of user if landlord
-    public static function getPropertiesofLandlord($landlord_id){
+    //Method to obtain all property ids of user if landlord
+    public static function getPropertyIDsofLandlord($landlord_id){
         $db = Db_connect::getDB();
         $q = "SELECT id FROM properties WHERE landlord_id = :id";
         $stm = $db->prepare($q);
