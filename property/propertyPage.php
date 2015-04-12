@@ -1,5 +1,7 @@
 <?php
 include('../view/header.php');
+
+include('menu.php');
 ?>
 
 <h2>Property: <?php echo $p_name; ?></h2>
