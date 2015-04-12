@@ -4,13 +4,19 @@ include('../view/header.php');
 include('menu.php');
 ?>
 
-<h2>Property: <?php echo $p_name; ?></h2>
+<h1>Property: <?php echo $p_name; ?></h1>
 <p>Address: <?php echo $p_street . ", " . $p_city . ", " . $p_province; ?></p>
 
+
+
+
+<?php
+include('gallery.php');
+?>
 <table>
     <?php
     foreach($getSublets as $sublet){
-        echo '<th>Available Sublet</th>';
+        echo '<tr><th>Available Sublets</th></tr>';
         echo '<tr><td>'.$sublet->getDescription().'<td></tr>';
         echo '<tr><td>'.$sublet->getrentAmount().'<td></tr>';
         echo '<tr><td>'.$sublet->getstartDate().'<td></tr>';
@@ -18,11 +24,6 @@ include('menu.php');
     }
     ?>
 </table>
-
-<a href="<?php echo ROOT; ?>TenantApplication/?propid=<?php echo $propid; ?>">Make an Application</a><br />
-<?php
-include('gallery.php');
-?>
 <?php
 include('../view/footer.php');
 ?>

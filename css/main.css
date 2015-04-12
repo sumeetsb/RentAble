@@ -138,10 +138,16 @@ table {
 
 input[type="submit"] {
     font-family: "Roboto Slab", serif;
-    font-size: 1.1em;
+    font-size: 1em;
     background-color: #ddd;
     border: none;
-    padding: 10px;
+    padding: 5px;
+    margin: 10px 0;
+}
+
+input[type="submit"]:hover{
+    border: 1px solid black;
+    
 }
 
 footer {

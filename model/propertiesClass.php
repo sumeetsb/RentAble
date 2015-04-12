@@ -36,6 +36,21 @@ class PropertiesClass {
         }
     }
     
+    public static function updateProperty(Property $property){
+        $db = Db_connect::getDB();
+        $l_id = $property->getLandLordId();
+        $name = $property->getName();
+        $street = $property->getStreet();
+        $postal_code = $property->getPostal();
+        $city = $property->getCity();
+        $province = $property->getProvince();
+        $latitude = $property->getLatitude();
+        $longitude = $property->getLongitude();
+        $type = $property->getType();
+        $q = "UPDATE properties SET name = '$name', street = '$street', postal_code = '$postal_code', city = '$city', latitude = $latitude, longitude = $longitude, type = '$type'";
+        
+    }
+    
     public static function registerProperty(Property $property){
         $db= Db_connect::getDB();
         $l_id = $property->getLandLordId();
