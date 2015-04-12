@@ -1,8 +1,12 @@
 <?php
 require_once('../model/config.php');
-require_once('../model/property.php');
-require_once('../model/propertiesClass.php');
-require_once('../model/subletDB.php');
+
+function classloader($class) {
+    $classStr = '../model/' . strtolower($class) . '.php';
+    require_once $classStr;
+}
+
+spl_autoload_register('classloader');
 
 ///IF user logged in and propid GET variable exists AND propid is a property that user is a part of then
 // show property details
