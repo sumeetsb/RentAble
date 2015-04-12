@@ -36,6 +36,25 @@ class PropertiesClass {
         }
     }
     
-    
+    public static function registerProperty(Property $property){
+        $db= Db_connect::getDB();
+        $l_id = $property->getLandLordId();
+        $name = $property->getName();
+        $street = $property->getStreet();
+        $postal_code = $property->getPostal();
+        $city = $property->getCity();
+        $province = $property->getProvince();
+        $latitude = $property->getLatitude();
+        $longitude = $property->getLongitude();
+        $type = $property->getType();
+        $q = "INSERT INTO properties (landlord_id, name, street, postal_code, city, province, latitude, longitude, type) VALUES($l_id, '$name', '$street', '$postal_code', '$city', '$province', '$latitude', '$longitude', '$type')";
+        try{
+            $stm = $db->prepare($q);
+            $stm->execute();
+        } catch (PDOException $ex) {
+            $error = $ex->getMessage();
+        }
+        
+    }   
 }
 

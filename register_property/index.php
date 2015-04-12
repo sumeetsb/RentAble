@@ -14,6 +14,7 @@ $prop_name = "";
 $street = "";
 $city = "";
 $province = "";
+$postal = "";
 $latitude = "";
 $longitude = "";
 $errors = "";
@@ -25,6 +26,7 @@ if($_SESSION['role'] == 'landlord'){
         
         $prop_name = htmlspecialchars($_POST['name']);
         $street = htmlspecialchars($_POST['street']);
+        $postal = htmlspecialchars($_POST['postal']);
         $city = htmlspecialchars($_POST['city']);
         $province = htmlspecialchars($_POST['province']);
         $latitude = htmlspecialchars($_POST['latitude']);
@@ -33,6 +35,7 @@ if($_SESSION['role'] == 'landlord'){
         $validator = new Validation();
         $validator->todoVal("Name", $prop_name, "required");
         $validator->todoVal("Street", $street, "required");
+        $validator->todoVal("Postal Code", $postal, "postal");
         $validator->todoVal("City", $city, "required");
         $validator->todoVal("Province", $province, "required");
         $validator->todoVal("Latitude", $latitude, "required");
@@ -40,10 +43,15 @@ if($_SESSION['role'] == 'landlord'){
         $validator->todoVal("Longitude", $longitude, "required");
         $validator->todoVal("Longitude", $longitude, "longitude");
         $validator->validate();
+        
         $errors = $validator->errors;
         if(empty($errors)){
             //SUCCESSFUL VALIDATION
             //DATABASE INTERACTION
+            $property = new Property($landlord_id, $prop_name, $street, $postal, $city, $province, $latitude, $longitude);
+            PropertiesClass::registerProperty($property);
+            unset($_SESSION['props']);
+            $_SESSION['props'] = UsersClass::getPropertyIDsofLandlord($landlord_id);
             include('registered.php');
             exit();
         }
