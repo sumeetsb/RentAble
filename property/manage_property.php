@@ -47,7 +47,7 @@ include '../view/header.php';
     
 </form>
 <form action="index.php?update_propid=<?php echo $propid; ?>" method="post">
-    <input type="submit" name="delete" value="Delete Property" />
+    <input type="submit" name="delete" value="Delete Property" onclick="return confirm('Are you sure you would like to delete this property?');" />
 </form>
 <p><a href="<?php echo ROOT; ?>property/?propid=<?php echo $propid; ?>">Back</a></p>
 

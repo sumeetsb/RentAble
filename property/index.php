@@ -10,6 +10,7 @@ spl_autoload_register('classloader');
 
 //IF user is logged in landlord and wants to GET var 'manage_propid' exists then show property management page
 //ELSE IF user is logged in as landlord and POST var 'update' exists then validate and update property, return to property page
+//ELSE IF user is logged in as landlord and POST var 'delete' exists then delete property from database
 //ELSE IF user logged in and propid GET variable exists AND propid is a property that user is a part of then show property details
 //ELSE return to home page
 $prop_name = "";
