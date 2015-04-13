@@ -47,37 +47,48 @@ if(isset($_SESSION['role']) && isset($_GET['manage_propid'])){
     }
 } else if (isset($_SESSION['role']) && isset($_GET['update_propid'])) {
     if($_SESSION['role'] == "landlord"){
-        $propid = $_GET['update_propid'];
-        $landlord_id = $_SESSION['id'];
-        $prop_name = htmlspecialchars($_POST['name']);
-        $street = htmlspecialchars($_POST['street']);
-        $postal = htmlspecialchars($_POST['postal']);
-        $city = htmlspecialchars($_POST['city']);
-        $province = htmlspecialchars($_POST['province']);
-        $latitude = htmlspecialchars($_POST['latitude']);
-        $longitude = htmlspecialchars($_POST['longitude']);
-        
-        $validator = new Validation();
-        $validator->todoVal("Name", $prop_name, "required");
-        $validator->todoVal("Street", $street, "required");
-        $validator->todoVal("Postal Code", $postal, "postal");
-        $validator->todoVal("City", $city, "required");
-        $validator->todoVal("Province", $province, "required");
-        $validator->todoVal("Latitude", $latitude, "required");
-        $validator->todoVal("Latitude", $latitude, "latitude");
-        $validator->todoVal("Longitude", $longitude, "required");
-        $validator->todoVal("Longitude", $longitude, "longitude");
-        $validator->validate();
-        
-        $errors = $validator->errors;
-        if(empty($errors)){
-            //SUCCESSFUL VALIDATION
-            //DATABASE INTERACTION
-            $property = new Property($landlord_id, $prop_name, $street, $postal, $city, $province, $latitude, $longitude);
-            PropertiesClass::updateProperty($propid, $property);
-            header("Location: index.php?propid=1");
-        } else{
-            include('manage_property.php');
+        if(isset($_POST['update'])){
+            $propid = $_GET['update_propid'];
+            $landlord_id = $_SESSION['id'];
+            $prop_name = htmlspecialchars($_POST['name']);
+            $street = htmlspecialchars($_POST['street']);
+            $postal = htmlspecialchars($_POST['postal']);
+            $city = htmlspecialchars($_POST['city']);
+            $province = htmlspecialchars($_POST['province']);
+            $latitude = htmlspecialchars($_POST['latitude']);
+            $longitude = htmlspecialchars($_POST['longitude']);
+
+            $validator = new Validation();
+            $validator->todoVal("Name", $prop_name, "required");
+            $validator->todoVal("Street", $street, "required");
+            $validator->todoVal("Postal Code", $postal, "postal");
+            $validator->todoVal("City", $city, "required");
+            $validator->todoVal("Province", $province, "required");
+            $validator->todoVal("Latitude", $latitude, "required");
+            $validator->todoVal("Latitude", $latitude, "latitude");
+            $validator->todoVal("Longitude", $longitude, "required");
+            $validator->todoVal("Longitude", $longitude, "longitude");
+            $validator->validate();
+
+            $errors = $validator->errors;
+            if(empty($errors)){
+                //SUCCESSFUL VALIDATION
+                //DATABASE INTERACTION
+                $property = new Property($landlord_id, $prop_name, $street, $postal, $city, $province, $latitude, $longitude);
+                PropertiesClass::updateProperty($propid, $property);
+                header("Location: index.php?propid=1");
+            } else{
+                include('manage_property.php');
+            }
+
+        } else if (isset($_POST['delete'])){
+            $propid = $_GET['update_propid'];
+            PropertiesClass::deleteProperty($propid);
+            unset($_SESSION['props']);
+            $_SESSION['props'] = UsersClass::getPropertyIDsofLandlord($_SESSION['id']);
+            header("Location: ../user_dash/");
+        } else {
+            header("Location: ../user_dash/");
         }
     } else {
         header("Location: ../index.php");
@@ -106,7 +117,7 @@ if(isset($_SESSION['role']) && isset($_GET['manage_propid'])){
         include('propertyPage.php');
         
     } else {
-        header("Location: ../index.php");
+        header("Location: ../user_dash");
     }
 } else {
     header("Location: ../index.php");

@@ -76,5 +76,16 @@ class PropertiesClass {
         }
         
     }   
+    
+    public static function deleteProperty($id){
+        $db = Db_connect::getDB();
+        $q = "DELETE FROM properties WHERE id = $id";
+        try{
+            $stm = $db->prepare($q);
+            $stm->execute();
+        } catch (PDOException $ex) {
+            $error = $ex->getMessage();
+        }
+    }
 }
 

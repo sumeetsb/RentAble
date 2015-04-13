@@ -3,8 +3,6 @@ include '../view/header.php';
 ?>
 <h1><?php echo $prop_name; ?> - Manage Property</h1>
 
-
-
 <form action="index.php?update_propid=<?php echo $propid; ?>" method="post">
     <table>    
         <tr>
@@ -48,7 +46,7 @@ include '../view/header.php';
     <input type="submit" name="update" value="Update Property" />
     
 </form>
-<form action="index.php?update_propid=<?php echo $propid; ?>">
+<form action="index.php?update_propid=<?php echo $propid; ?>" method="post">
     <input type="submit" name="delete" value="Delete Property" />
 </form>
 <p><a href="<?php echo ROOT; ?>property/?propid=<?php echo $propid; ?>">Back</a></p>

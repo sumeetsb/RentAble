@@ -140,7 +140,7 @@ input[type="submit"] {
     font-family: "Roboto Slab", serif;
     font-size: 1em;
     background-color: #ddd;
-    border: none;
+    border: 1px solid rgba(0,0,0,0);
     padding: 5px;
     margin: 10px 0;
 }
