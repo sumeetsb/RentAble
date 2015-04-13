@@ -12,6 +12,15 @@ spl_autoload_register('classloader');
 //ELSE IF user is logged in as landlord and POST var 'update' exists then validate and update property, return to property page
 //ELSE IF user logged in and propid GET variable exists AND propid is a property that user is a part of then show property details
 //ELSE return to home page
+$prop_name = "";
+$street = "";
+$city = "";
+$province = "";
+$postal = "";
+$latitude = "";
+$longitude = "";
+$errors = array();
+$provinces = array('British Columbia', 'Alberta', 'Saskatchewan', 'Manitoba', 'Ontario', 'Quebec', 'New Brunswick', 'Prince Edward Isand', 'Nova Scotia', 'Newfoundland and Labrador');
 
 if(isset($_SESSION['role']) && isset($_GET['manage_propid'])){
     if($_SESSION['role'] == "landlord"){
@@ -20,16 +29,15 @@ if(isset($_SESSION['role']) && isset($_GET['manage_propid'])){
         if(in_array($propid, $properties)){
             ///Grab property from database and unpack details
             $property = PropertiesClass::getPropertyById($propid);
-            $p_name = $property->getName();
-            $p_street = $property->getStreet();
-            $p_postal = $property->getPostal();
-            $p_city = $property->getCity();
-            $p_province = $property ->getProvince();
-            $p_lat = $property->getLatitude();
-            $p_long = $property->getLongitude();
-            $p_type = $property->getType();
-            
-            $provinces = array('British Columbia', 'Alberta', 'Saskatchewan', 'Manitoba', 'Ontario', 'Quebec', 'New Brunswick', 'Prince Edward Isand', 'Nova Scotia', 'Newfoundland and Labrador');
+            $prop_name = $property->getName();
+            $street = $property->getStreet();
+            $postal = $property->getPostal();
+            $city = $property->getCity();
+            $province = $property ->getProvince();
+            $latitude = $property->getLatitude();
+            $longitude = $property->getLongitude();
+            $type = $property->getType();
+           
             include('manage_property.php');
         } else {
             header("Location: ../index.php");
@@ -37,7 +45,10 @@ if(isset($_SESSION['role']) && isset($_GET['manage_propid'])){
     } else {
         header("Location: ../index.php");
     }
-} else if (isset($_SESSION['role']) && isset($_GET['update_propid']) && isset($_POST['update'])) {
+} else if (isset($_SESSION['role']) && isset($_GET['update_propid'])) {
+    if($_SESSION['role'] == "landlord"){
+        $propid = $_GET['update_propid'];
+        $landlord_id = $_SESSION['id'];
         $prop_name = htmlspecialchars($_POST['name']);
         $street = htmlspecialchars($_POST['street']);
         $postal = htmlspecialchars($_POST['postal']);
@@ -63,9 +74,14 @@ if(isset($_SESSION['role']) && isset($_GET['manage_propid'])){
             //SUCCESSFUL VALIDATION
             //DATABASE INTERACTION
             $property = new Property($landlord_id, $prop_name, $street, $postal, $city, $province, $latitude, $longitude);
+            PropertiesClass::updateProperty($propid, $property);
+            header("Location: index.php?propid=1");
         } else{
             include('manage_property.php');
         }
+    } else {
+        header("Location: ../index.php");
+    }
         
 } else if(isset($_SESSION['role']) && isset($_GET['propid'])){
     $properties = $_SESSION['props'];

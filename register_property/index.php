@@ -17,7 +17,7 @@ $province = "";
 $postal = "";
 $latitude = "";
 $longitude = "";
-$errors = "";
+$errors = array();
 
 if($_SESSION['role'] == 'landlord'){
     $errors = array();

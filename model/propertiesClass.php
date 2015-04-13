@@ -36,7 +36,7 @@ class PropertiesClass {
         }
     }
     
-    public static function updateProperty(Property $property){
+    public static function updateProperty($id, Property $property){
         $db = Db_connect::getDB();
         $l_id = $property->getLandLordId();
         $name = $property->getName();
@@ -47,8 +47,13 @@ class PropertiesClass {
         $latitude = $property->getLatitude();
         $longitude = $property->getLongitude();
         $type = $property->getType();
-        $q = "UPDATE properties SET name = '$name', street = '$street', postal_code = '$postal_code', city = '$city', latitude = $latitude, longitude = $longitude, type = '$type'";
-        
+        $q = "UPDATE properties SET name = '$name', street = '$street', postal_code = '$postal_code', city = '$city', latitude = $latitude, longitude = $longitude, type = '$type' WHERE id=$id";
+        try{
+            $stm = $db->prepare($q);
+            $stm->execute();
+        } catch (PDOException $ex){
+            $error = $ex->getMessage();
+        }
     }
     
     public static function registerProperty(Property $property){

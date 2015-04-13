@@ -7,9 +7,6 @@ include('menu.php');
 <h1>Property: <?php echo $p_name; ?></h1>
 <p>Address: <?php echo $p_street . ", " . $p_city . ", " . $p_province; ?></p>
 
-
-
-
 <?php
 include('gallery.php');
 ?>
