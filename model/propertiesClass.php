@@ -87,5 +87,37 @@ class PropertiesClass {
             $error = $ex->getMessage();
         }
     }
+    
+    public static function addFeature($f_id, $p_id){
+        $db = Db_connect::getDB();
+        $q = "SELECT * FROM prop_features WHERE f_id = $f_id AND p_id = $p_id";
+        try{
+            $stm = $db->prepare($q);
+            $stm->execute();
+            $result = $stm->fetch();
+            if($result == null){
+                $q = "INSERT INTO prop_features VALUES($f_id, $p_id)";
+                try{
+                    $stm = $db->prepare($q);
+                    $stm->execute();
+                } catch(PDOException $ex){
+                    $error = $ex->getMessage();
+                }
+            }
+        } catch (PDOException $ex) {
+            $error = $ex->getMessage();
+        }
+    }
+    
+    public static function deleteFeature($f_id, $p_id){
+        $db = Db_connect::getDB();
+        $q = "DELETE FROM prop_features WHERE f_id = $f_id AND p_id = $p_id";
+        try{
+            $stm = $db->prepare($q);
+            $stm->execute();
+        } catch (PDOException $ex) {
+            $error = $ex->getMessage();
+        }
+    }
 }
 

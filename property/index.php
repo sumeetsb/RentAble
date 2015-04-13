@@ -37,6 +37,7 @@ if(isset($_SESSION['role']) && isset($_GET['manage_propid'])){
             $latitude = $property->getLatitude();
             $longitude = $property->getLongitude();
             $type = $property->getType();
+            
            
             include('manage_property.php');
         } else {
