@@ -114,6 +114,14 @@ header li:nth-child(3){
     margin-left: 250px;
 }
 
+#adminLog{
+    font-size: .8em;
+    position: absolute;
+    left: 0;
+    padding-top: 20px;
+    padding-left: 5px;
+}
+
 #headerlog {
     font-size: .8em;
     position: absolute;
