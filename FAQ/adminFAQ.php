@@ -1,5 +1,8 @@
 <?php
 //add session
+require('../model/FAQClass.php');
+require('../model/config.php');
+
 
 $displayAll=getFAQ::showResults();
 $FAQ_id="";
@@ -7,6 +10,7 @@ $FAQ_id="";
 if(isset($_POST['delete'])){
     
     $FAQ_id=$_POST['FAQ_id'];
+    $deleteFAQ=getFAQ::deleteFAQ($FAQ_id);
     
 }
 
@@ -52,7 +56,7 @@ if(isset($_POST['update'])){
                 <input type="submit" name="update" value="Update"/>
             </form></td> 
             
-            <td><form action="<?php $deleteFAQ=getFAQ::deleteFAQ($FAQ_id); ?>" method="post" id="DelFAQ">
+            <td><form action="adminfaq.php" method="post" id="DelFAQ">
             
                 <input type="hidden" name="FAQ_id" value="<?php echo $dis['id']; ?>"/>
                 <input type="submit" name="delete" value="Delete"/>

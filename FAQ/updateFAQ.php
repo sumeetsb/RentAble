@@ -17,6 +17,12 @@ $Answer=$_POST['Answer'];
 $qerror="";
 $aerror="";
 
+if(isset($_POST['cancel']))
+{
+header('location: adminFAQ.php');
+}
+
+
 
 
 ?>
@@ -48,7 +54,8 @@ $aerror="";
             
             </p>
             
-            <p><input type="submit" name="fupdate" value="update"/></p>
+            <p><input type="submit" name="fupdate" value="update"/>
+  <input type="submit" name ="cancel" Value="cancel"/></p>
             
 
     </form>

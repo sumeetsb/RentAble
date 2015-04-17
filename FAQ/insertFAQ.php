@@ -12,6 +12,8 @@ require('../model/config.php');
 $qerror="";
 $aerror="";
 
+
+
 if(isset($_POST['submit'])){
 
 
@@ -39,6 +41,11 @@ $Answer= ($_POST['Answer']);
    header('location: adminFAQ.php');
    }
 
+}
+
+if(isset($_POST['cancel']))
+{
+header('location: adminFAQ.php');
 }
 
 
@@ -71,8 +78,8 @@ $Answer= ($_POST['Answer']);
         
             </p>
             
-            <p><input type="submit" name="submit" value="submit"/></p>
-            
+            <p><input type="submit" name="submit" value="submit"/>
+            <input type="submit" name ="cancel" Value="cancel"/></p>
 
     </form>
             <!-- submit-->
