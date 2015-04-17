@@ -93,6 +93,8 @@ require('../model/faf.php');
     } else {
          header("Location: ../login");
     }
+
+include('../view/footer.php');
     ?>
     
 </body>
