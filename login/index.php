@@ -1,6 +1,12 @@
 <?php
     require_once('../model/config.php');
-    require_once('../model/usersClass.php');
+    
+    function classloader($class){
+        $classStr = '../model/' . strtolower($class) . '.php';
+        require_once $classStr;
+    }
+    
+    spl_autoload_register('classloader');
     
     ///IF user is already logged in, redirect to user dashboard
     ///ELSE show login form
@@ -13,7 +19,6 @@
             ///IF login button hit, grab user from users table and store details in session
             // and redirect to user dashboard
             ///ELSE reload login page with error message
-            
             
             $login = UsersClass::getUser($_POST["user"], $_POST["pass"]);
             if($login != null){
