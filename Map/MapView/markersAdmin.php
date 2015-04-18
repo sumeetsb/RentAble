@@ -71,7 +71,8 @@ foreach ($result as $row)
           
     }   
     echo "</tbody></table>";
-?>
+    echo "<a href='map.php'>Back to Map Search</a>";
+?>       
 </body>
 </html>
 <?php include ('../../view/footer.php'); ?>
