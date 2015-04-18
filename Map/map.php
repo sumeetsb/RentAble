@@ -1,5 +1,6 @@
 <?php 
 require_once ('../Model/config.php');
+require_once 'db_connect.php';
 include ('../view/header.php'); 
 echo "<a href='markersAdmin.php' class='btn btn-info'>Marker's list</a><br />";?>
 <!DOCTYPE html >

@@ -1,6 +1,8 @@
 <?php
 require_once ('../model/config.php');
 require_once('property.php');
+require_once 'db_connect.php';
+
 
 class PropertiesClass {
     

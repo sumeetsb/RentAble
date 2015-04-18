@@ -2,6 +2,8 @@
 require_once ('propertiesClass.php');
 require_once ('../model/config.php');
 require_once ('property.php');
+require_once 'db_connect.php';
+
 
 //foreach($_POST as $key => $val){
 //echo '[ '.$key.' ] => '.$val."<br />";}

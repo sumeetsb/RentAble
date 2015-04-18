@@ -1,6 +1,8 @@
 <?php
 require_once ('../model/config.php');
 require_once('propertiesClass.php');
+require_once 'db_connect.php';
+
 
 //Parse to XML
 function parseToXML($htmlStr) 

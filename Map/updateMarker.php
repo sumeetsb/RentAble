@@ -1,7 +1,7 @@
     <?php  
     require_once ('../model/config.php');
     include ('../view/header.php');
-//    require_once 'db_connect.php';
+    require_once 'db_connect.php';
     require_once 'propertiesClass.php';
     
     $result = PropertiesClass::getMarker($_POST['marker_id']);
