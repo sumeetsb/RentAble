@@ -1,6 +1,6 @@
 <?php 
-require_once ('db_connect.php');
-//include ('../view/header.php'); 
+require_once ('../Model/config.php');
+include ('../view/header.php'); 
 echo "<a href='markersAdmin.php' class='btn btn-info'>Marker's list</a><br />";?>
 <!DOCTYPE html >
   <head>
@@ -8,6 +8,7 @@ echo "<a href='markersAdmin.php' class='btn btn-info'>Marker's list</a><br />";?
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
     <title>RentAble map search</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/map.css">
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
     <script type="text/javascript">
 
@@ -85,7 +86,7 @@ echo "<a href='markersAdmin.php' class='btn btn-info'>Marker's list</a><br />";?
   </head>
 
   <body onload="load()">
-    <div id="map" style="width: 1000px; height: 500px"></div>
+    <div id="map"></div>
   </body>
   <?php include ('../view/footer.php'); ?>
 

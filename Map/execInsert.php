@@ -1,6 +1,6 @@
 <?php
 require_once ('propertiesClass.php');
-require_once ('db_connect.php');
+require_once ('../model/config.php');
 require_once ('property.php');
 
 $l_id = $_POST['landlord_id'];

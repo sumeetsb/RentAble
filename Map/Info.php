@@ -1,4 +1,5 @@
-<?php require_once ('db_connect.php');
+<?php
+require_once ('../model/config.php');
 include ('../view/header.php');?>
 <!DOCTYPE html>
 <html>

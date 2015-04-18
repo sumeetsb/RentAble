@@ -1,31 +1,10 @@
     <?php  
-//    require_once ('../model/config.php');
-//    include ('../view/header.php');
-    require_once 'db_connect.php';
+    require_once ('../model/config.php');
+    include ('../view/header.php');
+//    require_once 'db_connect.php';
     require_once 'propertiesClass.php';
     
     $result = PropertiesClass::getMarker($_POST['marker_id']);
-    
-    function autoloadClass($classname){
-            $c= $classname . ".php";
-            require_once("class/" . $c);
-        }
-        
-        spl_autoload_register("autoloadClass");
-        
-        if(isset($_POST["btn_insert"])){
-            $formArr = $_POST;
-            $formVal = new FormValidate();
-            $formVal->todoVal("name", $_POST["name"], "required");
-            $formVal->todoVal("name", $_POST["name"], "letter");
-            $formVal->todoVal("landlord_id", $_POST["landlord_id"], "required");
-            $formVal->todoVal("landlord_id", $_POST["landlord_id"], "number");
-            $formVal->todoVal("street", $_POST["street"], "required");
-            $formVal->todoVal("city", $_POST["city"], "required"); 
-            $formVal->todoVal("province", $_POST["province"], "required");
-            $formVal->todoVal("postal", $_POST["postal"], "required");
-            $formVal->todoVal("postal", $_POST["postal"], "postal");
-        }
     foreach ($result as $row){     
     ?>
 <html>
@@ -149,9 +128,6 @@
        
     
 <?php }
- if (isset($_POST["btn_isert"])){
-            $formVal->validate();
-        }
 include ('../view/footer.php');?>
 
 
