@@ -4,8 +4,7 @@
     require_once '../MapModel/db_connect.php';
     require_once '../MapModel/propertiesClass.php';
     
-    $id = $_POST['marker_id'];
-    $result = PropertiesClass::getMarker($id);
+    $result = PropertiesClass::getMarker($_POST['marker_id']);
     foreach ($result as $row){     
     ?>
 <html>
