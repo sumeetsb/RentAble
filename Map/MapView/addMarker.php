@@ -1,7 +1,7 @@
 <?php
-require_once ('../model/config.php');
-include ('../view/header.php');
-require_once 'db_connect.php';
+require_once ('../../model/config.php');
+include ('../../view/header.php');
+require_once '../MapModel/db_connect.php';
 
 ;?>
 <html>
@@ -12,31 +12,12 @@ require_once 'db_connect.php';
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     </head>
     <body>
-        <?php
-    function autoloadClass($classname){
-            $c= $classname . ".php";
-            require_once("class/" . $c);
-        }
-        
-        spl_autoload_register("autoloadClass");
-        
-        if(isset($_POST["btn_insert"])){
-            $formArr = $_POST;
-            $formVal = new FormValidate();
-            $formVal->todoVal("name", $_POST["name"], "required");
-            $formVal->todoVal("name", $_POST["name"], "letter");
-            $formVal->todoVal("landlord_id", $_POST["landlord_id"], "required");
-            $formVal->todoVal("landlord_id", $_POST["landlord_id"], "number");
-            $formVal->todoVal("street", $_POST["street"], "required");
-            $formVal->todoVal("city", $_POST["city"], "required"); 
-            $formVal->todoVal("province", $_POST["province"], "required");
-            $formVal->todoVal("postal", $_POST["postal"], "required");
-            $formVal->todoVal("postal", $_POST["postal"], "postal");
-        }
-        ?>
-        <!-- Form Name -->
+
+    <?php
+     echo "<b>".$errorList."</b>" ?>
+              <!-- Form Name -->
 <legend>Insert new property</legend>
-<form class="form-horizontal" action="execInsert.php" method="post">
+<form class="form-horizontal" action="../MapController/execInsert.php" method="post">
     <fieldset style="margin-left: 2%; ">
 <!-- Text input-->
 <div class="control-group">
@@ -138,14 +119,14 @@ require_once 'db_connect.php';
       <button id="btn_insert" name="btn_insert" type="submit" value="Submit" class="btn btn-primary">Submit</button>
   </div>
 </div>
-
 </fieldset>
 </form>
+<br>
+<br>
+<br>
+<br>
  <?php
- if (isset($_POST["btn_isert"])){
-            $formVal->validate();
-        }
-        include ('../view/footer.php');
+include ('../../view/footer.php');
         ?>
  </body>
 </html>

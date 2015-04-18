@@ -1,7 +1,7 @@
 <?php
-require_once ('../model/config.php');
-include ('../view/header.php');
-require_once 'db_connect.php';
+require_once ('../../model/config.php');
+include ('../../view/header.php');
+require_once '../MapModel/db_connect.php';
 ?>
 
 <!DOCTYPE html>
@@ -17,16 +17,16 @@ require_once 'db_connect.php';
     
         
         //Get full info about the property
-        require_once 'db_connect.php';
-        require_once 'propertiesClass.php';
+        require_once '../MapModel/db_connect.php';
+        require_once '../MapModel/propertiesClass.php';
         $result = PropertiesClass::getMarker($_GET['id']);
         ?>
        
         <?php
       foreach ($result as $row){     
         
-        
-      echo '<h2>' . $name = $row->name .'</h2>';
+      
+      echo '<b>Property owner: </b>' . $name = $row->name;
       echo "<br />";
       echo '<b>Street: </b>' . $street = $row->street;
       echo "<br />";
@@ -39,7 +39,8 @@ require_once 'db_connect.php';
       echo '<b>Type:</b>' . $type = $row->type;
       echo "<br />";
         }
-        include ('../view/footer.php');
+        echo "<a href='map.php'>Back to Map Search</a>";
+        include ('../../view/footer.php');
         ?>
     </body>
 </html>

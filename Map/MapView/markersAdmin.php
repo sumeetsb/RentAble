@@ -1,8 +1,8 @@
 <?php
-require_once ('../model/config.php');
-include ('../view/header.php');
-require_once 'db_connect.php';
-require_once 'propertiesClass.php';
+require_once ('../../model/config.php');
+include ('../../view/header.php');
+require_once '../MapModel/db_connect.php';
+require_once '../MapModel/propertiesClass.php';
 
 
 echo "<a href='addMarker.php' class='btn btn-primary'>Insert new property</a><br />";
@@ -74,7 +74,7 @@ foreach ($result as $row)
 ?>
 </body>
 </html>
-<?php include ('../view/footer.php'); ?>
+<?php include ('../../view/footer.php'); ?>
 
 
 

@@ -1,23 +1,25 @@
     <?php  
-    require_once ('../model/config.php');
-    include ('../view/header.php');
-    require_once 'db_connect.php';
-    require_once 'propertiesClass.php';
+    require_once ('../../model/config.php');
+    include ('../../view/header.php');
+    require_once '../MapModel/db_connect.php';
+    require_once '../MapModel/propertiesClass.php';
     
-    $result = PropertiesClass::getMarker($_POST['marker_id']);
+    $id = $_POST['marker_id'];
+    $result = PropertiesClass::getMarker($id);
     foreach ($result as $row){     
     ?>
 <html>
     <head>
-        <title>Add new property</title>
+        <title>Update property</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     </head>
     <body>
-      
+         <?php
+     echo "<b>".$errorList."</b>" ?>
 <legend>Insert new property</legend>
-<form class="form-horizontal" action="execUpdate.php" method="post">
+<form class="form-horizontal" action="../MapController/execUpdate.php" method="post">
     <fieldset style="margin-left: 2%; ">
 
         
@@ -125,9 +127,11 @@
 </form>
  </body>
 </html>
-       
-    
+<br />
+<br />
+<br />
+<br />
 <?php }
-include ('../view/footer.php');?>
+include ('../../view/footer.php');?>
 
 
