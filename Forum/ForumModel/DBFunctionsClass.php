@@ -58,7 +58,7 @@ class DBFunctionsClass
                 
                 $query =
             "INSERT INTO forum_posts
-                 (post_content,post_date, post_topic, post_by)
+                 (post_content, post_date, post_thread, post_by)
              VALUES
                  ('$post_content', '$post_date', '$post_thread', '$post_author')";
         $row_count = $dbcon->exec($query);

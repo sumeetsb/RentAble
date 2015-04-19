@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>Map/MapController/execInsert.php</url>
+            <bookmark id="1">
+                <name/>
+                <line>47</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Applications/XAMPP/htdocs/RentAble/Forum/ForumView/index.php</file>
-            <file>file:/Applications/XAMPP/htdocs/RentAble/Map/MapView/map.php</file>
-            <file>file:/Applications/XAMPP/htdocs/RentAble/Forum/ForumView/Gategory.php</file>
+            <file>file:/Applications/XAMPP/htdocs/RentAble/Forum/ForumView/CreateThread.php</file>
             <file>file:/Applications/XAMPP/htdocs/RentAble/Forum/ForumView/Thread.php</file>
-            <file>file:/Applications/XAMPP/htdocs/RentAble/view/header.php</file>
+            <file>file:/Applications/XAMPP/htdocs/RentAble/Forum/ForumController/AddPost.php</file>
+            <file>file:/Applications/XAMPP/htdocs/RentAble/Forum/ForumView/CreatePost.php</file>
+            <file>file:/Applications/XAMPP/htdocs/RentAble/Forum/ForumModel/DBFunctionsClass.php</file>
         </group>
     </open-files>
 </project-private>

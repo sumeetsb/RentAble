@@ -2,7 +2,6 @@
 require_once ('../../model/config.php');
 require_once ('../../view/header.php');
 require_once '../ForumModel/DBFunctionsClass.php';
-
 $result = DBFunctionsClass::getPosts($_GET['id']);
 echo '<table border="1">
                       <tr>
