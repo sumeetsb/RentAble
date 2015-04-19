@@ -1,8 +1,8 @@
 <?php
 class Db_connect {
-    private static $dns = "mysql:host=localhost;dbname=Forum";
-    private static $user = "root";
-    private static $pass = "";
+     private static $dns = "mysql:host=www.sumeetb.com;dbname=RentAble";
+    private static $user = "rentable";
+    private static $pass = "crazypass!!";
     private static $db;
     
     private function __construct(){}

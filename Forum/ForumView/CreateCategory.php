@@ -1,9 +1,10 @@
 <?php
 //create_cat.php
-include '../ForumModel/DBconnect.php';
-include '../ForumModel/CategoryClass.php';
-include '../ForumModel/DBFunctionsClass.php';
-include ('../../view/header.php'); 
+require_once ('../../model/config.php');
+require_once '../ForumModel/DBconnect.php';
+require_once '../ForumModel/CategoryClass.php';
+require_once '../ForumModel/DBFunctionsClass.php';
+require_once ('../../view/header.php'); 
 
 
 if($_SERVER['REQUEST_METHOD'] != 'POST')
@@ -22,7 +23,8 @@ else
     $cat_name = $_POST["cat_name"];
     $cat_description = $_POST["cat_description"];
     $category = new categoryClass($cat_name, $cat_description);
-    $result = DBFunctionsClass::addCategory($category);     
+    $result = DBFunctionsClass::addCategory($category);
+    header('Location: ../ForumView/index.php');
 }
 ?>
 

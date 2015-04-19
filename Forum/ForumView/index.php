@@ -1,8 +1,9 @@
 <?php
-include '../ForumModel/DBconnect.php';
-include '../ForumModel/CategoryClass.php';
-include '../ForumModel/DBFunctionsClass.php';
-include ('../../view/header.php'); 
+require_once ('../../model/config.php');
+require_once '../ForumModel/DBconnect.php';
+require_once '../ForumModel/CategoryClass.php';
+require_once '../ForumModel/DBFunctionsClass.php';
+require_once ('../../view/header.php'); 
 
   
 $result = DBFunctionsClass::getCategories();
@@ -12,22 +13,22 @@ if($result == null)
 }
 else
 {
-        //prepare the table
+    //prepare the table
     echo '<table border="1">
               <tr>
                 <th>Category</th>
-                <th>Last topic</th>
+                <th>Last Thread</th>
               </tr>'; 
              
     foreach ($result as $row)
         {               
             echo '<tr>';
                 echo '<td class="leftpart">';
-                    echo '<h3><a href="category.php?id">' . $row->cat_name . '</a></h3>' . $row->cat_description;
+                    echo '<h3><a href="category.php?id='.$row->cat_id.'">' . $row->cat_name . '</a></h3>' . $row->cat_description;
                 echo '</td>';
-                echo '<td class="rightpart">';
-                            echo '<a href="topic.php?id=">Topic subject</a> at 10-10';
-                echo '</td>';
+//                echo '<td class="rightpart">';
+//                            echo '<a href="thread.php?id=''">Thread subject</a> at 10-10';
+//                echo '</td>';
             echo '</tr>';
         }
         include ('../../view/footer.php'); 
