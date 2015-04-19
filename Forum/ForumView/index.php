@@ -4,8 +4,17 @@ require_once '../ForumModel/DBconnect.php';
 require_once '../ForumModel/CategoryClass.php';
 require_once '../ForumModel/DBFunctionsClass.php';
 require_once ('../../view/header.php'); 
-
-  
+?>
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../CSS.css">
+        <title></title>
+    </head>
+    <body>
+ <?php
 $result = DBFunctionsClass::getCategories();
 if($result == null)
 {
@@ -13,17 +22,18 @@ if($result == null)
 }
 else
 {
+    echo "<h1 class='main'>RentAble Forum</h1>";
     //prepare the table
-    echo '<table border="1">
+    echo '<table class="table-striped">
               <tr>
-                <th>Category</th>
-                <th>Last Thread</th>
-              </tr>'; 
+                <th><b>Categories: </b></th>
+                <th><b>Last Thread</b></th>
+              </tr><tbody>'; 
              
     foreach ($result as $row)
         {               
             echo '<tr>';
-                echo '<td class="leftpart">';
+                echo '<td class="index_class">';
                     echo '<h3><a href="category.php?id='.$row->cat_id.'">' . $row->cat_name . '</a></h3>' . $row->cat_description;
                 echo '</td>';
 //                echo '<td class="rightpart">';
@@ -31,7 +41,11 @@ else
 //                echo '</td>';
             echo '</tr>';
         }
+        echo '</tbody></table>';
         include ('../../view/footer.php'); 
 
     }
+    ?>
+        </body>
+</html>
 

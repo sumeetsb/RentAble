@@ -4,9 +4,18 @@ require_once '../ForumModel/DBconnect.php';
 require_once '../ForumModel/ThreadClass.php';
 require_once '../ForumModel/PostClass.php';
 require_once '../ForumModel/DBFunctionsClass.php';
-require_once ('../../view/header.php'); 
-
- 
+require_once ('../../view/header.php');
+?>
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../forum.css">
+        <title></title>
+    </head>
+    <body>
+ <?php
 //echo '<h2>Create a topic</h2>';
 //if($_SESSION['signed_in'] == false)
 //{
@@ -20,8 +29,8 @@ require_once ('../../view/header.php');
     if($_SERVER['REQUEST_METHOD'] != 'POST')
     {   
                 echo '<form method="post" action="">
-                    Subject: <input type="text" name="thread_subject" />
-                    Category:'; 
+                    Subject: <input type="text" name="thread_subject" /><br /><br />
+                    Category:   '; 
                 $resultForCategories = DBFunctionsClass::getCategories();
                 echo '<select name="thread_cat">';
                     foreach($resultForCategories as $row)
@@ -31,7 +40,7 @@ require_once ('../../view/header.php');
                 echo '</select>'; 
                      
 //                echo 'Message: <textarea name="post_content" /></textarea>
-                 echo '<input type="submit" value="Create thread" />
+                 echo '<br /><br /><input type="submit" value="Create thread" />
                  </form>';
                 include ('../../view/footer.php'); 
 
@@ -54,6 +63,9 @@ require_once ('../../view/header.php');
 //                $resultForPost = DBFunctionsClass::addPost($post);
                                
     }
+?>
+  </body>
+</html>
 
             
         
