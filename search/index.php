@@ -1,12 +1,12 @@
 <?php
 
  $location="";
-   $gym="";
+  /* $gym="";
    $pets="";
    $elevator="";
    $utilities="";
    $laundry="";
-   $parking="";
+   $parking="";*/
    $output="";
 
 

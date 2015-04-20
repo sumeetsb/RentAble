@@ -13,7 +13,7 @@ $value4="";
 $value5="";
 
 $featid="";
-include("../model/search.php");
+include("../model/features.php");
 
 
 if(isset($_SESSION['role'])){
@@ -22,7 +22,7 @@ if(isset($_SESSION['role'])){
         //get the id from the http 
         $propid=$_GET['propid'];
         //get the features and display with foreach 
-        $displayfeature=search::GetFeaturesByID($propid);
+        $displayfeature=feature::GetFeaturesByID($propid);
    
 if(isset($_POST['insert']))
 {
@@ -74,8 +74,8 @@ if(isset($_POST['insert']))
     
     
     if(empty($error)){
-    search::InsertFeatures($propid, $value1, $value2, $value3, $value4, $value5);
-    
+    feature::InsertFeatures($propid, $value1, $value2, $value3, $value4, $value5);
+    header('Location:../property/?propid='.$propid.''); 
     }
     
 }//end of post insert
@@ -146,7 +146,7 @@ if(isset($_POST['insert']))
 if(isset($_POST['delete'])){
     
     $featid=$_POST['f-id'];
-    search::DeleteFeature($featid);
+    feature::DeleteFeature($featid);
     
 }?>
     

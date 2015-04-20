@@ -1,62 +1,11 @@
 <?php
 
-require_once('../model/db_connect.php');
 
-//class for search
+require_once('db_connect.php');
 
-class search {
-    //search for property
-    
-    public static function SearchProperty ($location, $laundry, $parking, $pets, $gym, $elevator, $utilities)
-    {
-        $where="";
-        //get the connection
-        $dbcon=Db_connect::getDB();
-        
-        if(!empty($laundry))
-        {
-        $where .= "and features LIKE '%" . $laundry . "%'";
-        }
-        
-        if(!empty($parking))
-        {
-            $where .="and features LIKE '%" . $parking . "%'";
-        }
-        
-        if(!empty($pets))
-        {
-            $where .="and features LIKE '%" . $pets . "%'";
-        }
-        
-        if(!empty($gym))
-        {
-            $where .="and features LIKE '%" . $gym . "%'";
-        }
-        
-        if(!empty($elevator))
-        {
-            $where .="and features LIKE '%" . $elevator . "%'";
-        }
-       
-        if(!empty($utilities))
-        {
-            $where .="and features LIKE '%" . $utilities . "%'";
-        }
-       
-        
-        //sql statement
-        //search for the everything on the propert
-            $sql="SELECT * FROM 
-               Properties P
-               LEFT OUTER JOIN prop_features o ON ( P.id = o.p_id )
-               LEFT OUTER JOIN features f ON (o.f_id = f.id)
-                 '$where'";
-        
-        $result = $dbcon->query($sql);
-        return $result; 
-        
-    }
-    
+
+class feature{
+ 
     //INSERT INTO THE FEATURES
       public static function InsertFeatures($propid, $value1 , $value2, $value3, $value4, $value5){
         
@@ -146,7 +95,4 @@ class search {
         
         $result=$dbcon->exec($q);
     }
-    
-  
-    
 }
