@@ -1,7 +1,7 @@
 <?php
+
 class AlertDB {
-	//use category and product class
-	//four static method
+    // function which gets all alerts by Id using renter Id
     public static function getAlertbyId($renter_id) {
         $dbcon = Db_connect::getDB();
         $query = "SELECT * FROM alerts WHERE renter_id='$renter_id'";
@@ -9,6 +9,7 @@ class AlertDB {
         $result->setFetchMode(PDO::FETCH_NUM);
         return $result;
     }
+    // function which gets all alerts from the database
     public static function getAlertsALL() {
         $dbcon = Db_connect::getDB();
         $query = "SELECT * FROM alerts";
@@ -16,6 +17,7 @@ class AlertDB {
         $result->setFetchMode(PDO::FETCH_NUM);
         return $result;
     }
+    // function which gets all property Ids from the database
     public static function getPropIds() {
         $dbcon = Db_connect::getDB();
         $query = "SELECT DISTINCT id FROM properties ORDER BY id";
@@ -23,6 +25,7 @@ class AlertDB {
         $result->setFetchMode(PDO::FETCH_NUM);
         return $result;
     }
+    // function which gets all renter ids from the database
     public static function getRenterIds() {
         $dbcon = Db_connect::getDB();
         $query = "SELECT DISTINCT id FROM users ORDER BY id";
@@ -30,6 +33,7 @@ class AlertDB {
         $result->setFetchMode(PDO::FETCH_NUM);
         return $result;
     }
+    //function which adds alert to the database
     public static function addAlert($newalert) {
         $dbcon = Db_connect::getDB();
         $prop_id = $newalert->getPropId();
@@ -44,6 +48,7 @@ class AlertDB {
         $row_count = $dbcon->exec($query);
         return $row_count;
     }
+    //function which updates alert in the database
     public static function updateAlert($newalert,$alert_id) {
         $dbcon = Db_connect::getDB();
         $prop_id = $newalert->getPropId();
@@ -56,6 +61,7 @@ class AlertDB {
         $row_count = $dbcon->exec($query);
         return $row_count;
     }
+    //function which deletes alert from the database
     public static function deleteAlert($alert_id) {
         $dbcon = Db_connect::getDB();
         $query = "DELETE FROM alerts

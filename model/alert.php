@@ -1,5 +1,5 @@
 <?php
-
+// class file for alerts
 class alert {
     private $prop_id, $renter_id, $rent_due, $day_due;
     public function __construct($prop_id, $renter_id, $rent_due, $day_due) {

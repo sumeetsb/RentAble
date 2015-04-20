@@ -4,7 +4,7 @@ require ('../model/gallery_db.php');
 require ('../model/propimage.php');
 require ('../model/db_connect.php');
 
-
+// condition to get action from the form and validation of file upload
 if (isset($_POST['action'])){
         if ($_POST['action']=='delete_img'){
             $img_id=$_POST['img_id'];
@@ -23,9 +23,9 @@ if (isset($_POST['action'])){
             $errorcomment="select a file";
             }
         }        
-$images = Gallery_db::getAllimages();
-$prop_idlist=Gallery_db::getPropIds();
-
+// get all images from the database and all prodIDs
+        $images = Gallery_db::getAllimages();
+        $prop_idlist=Gallery_db::getPropIds();
 ?>
 <?php
 include('../view/header.php');
@@ -33,6 +33,7 @@ include('../view/header.php');
 ?>
 <link rel="stylesheet" type="text/css" href="../css/gallery.css" />
 
+<!--table which shows the images to be updated -->
 <table id='g_admin'>
     <tr>
         <td>Property Id</td>

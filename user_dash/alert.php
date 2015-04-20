@@ -4,7 +4,8 @@ require ('../model/alert.php');
 $renter_id="7";
 $alerts = AlertDB::getAlertbyId($renter_id);
 ?>
-<?php 
+<?php
+// checking the number of days left and creating a paragraph to show days left
 foreach ($alerts as $alert){
     $days_current_month = cal_days_in_month(CAL_GREGORIAN, date("m"), date("y"));
     $current_day=date("d");
