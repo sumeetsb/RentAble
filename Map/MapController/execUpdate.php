@@ -36,11 +36,11 @@ require_once '../MapModel/db_connect.php';
 //            }
 //}
 //$errorList = validateUserInput($_POST);
-//
-//
+////
+////
 //if ($errorList!="valid") {
-//    $id = $_POST['marker_id'];
-//    include('../MapView/updateMarker.php');
+////    $id = $_POST['marker_id'];
+//    include('../MapView/updateMarker.php?id='.$_POST['id'].'');
 //    
 ////    echo $errorList;
 //}
@@ -66,4 +66,3 @@ $property = new property($l_id, $name, $street, $postal, $city, $province, $lat,
 PropertiesClass::updateMarker($property, $_POST['id']);
 echo "Success <br />";
 header('Location: ../MapView/markersAdmin.php');
-//}

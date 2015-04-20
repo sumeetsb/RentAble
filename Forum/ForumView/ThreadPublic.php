@@ -23,7 +23,7 @@ foreach ($result as $row)
     {
      echo '<tr>';
         echo '<td>';
-        echo $row->post_by."<br />".$row->post_date;
+        echo $row->first_name."<br />".$row->post_date;
                         echo '</td>';
                         echo '<td>';
                             echo $row->post_content;

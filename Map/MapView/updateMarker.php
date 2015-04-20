@@ -3,8 +3,12 @@
     include ('../../view/header.php');
     require_once '../MapModel/db_connect.php';
     require_once '../MapModel/propertiesClass.php';
-    
+  
+  
     $result = PropertiesClass::getMarker($_POST['marker_id']);
+//    
+
+//    
     foreach ($result as $row){     
     ?>
 <html>
@@ -17,7 +21,7 @@
     <body>
          <?php
      echo "<b>".$errorList."</b>" ?>
-<legend>Insert new property</legend>
+<legend>Update property</legend>
 <form class="form-horizontal" action="../MapController/execUpdate.php" method="post">
     <fieldset style="margin-left: 2%; ">
 
@@ -130,7 +134,7 @@
 <br />
 <br />
 <br />
-<?php }
+    <?php }
 include ('../../view/footer.php');?>
 
 

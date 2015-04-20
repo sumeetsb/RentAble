@@ -16,16 +16,6 @@ require_once ('../../view/header.php');
     </head>
     <body>
  <?php
-//echo '<h2>Create a topic</h2>';
-//if($_SESSION['signed_in'] == false)
-//{
-//    //the user is not signed in
-//    echo 'Only registred users can create threads';
-//}
-//else
-//{
-//session_start();
-    //the user is signed in
     if($_SERVER['REQUEST_METHOD'] != 'POST')
     {   
                 echo '<form method="post" action="">
@@ -53,15 +43,7 @@ require_once ('../../view/header.php');
                 $thread_subject = $_POST["thread_subject"];
                 $thread = new ThreadClass($thread_subject, $thread_date, $thread_cat, $thread_author);
                 $resultForThread = DBFunctionsClass::addThread($thread);
-                header('Location: ../ForumView/index.php');         
-    
-//                $post_content = $_POST['post_content'];
-//                $post_date = (new \DateTime())->format('Y-m-d H:i:s');
-//                $post_thread = mysql_insert_id();
-//                $post_author = $_SESSION['id'];
-//                                $post = new postClass($post_thread, $post_author, $post_content, $post_date);
-//                $resultForPost = DBFunctionsClass::addPost($post);
-                               
+                header('Location: ../ForumView/index.php');                   
     }
 ?>
   </body>

@@ -10,7 +10,7 @@ require_once ('../../view/header.php');
     <head>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../CSS.css">
+        <link rel="stylesheet" href="../forum.css">
         <title></title>
     </head>
     <body>
@@ -34,7 +34,7 @@ else
         {               
             echo '<tr>';
                 echo '<td class="index_class">';
-                    echo '<h3><a href="category.php?id='.$row->cat_id.'">' . $row->cat_name . '</a></h3>' . $row->cat_description;
+                    echo '<h3><a href="categorypublic.php?id='.$row->cat_id.'">' . $row->cat_name . '</a></h3>' . $row->cat_description;
                 echo '</td>';
 //                echo '<td class="rightpart">';
 //                            echo '<a href="thread.php?id=''">Thread subject</a> at 10-10';
