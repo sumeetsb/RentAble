@@ -1,7 +1,7 @@
 <?php
 require ('../model/alerts_db.php');
 require ('../model/alert.php');
-$renter_id="7";
+$renter_id=$_SESSION['id'];
 $alerts = AlertDB::getAlertbyId($renter_id);
 ?>
 <?php
@@ -32,7 +32,7 @@ foreach ($alerts as $alert){
     }
         
 }
-if (!isset($_POST['action'])){
+if (!isset($_POST['action'])&& isset($daysleft)){
         echo "<form action='index.php' method='post'>";
         echo "<input type='hidden' name='action' value='set' />";
         echo "<input type='submit' value='Hide' /></form>";            

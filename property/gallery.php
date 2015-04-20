@@ -9,15 +9,20 @@ require ('../model/propimage.php');
     // getting all images from the database based on property id
     $p_id=$propid;
     $gal_images = Gallery_db::getImagesbyId($p_id);
-    $get_fimages = Gallery_db::getImagesbyId($p_id);
-    $allimages=[];
-    foreach ($get_fimages as $gal_image){array_push($allimages, $gal_image[2]);
-    }
-    // setting the large image to selected image or to the first image
-    if (isset($_POST['image_url'])){
-        $bigimage_url=$_POST['image_url'];
+    if (isset($gal_images)){
+        $get_fimages = Gallery_db::getImagesbyId($p_id);
+        $allimages=[];
+        foreach ($get_fimages as $gal_image){array_push($allimages, $gal_image[2]);
         }
-    else {$bigimage_url=$allimages[0];}
+        // setting the large image to selected image or to the first image
+        if (isset($_POST['image_url'])){
+            $bigimage_url=$_POST['image_url'];
+            }
+        else {$bigimage_url=$allimages[0];}
+    }
+    if (!isset($allimages[0])){
+        $bigimage_url="../images/Image_coming_soon.jpg";
+    }
 ?>
     
 <?php foreach ($gal_images as $gal_image): ?>
