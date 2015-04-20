@@ -63,7 +63,7 @@ if(isset($_POST['search']))
 
         
         
-         if(!empty($search))
+         if($search->rowCount()> 0 )
             {
              foreach ($search as $ser)
             
@@ -160,8 +160,9 @@ if(isset($_POST['search']))
         
         
         
-        
+        <div>
         <?php echo $output; ?>
+        </div>
               <?php include('../view/footer.php'); ?>
   
  
