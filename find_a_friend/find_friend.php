@@ -57,15 +57,13 @@ if(isset($_POST['search']))
    }
    
    
-
-   
-        $search=findfriend::searchFriend($gender, $employment, $smoke, $pet);
+   $search=findfriend::searchFriend($gender, $employment, $smoke, $pet);
     
     //if the search comes up empty return erro message, else return finding
 
         
         
-         if($search->rowCount() > 0)
+         if(!empty($search))
             {
              foreach ($search as $ser)
             
@@ -139,7 +137,7 @@ if(isset($_POST['search']))
         </head>
         <body>
             <?php include('../view/header.php'); ?>
-           <form action="index.php" method="post">
+           <form action="find_friend.php" method="post">
              <p>Gender:</p>
             <input type="checkbox" name="gender" value="Female">Female
             <input type="checkbox" name="gender" value="Male">Male
@@ -149,8 +147,8 @@ if(isset($_POST['search']))
             <input type="checkbox" name="employment" value="Full Time">Full Time
 
             <p>Smoke: </p>
-            <input type="checkbox" name="smoke" value="Yes">Yes
-            <input type="checkbox" name="smoke" value="No">No
+            <input type="radio" name="smoke" value="Yes">Yes
+            <input type="radio" name="smoke" value="No">No
             <p>Pet</p>
             <input type="radio" name="pet" value="Yes">Yes
             <input type="radio" name="pet" value="No">No
@@ -159,6 +157,7 @@ if(isset($_POST['search']))
             
         
            </form>
+        
         
         
         

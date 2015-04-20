@@ -39,12 +39,14 @@ class findfriend {
         }
         //qeury the sql statement in the database
         $sql="SELECT * FROM users WHERE
-        role = 'tenant' $where ";
+        role ='tenant' $where";
         
         
         $result = $dbcon->query($sql);
         //return the value
         return $result;
+    
+    
     }
     
     

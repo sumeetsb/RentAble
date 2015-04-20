@@ -94,8 +94,8 @@ require('../model/faf.php');
          header("Location: ../login");
     }
 
-include('../view/footer.php');
-    ?>
+ include('../view/footer.php'); ?>
+    
     
 </body>
 
