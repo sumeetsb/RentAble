@@ -7,7 +7,7 @@ require ('../model/propimage.php');
 
 <?php
     // getting all images from the database based on property id
-    $p_id=$propid;
+    $p_id='$propid';
     $gal_images = Gallery_db::getImagesbyId($p_id);
     if (isset($gal_images)){
         $get_fimages = Gallery_db::getImagesbyId($p_id);
@@ -21,7 +21,7 @@ require ('../model/propimage.php');
         else {$bigimage_url=$allimages[0];}
     }
     if (!isset($allimages[0])){
-        $bigimage_url="../images/Image_coming_soon.jpg";
+        $bigimage_url="../images/Image-Coming-Soon-Placeholder.png";
     }
 ?>
     
