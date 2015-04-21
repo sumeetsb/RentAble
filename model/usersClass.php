@@ -79,4 +79,9 @@ class UsersClass {
         return $pArray;
     }
     
+    public static function getAdmin($user, $pass){
+        $db = Db_connect::getDB();
+        $q = "SELECT * FROM users WHERE username = $user AND password = **";
+    }
+    
 }

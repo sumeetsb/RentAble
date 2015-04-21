@@ -1,1 +1,1 @@
-<ul><li><a href="<?php echo ROOT;?>login?admin">Admin</a></li></ul>
+<ul><li><a href="<?php echo ROOT;?>admin">Admin</a></li></ul>
