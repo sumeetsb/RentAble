@@ -23,8 +23,8 @@ if(isset($_POST['delete'])){
 <h2>Are you sure you want to delete this application?</h2>
 <table>
     <?php
-    $appid = $_GET['appid'];
-    $application = getTenantApplication::getApplication($appid);
+    //$application->getu_id();
+    //$application = getTenantApplication::getApplication($appid);
     $user = getUserInfo::getInfo($application->getuser_id());
             echo '<th>Sublet Application</th>';
             echo '<tr><td>' . $application->getmessage().'</td></tr>'; 
