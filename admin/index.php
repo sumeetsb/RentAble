@@ -9,6 +9,15 @@ function classloader($class){
 
 spl_autoload_register('classloader');
 
+if(isset($_SESSION['admin']) && isset($_GET['logout'])){
+    if($_GET['logout'] == "true"){
+        
+        session_destroy();
+        header("Location: ../index.php");
+    }
+}
+
+
 if(isset($_SESSION['admin'])){
     include('admin.php');
 } else {
@@ -27,9 +36,11 @@ if(isset($_SESSION['admin'])){
                 include ('admin.php');
             } else {
                 $error = "Invalid username or password provided.";
+                include('login.php');
             }
+    } else {
+        include('login.php');
     }
-    include('login.php');
 }
 
 
