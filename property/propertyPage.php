@@ -22,6 +22,3 @@ include('gallery.php');
     }
     ?>
 </table>
-<?php
-include('../view/footer.php');
-?>
