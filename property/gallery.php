@@ -7,7 +7,7 @@ require ('../model/propimage.php');
 
 <?php
     // getting all images from the database based on property id
-    $p_id='$propid';
+    $p_id=$propid;
     $gal_images = Gallery_db::getImagesbyId($p_id);
     if (isset($gal_images)){
         $get_fimages = Gallery_db::getImagesbyId($p_id);
