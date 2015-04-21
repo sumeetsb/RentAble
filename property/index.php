@@ -99,7 +99,7 @@ if(isset($_SESSION['role']) && isset($_GET['manage_propid'])){
 } else if(isset($_SESSION['role']) && isset($_GET['propid'])){
     $properties = $_SESSION['props'];
     $propid = $_GET['propid'];
-    if(in_array($propid, $properties)){
+    //if(in_array($propid, $properties)){
         ///Grab property from database and unpack details
         $property = PropertiesClass::getPropertyById($propid);
         $p_name = $property->getName();
@@ -117,10 +117,7 @@ if(isset($_SESSION['role']) && isset($_GET['manage_propid'])){
        
         
         include('propertyPage.php');
-        
-    } else {
-        header("Location: ../user_dash");
-    }
+    //}
 } else {
     header("Location: ../index.php");
 }

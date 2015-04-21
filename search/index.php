@@ -70,7 +70,7 @@ if(isset($_POST['search']))
             {
              foreach($search as $ser)  
             {
-                
+                $pid = 1; //$ser['id']; need search to grab id of property too
                 $pname=$ser['name'];
                 $street=$ser['street'];
                 $city=$ser['city'];
@@ -81,8 +81,8 @@ if(isset($_POST['search']))
                 
                 
             
-                   $output .='<div><p>' . $pname . 
-                ' </p><p>Address: ' . $street . ', ' . $city . ', ' .$province . ', ' . $postal .  
+                   $output .='<div><p><a href="'. ROOT .'property/?propid='. $pid .'">' . $pname . 
+                ' </a></p><p>Address: ' . $street . ', ' . $city . ', ' .$province . ', ' . $postal .  
                 ' </div>'
                 
                 ; 
