@@ -16,4 +16,4 @@
 <?php
 
     include ('search/index.php');
-   // include ('view/footer.php');
+    include ('view/footer.php');

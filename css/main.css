@@ -52,17 +52,24 @@ table {
 
 /*------------------Desktop CSS---------------------------*/
 
-
+html {
+    height: 100%;
+    min-height: 100%;
+}
 body{
-font-family: 'Roboto Slab', serif;
-
+    font-family: 'Roboto Slab', serif;
+    min-height: 100%;
+    position: relative;
 }
 
 header {
    font-size: 1.3em;
    background-color: #fbf195; 
-   height: 60px;
+   height: 100px;
    text-align: center;
+}
+
+.mainNav{
 }
 
 #logo {
@@ -144,9 +151,12 @@ header li:nth-child(3){
 .error {
     color: red;
 }
-#wrapper {
+.wrapper {
+    height: 100%;
+    min-height: 100%;
     width: 1100px;
-    margin: 50px auto;
+    margin: 0px auto;
+    padding-bottom: 100px;
 }
 
 table {
@@ -171,11 +181,10 @@ input[type="submit"]:hover{
 
 footer {
     background-color: #fbf195;
-    position:fixed;
-   left:0px;
-   bottom:0px;
-   height:100px;
-   width:100%;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    height: 100px;
 }
 
 footer ul {

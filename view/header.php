@@ -20,12 +20,13 @@
             <div id="adminLog">
                 <?php include('adminlog.php'); ?>
             </div>
+            
             <div id="headerlog">
-                <a href="<?php echo ROOT;?>FAQ">FAQ</a>
                 <?php include('loginreg.php'); ?>
             </div>
             <a href="<?php echo ROOT; ?>"><img id="logo" src="<?php echo ROOT;?>images/RentAble_HeaderLogo_197x62px.png" alt="RentAble" height="62" width="197"></a>
             
         </header>
+        
         <div id="wrapper">
             <?php include 'adminMenu.php'; ?>
