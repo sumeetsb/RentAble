@@ -40,5 +40,5 @@ if(isset($_POST['delete'])){
 </table>
 
 
-
+<?php include '../view/footer.php' ?>
 

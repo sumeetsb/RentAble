@@ -64,3 +64,5 @@ $usergeneric = subletDB::getSubletbyID($id);
         <input type="submit" value="Delete" name="Delete"/>
         
     </form>
+ 
+<?php include '../view/footer.php'; ?>

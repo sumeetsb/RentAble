@@ -30,3 +30,6 @@ include '../view/header.php';
         echo '</table>';
         }
     ?>
+
+
+<?php include '../view/footer.php'; ?>
