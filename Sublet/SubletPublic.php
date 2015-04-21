@@ -13,8 +13,6 @@ require_once ('insert.php');
 require_once('../model/subletDB.php');
 require_once('../model/config.php');
             
-        //$_SESSION["u_id"] = 3;
-
         //check if the form was posted
         if(isset($_POST['apply'])){
             

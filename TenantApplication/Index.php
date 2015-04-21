@@ -9,6 +9,8 @@ require_once ('../model/applicationsDB.php');
 //require ('../model/db_connect.php');
 require_once ('../model/propertiesClass.php');
 
+include '../view/header.php';
+
 //----------------------------------------------------
 //----------    The Tenant Application Logic    ------
 //----------------------------------------------------
@@ -43,11 +45,11 @@ require_once ('../model/propertiesClass.php');
    
     
     <!--/////////////  getting the property information   ///////-->
-    <table>
     <?php
         
     $p_id = $_GET['propid'];
     $property = PropertiesClass::getPropertyById($p_id); 
+        echo '<table>';
         echo '<th>Property Information</th>';
         echo '<tr><td>' . $property->getName().'</td></tr>'; 
         echo '<tr><td>' . $property->getStreet().'</td></tr>';
@@ -55,8 +57,9 @@ require_once ('../model/propertiesClass.php');
         echo '<tr><td>' . $property->getCity().'</td></tr>';
         echo '<tr><td>' . $property->getProvince().'</td></tr>';
         echo '<tr><td>' . $property->getType().'</td></tr>';
+                echo '</table>';
+
     ?>
-    </table>
     
     
     <!----------------------------------------------------

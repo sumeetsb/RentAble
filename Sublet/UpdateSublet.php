@@ -5,6 +5,7 @@
  * Craig Veenstra
  */
 require_once '../model/subletDB.php';
+include '../view/header.php';
 
 $id = $_SESSION['id'];
 

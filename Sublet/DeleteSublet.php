@@ -7,6 +7,7 @@
 require '../model/db_connect.php';
 require '../model/subletDB.php';
 
+include '../view/header.php';
 
 if(isset($_POST['delete'])){
     $pid = $_POST['pid'];

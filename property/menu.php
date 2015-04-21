@@ -15,7 +15,7 @@ if($_SESSION['role'] == "landlord"){
 } else if($_SESSION['role'] == "tenant"){
     if(!in_array($propid, $_SESSION['props'])){
     ?>
-        <li>Apply to this Property</li>
+        <li><a href="<?php echo ROOT; ?>TenantApplication/Index.php?propid=<?php echo $propid; ?>">Apply to this Property</a></li>
         
 
 <?php

@@ -8,6 +8,8 @@
 require '../model/db_connect.php';
 require '../model/applicationsDB.php';
 
+include '../view/header.php';
+
 ?>
 
 <h1>Tenant Applications</h1>
@@ -20,10 +22,10 @@ $applicationArray = getTenantApplications::getTenantApps($p_id);
 
 ?>
 
-<table>
     <?php  
         foreach($applicationArray as $app){
             $user = getUserInfo::getInfo($app->getuser_id());
+            echo '<table>';
             echo "<th>Tenant Application</th>";
             echo "<tr><td>Username: </td><td>".$user->getUname()."</td></tr>";
             echo "<tr><td>Name: </td><td>".$user->getFname(). " " . $user->getLname()."</td></tr>";
@@ -36,6 +38,7 @@ $applicationArray = getTenantApplications::getTenantApps($p_id);
             echo "<tr><td>Pets: </td><td>".$user->getPets()."</td></tr>";
             echo "<tr><td>Message: </td><td>".$app->getmessage()."</td></tr>";
             echo "<tr><td><a href=".ROOT."TenantApplication/deleteApplication.php?appid=".$app->getid().">Delete Application</a></td></tr>";
+        echo '</table>';
+            
         }
     ?>
-</table>

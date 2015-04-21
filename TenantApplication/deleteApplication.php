@@ -7,6 +7,8 @@
 require '../model/db_connect.php';
 require '../model/applicationsDB.php';
 
+include '../view/header.php';
+
 
 if(isset($_POST['delete'])){
     $appid = $_POST['appid'];
@@ -21,11 +23,11 @@ if(isset($_POST['delete'])){
 
 <h1>Delete Application</h1>
 <h2>Are you sure you want to delete this application?</h2>
-<table>
     <?php
     $appid = $_GET['appid'];
     $application = getTenantApplication::getApplication($appid);
     $user = getUserInfo::getInfo($application->getuser_id());
+            echo "<table>";
             echo "<tr><td>Username: </td><td>".$user->getUname()."</td></tr>";
             echo "<tr><td>Name: </td><td>".$user->getFname(). " " . $user->getLname()."</td></tr>";
             echo "<tr><td>Email: </td><td>".$user->getEmail()."</td></tr>";
@@ -36,6 +38,7 @@ if(isset($_POST['delete'])){
             echo "<tr><td>Employment Status: </td><td>".$user->getEmp()."</td></tr>";
             echo "<tr><td>Pets: </td><td>".$user->getPets()."</td></tr>";  
             echo "<tr><td><form action='deleteApplication.php' method='POST'><input type='hidden' name='appid' value='$appid' /><input type='submit' value='Delete' name='delete'></form></td></tr>";
-     ?>
-</table>
+            echo "</table>";
+
+            ?>
 
