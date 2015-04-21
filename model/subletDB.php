@@ -33,7 +33,7 @@ class SubletDB {
         $stm = $db->prepare($SQL);
         
         //putting the values into the database
-        $row_count = $stm->execute();
+        $stm->execute();
  
     }
     

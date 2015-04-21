@@ -26,22 +26,15 @@ require_once('../model/config.php');
             
             $applyObject = new Apply($p_id, $u_id, $message, $email);
             
-            $insertApplication = SubletDB::insertApplication($applyObject);        
+            SubletDB::insertApplication($applyObject);        
             
             header("location: ../index.php");
             
         }
             $p_id = $_GET['pid'];
-
+include '../view/header.php';
 ?>
 
-
-<html>
-<head>
-<title>Apply For a Sublet</title>
-</head>
-
-<body>
     <h1>Apply for Sublet</h1>
     <form action="SubletPublic.php?pid=<?php echo $p_id; ?>" method="post">
         <p>Message</p>
@@ -50,9 +43,9 @@ require_once('../model/config.php');
         <input type="text" name="email" />
         <input type="submit" value="Send" name="apply" />
     </form>
-</body>
 
-</html>
+    
+    <?php include '../view/footer.php'; ?>
 
 
 
