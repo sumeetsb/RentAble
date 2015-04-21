@@ -10,17 +10,15 @@ include('menu.php');
 <?php
 include('gallery.php');
 ?>
-<table>
+
     <?php
     foreach($getSublets as $sublet){
-        echo '<tr><th>Available Sublets</th></tr>';
+        echo '<table><tr><th>Available Sublets</th></tr>';
         echo '<tr><td>'.$sublet->getDescription().'<td></tr>';
         echo '<tr><td>'.$sublet->getrentAmount().'<td></tr>';
         echo '<tr><td>'.$sublet->getstartDate().'<td></tr>';
-        echo '<tr><td>'.$sublet->getendDate().'<td></tr>';
+        echo '<tr><td>'.$sublet->getendDate().'<td></tr></table>';
+        echo '<p><a href="'.ROOT.'Sublet/SubletPublic.php?pid='.$propid.'">Apply</a></p>';
     }
     ?>
 </table>
-<?php
-include('../view/footer.php');
-?>

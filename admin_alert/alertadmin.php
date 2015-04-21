@@ -8,6 +8,9 @@ include('../view/header.php');
 
 ?>
 <?php
+$errorcomment = "";
+$errorcomment2 = "";
+// checking for different actions of the post form and validation of the form
 if (isset($_POST['action'])){
         if ($_POST['action']=='delete_alert'){
             $alert_id=$_POST['alert_id'];
@@ -39,16 +42,19 @@ if (isset($_POST['action'])){
             $errorcomment2="Need to enter rent due";
             }
         }        
-$alerts = AlertDB::getAlertsALL();
-$prop_idlist=AlertDB::getPropIds();
-$rent_idlist=AlertDB::getRenterIds();
-for ($x = 1; $x <= 31; $x++) {
-    $dayslist[$x]=$x;
+// getting all alerts, property Ids and renter Ids
+        $alerts = AlertDB::getAlertsALL();
+        $prop_idlist=AlertDB::getPropIds();
+        $rent_idlist=AlertDB::getRenterIds();
+// creating array of days from drop down list        
+        for ($x = 1; $x <= 31; $x++) {
+        $dayslist[$x]=$x;
 } 
 
 ?>
 <link rel="stylesheet" type="text/css" href="../css/alert.css" />
 
+<!-- table which shows alerts and lets them be edited -->
 <table id='a_admin'>
     <tr>
         <td>Property ID</td>
@@ -91,6 +97,7 @@ for ($x = 1; $x <= 31; $x++) {
         </td>
     </tr>
     </form>
+    <!-- for each alert show dropdown list, renters id field, and dropdown list for days-->
     <?php foreach ($alerts as $al): ?>
         <tr>
             <form action='index.php' method='post'>

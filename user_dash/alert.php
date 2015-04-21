@@ -1,10 +1,11 @@
 <?php
 require ('../model/alerts_db.php');
 require ('../model/alert.php');
-$renter_id="7";
+$renter_id=$_SESSION['id'];
 $alerts = AlertDB::getAlertbyId($renter_id);
 ?>
-<?php 
+<?php
+// checking the number of days left and creating a paragraph to show days left
 foreach ($alerts as $alert){
     $days_current_month = cal_days_in_month(CAL_GREGORIAN, date("m"), date("y"));
     $current_day=date("d");
@@ -31,7 +32,7 @@ foreach ($alerts as $alert){
     }
         
 }
-if (!isset($_POST['action'])){
+if (!isset($_POST['action'])&& isset($daysleft)){
         echo "<form action='index.php' method='post'>";
         echo "<input type='hidden' name='action' value='set' />";
         echo "<input type='submit' value='Hide' /></form>";            

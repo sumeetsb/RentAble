@@ -20,10 +20,11 @@ require_once('apply.php');
 
 <table>
     <?php
-    foreach($applications as $application){
+    foreach($applications as $application){   
         echo '<th>Sublet Application</th>';
         echo '<tr><td>' . $application->getmessage().'</td></tr>'; 
         echo '<tr><td>' . $application->getemail().'</td></tr>';
+        echo "<tr><td><a href=".ROOT."Sublet/DeleteSublet.php?uid=".$application->getu_id().">Delete Application</a></td></tr>";
     }
     ?>
 </table>

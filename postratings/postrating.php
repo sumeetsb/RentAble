@@ -8,6 +8,7 @@ include('../view/header.php');
 ?>
 
 <?php 
+// checking for the action of submitted form and validation
 if (isset($_POST['action'])){
     if ($_POST['action']=="showusers"){
         $rated_id=$_POST['selected_user'];
@@ -29,13 +30,14 @@ if (isset($_POST['action'])){
 }
 else {     $rated_id="1";
 }
+//getting all users, session id and ratings by rated id
 $userlist=RatingDB::getUsers();
 $rater_id=$_SESSION['id'];
 $nratings = ['1','2','3','4','5'];
 $ratings = RatingDB::getRatingsbyId($rated_id);
 ?>
 <link rel="stylesheet" type="text/css" href="../css/rating.css" />
-
+<!--heading which shows which user is selected -->
 <h2>See ratings for user <?php 
         $u_name_rater = RatingDB::getUserbyId($rated_id);
         foreach ($u_name_rater as $rater){
@@ -43,6 +45,7 @@ $ratings = RatingDB::getRatingsbyId($rated_id);
         $last_name=$rater[2];
         }
         echo $first_name; echo $last_name;?></h2>
+<!-- drop down list to select the user -->
 <form action="index.php" method="post">
     <select name="selected_user">
         <?php foreach ($userlist as $suser) {
@@ -52,6 +55,7 @@ $ratings = RatingDB::getRatingsbyId($rated_id);
     <input type='submit' name='getuser' value='Show User' />
     <input type='hidden' name='action' value='showusers' />
 </form>
+<!--table which shows selected user rating -->
 <table id="rating_table">
     <tr>
         <td>Rated By</td>

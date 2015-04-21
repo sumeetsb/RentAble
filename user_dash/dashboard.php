@@ -25,4 +25,4 @@ include('props.php');
 
 <?php
 
-include('../view/footer.php');
+//include('../view/footer.php');

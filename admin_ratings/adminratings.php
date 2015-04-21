@@ -7,6 +7,7 @@ include('../view/header.php');
 
 ?>
 <?php
+// checking for different actions of the form and validation
 if (isset($_POST['action'])){
         $rating_id = $_POST['rating_id'];
         if ($_POST['action']=='delete_rating'){
@@ -40,15 +41,14 @@ if (isset($_POST['action'])){
             $errorcomment="Enter your comment";
             }
         }        
-$ratings = RatingDB::getRatingsALL();
-$nratings = ['1','2','3','4','5'];
-$user_idlist=RatingDB::getUserIds();
-$user_idlist2=RatingDB::getUserIds();
-
-
+// getting all ratings, and all user ids from the database
+        $ratings = RatingDB::getRatingsALL();
+        $nratings = ['1','2','3','4','5'];
+        $user_idlist=RatingDB::getUserIds();
+        $user_idlist2=RatingDB::getUserIds();
 ?>
 <link rel="stylesheet" type="text/css" href="../css/rating.css" />
-
+<!--table which shows all ratings and options to edit them -->
 <table id="rating_table">
     <tr>
         <td>Rated By</td>

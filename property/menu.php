@@ -8,7 +8,8 @@
 if($_SESSION['role'] == "landlord"){
     ?>
         <li><a href="<?php echo ROOT; ?>property/?manage_propid=<?php echo $propid;?>">Manage Property</a></li>
-        <li><a href="<?php echo ROOT; ?>TenantApplication/applicationList.php?propid=<?php echo $propid; ?>">View Applications</a></li>
+        <li><a href="<?php echo ROOT; ?>Features/insertfeature.php?propid=<?php echo $propid; ?>">Add Features to the Property</a></li>
+	<li><a href="<?php echo ROOT; ?>TenantApplication/applicationList.php?propid=<?php echo $propid; ?>">View Applications</a></li>
 
 <?php
 } else if($_SESSION['role'] == "tenant"){

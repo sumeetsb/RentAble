@@ -1,17 +1,7 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- * Description of gallery_db
- *
- * @author Charming
- */
 class Gallery_db {
+    //function which gets all images by property id
     public static function getImagesbyId($p_id) {
         $dbcon = Db_connect::getDB();
         $query = "SELECT * FROM prop_images WHERE p_id='$p_id'";
@@ -19,6 +9,7 @@ class Gallery_db {
         $result->setFetchMode(PDO::FETCH_NUM);
         return $result;
     }
+    //function which gets all images
     public static function getAllimages() {
         $dbcon = Db_connect::getDB();
         $query = "SELECT * FROM prop_images";
@@ -26,6 +17,7 @@ class Gallery_db {
         $result->setFetchMode(PDO::FETCH_NUM);
         return $result;
     }
+    //function which gets all property ids
     public static function getPropIds() {
         $dbcon = Db_connect::getDB();
         $query = "SELECT DISTINCT id FROM properties ORDER BY id";
@@ -33,6 +25,7 @@ class Gallery_db {
         $result->setFetchMode(PDO::FETCH_NUM);
         return $result;
     }
+    //function owhich deletes an image
     public static function deleteImage($img_id) {
         $dbcon = Db_connect::getDB();
         $query = "DELETE FROM prop_images
@@ -40,6 +33,7 @@ class Gallery_db {
         $row_count = $dbcon->exec($query);
         return $row_count;
     }
+    //function which adds image do database
     public static function addImage($newimage) {
         $dbcon = Db_connect::getDB();
         $p_id = $newimage->getP_Id();
