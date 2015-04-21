@@ -148,6 +148,21 @@ header li:nth-child(3){
     padding-right: 5px;
 }
 
+#logreg {
+    width: 200px;
+}
+
+#headerlog li {
+    float: left;
+    border-left: 1px dashed grey;
+    border-right: 1px dashed grey;
+    padding: 5px;
+}
+
+#headerlog div {
+    float: left;
+}
+
 .error {
     color: red;
 }
