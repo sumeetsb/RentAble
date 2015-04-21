@@ -8,6 +8,8 @@ include('../view/header.php');
 
 ?>
 <?php
+$errorcomment = "";
+$errorcomment2 = "";
 // checking for different actions of the post form and validation of the form
 if (isset($_POST['action'])){
         if ($_POST['action']=='delete_alert'){

@@ -4,6 +4,7 @@ require ('../model/gallery_db.php');
 require ('../model/propimage.php');
 require ('../model/db_connect.php');
 
+$errorcomment = "";
 // condition to get action from the form and validation of file upload
 if (isset($_POST['action'])){
         if ($_POST['action']=='delete_img'){
