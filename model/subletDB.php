@@ -45,9 +45,9 @@ class SubletDB {
     /////////////////////////////////////////////////////////////////
     
     
-    public static function deleteApplication($id){
+    public static function deleteApplication($uid, $pid){
         $db = Db_connect::getDB();
-        $SQL = "DELETE FROM subletapplications WHERE u_id = $id";
+        $SQL = "DELETE FROM subletapplications WHERE u_id = $uid AND p_id = $pid";
         $db->query($SQL);      
     }
     
@@ -76,9 +76,20 @@ class SubletDB {
             return $applications;
         }
     
+    /////////////////////////////////////////////////////////////////
+                    /// Getting 1 application    ///
+    /////////////////////////////////////////////////////////////////
     
-    
-   
+    public static function getApplication($pid, $uid){
+        $db = Db_connect::getDB();
+        $SQL = "SELECT * FROM subletapplications WHERE p_id = $pid AND u_id = $uid";
+        $getApplication = $db->query($SQL);
+        foreach ($getApplication as $row){
+            $application = new Apply($row['p_id'], $row['u_id'], $row['message'], $row['email']);
+             
+            }
+        return $application;
+    }
     
     
     //////////////////////////////////////////
