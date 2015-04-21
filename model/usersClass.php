@@ -1,6 +1,7 @@
 <?php
 require_once('db_connect.php');
 require_once('user.php');
+require_once('adminUser.php');
 
 class UsersClass {
     
@@ -81,12 +82,16 @@ class UsersClass {
     
     public static function getAdmin($user, $pass){
         $db = Db_connect::getDB();
-        $q = "SELECT * FROM admin WHERE username = $user AND password = $pass";
+        $q = "SELECT * FROM admins WHERE username = '$user' AND password = '$pass'";
         $stm = $db->prepare($q);
+        $stm->setFetchMode(PDO::FETCH_ASSOC);
         $stm->execute();
-        $admin = $stm->fetchAll();
-        if(count($admin) == 1){
-            
+        $result = $stm->fetchAll();
+        if(count($result) == 1){
+            $admin = new adminUser($result[0]['username'], $result[0]['password']);
+            return $admin;
+        } else {
+            return null;
         }
     }
     
