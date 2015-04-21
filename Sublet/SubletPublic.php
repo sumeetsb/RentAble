@@ -20,9 +20,9 @@ require_once('../model/config.php');
             
             $message = $_POST["message"];
             $email = $_POST["email"];
-            $u_id = $_SESSION['user'];
+            $u_id = $_SESSION['id'];
             
-            $p_id = $_GET['propid'];
+            $p_id = $_GET['pid'];
             
             $applyObject = new Apply($p_id, $u_id, $message, $email);
             
