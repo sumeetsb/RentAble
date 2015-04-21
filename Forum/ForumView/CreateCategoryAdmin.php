@@ -1,9 +1,9 @@
 <?php
 //create_cat.php
 require_once ('../../model/config.php');
-require_once '../ForumModel/DBconnect.php';
-require_once '../ForumModel/CategoryClass.php';
-require_once '../ForumModel/DBFunctionsClass.php';
+require_once '../../Model/ForumModel/DBconnect.php';
+require_once '../../Model/ForumModel/CategoryClass.php';
+require_once '../../Model/ForumModel/DBFunctionsClass.php';
 require_once ('../../view/header.php'); 
 ?>
 <!DOCTYPE html>
@@ -11,8 +11,8 @@ require_once ('../../view/header.php');
     <head>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../forum.css">
-        <title></title>
+    <link rel="stylesheet" href="../../css/forum.css">       
+    <title></title>
     </head>
     <body>
  <?php

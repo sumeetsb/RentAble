@@ -1,9 +1,9 @@
 <?php
 require_once ('../../model/config.php');
 require_once ('../../view/header.php'); 
-require_once '../PaymentModel/DBconnect.php';
-require_once '../PaymentModel/InvoiceClass.php';
-require_once '../PaymentModel/DBFunctionsClass.php';
+require_once '../../Model/PaymentModel/DBconnect.php';
+require_once '../../Model/PaymentModel/InvoiceClass.php';
+require_once '../../Model/PaymentModel/DBFunctionsClass.php';
 $paypal_url='https://www.sandbox.paypal.com/cgi-bin/webscr'; // Test Paypal API URL
 $paypal_id='ivinog-facilitator@mail.ru'; // Business email ID
 $amount = 100;

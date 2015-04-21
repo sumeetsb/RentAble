@@ -1,6 +1,6 @@
 <?php 
 require_once ('../../Model/config.php');
-require_once '../MapModel/db_connect.php';
+require_once '../../Model/MapModel/db_connect.php';
 include ('../../view/header.php'); 
 echo "<a href='markersAdmin.php' class='btn btn-info'>Marker's list</a><br />";?>
 <!DOCTYPE html >
@@ -9,7 +9,7 @@ echo "<a href='markersAdmin.php' class='btn btn-info'>Marker's list</a><br />";?
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
     <title>RentAble map search</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/map.css">
+    <link rel="stylesheet" href="../../css/mapcss/css/map.css">
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
     <script type="text/javascript">
 
@@ -22,7 +22,7 @@ echo "<a href='markersAdmin.php' class='btn btn-info'>Marker's list</a><br />";?
 
     function load() {
       var map = new google.maps.Map(document.getElementById("map"), {
-        center: new google.maps.LatLng(43.641579, -79.415901),
+        center: new google.maps.LatLng(43.652082, -79.375311),
         zoom: 10,
         mapTypeId: 'roadmap'
       });

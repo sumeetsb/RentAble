@@ -1,8 +1,8 @@
 <?php
 require_once ('../../model/config.php');
-require_once '../ForumModel/DBconnect.php';
-require_once '../ForumModel/ThreadClass.php';
-require_once '../ForumModel/DBFunctionsClass.php';
+require_once '../../Model/ForumModel/DBconnect.php';
+require_once '../../Model/ForumModel/ThreadClass.php';
+require_once '../../Model/ForumModel/DBFunctionsClass.php';
 
 $thread_subject = $_POST['thread_subject'];
 $thread_date = $_POST['thread_date'];

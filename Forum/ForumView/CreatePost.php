@@ -7,7 +7,7 @@
 <?php
 require_once ('../../model/config.php');
 require_once ('../../view/header.php');
-require_once '../ForumModel/DBFunctionsClass.php';
+require_once '../../Model/ForumModel/DBFunctionsClass.php';
 if($_SERVER['REQUEST_METHOD'] != 'POST')
 {
     echo 'This file cannot be called directly.';

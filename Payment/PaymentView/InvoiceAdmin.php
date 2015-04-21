@@ -1,9 +1,9 @@
 <?php
 require_once ('../../model/config.php');
 require_once ('../../view/header.php'); 
-require_once '../PaymentModel/DBconnect.php';
-require_once '../PaymentModel/InvoiceClass.php';
-require_once '../PaymentModel/DBFunctionsClass.php';
+require_once '../../Model/PaymentModel/DBconnect.php';
+require_once '../../Model/PaymentModel/InvoiceClass.php';
+require_once '../../Model/PaymentModel/DBFunctionsClass.php';
 echo "<a href='createInvoice.php' class='btn btn-primary'>Insert new Invoice</a><br />";
 
 if (isset($_POST['action'])){

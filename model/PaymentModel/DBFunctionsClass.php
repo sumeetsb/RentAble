@@ -1,5 +1,4 @@
 <?php
-
 class DBFunctionsClass 
 {
            public static function getAllInvoices()

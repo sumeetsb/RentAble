@@ -1,8 +1,8 @@
 <?php
 require_once ('../../model/config.php');
-require_once '../PaymentModel/DBconnect.php';
-require_once '../PaymentModel/InvoiceClass.php';
-require_once '../PaymentModel/DBFunctionsClass.php';
+require_once '../../Model/PaymentModel/DBconnect.php';
+require_once '../../Model/PaymentModel/InvoiceClass.php';
+require_once '../../Model/PaymentModel/DBFunctionsClass.php';
 require_once ('../../view/header.php'); 
 $result = DBFunctionsClass::getInvoiceById($_POST['invoice_id']);
     foreach ($result as $row){           

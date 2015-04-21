@@ -1,8 +1,8 @@
 <?php
 require_once ('../../model/config.php');
-require_once '../ForumModel/DBconnect.php';
-require_once '../ForumModel/PostClass.php';
-require_once '../ForumModel/DBFunctionsClass.php';
+require_once '../../Model/ForumModel/DBconnect.php';
+require_once '../../Model/ForumModel/PostClass.php';
+require_once '../../Model/ForumModel/DBFunctionsClass.php';
 
 $post_thread = $_POST['post_thread'];
 $post_author = $_POST['post_by'];

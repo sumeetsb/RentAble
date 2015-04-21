@@ -1,7 +1,7 @@
 <?php
 require_once ('../../model/config.php');
-require_once '../ForumModel/PostClass.php';
-require_once '../ForumModel/DBFunctionsClass.php';
+require_once '../../Model/ForumModel/PostClass.php';
+require_once '../../Model/ForumModel/DBFunctionsClass.php';
 $post_thread = $_GET['id'];
 $post_author = $_SESSION['id'];
 $post_content = $_POST['PostContent'];
