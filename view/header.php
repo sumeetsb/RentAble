@@ -28,3 +28,4 @@
             
         </header>
         <div id="wrapper">
+            <?php include 'adminMenu.php'; ?>

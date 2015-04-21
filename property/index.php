@@ -24,7 +24,7 @@ $errors = array();
 $provinces = array('British Columbia', 'Alberta', 'Saskatchewan', 'Manitoba', 'Ontario', 'Quebec', 'New Brunswick', 'Prince Edward Isand', 'Nova Scotia', 'Newfoundland and Labrador');
 
 if(isset($_SESSION['role']) && isset($_GET['manage_propid'])){
-    if($_SESSION['role'] == "landlord"){
+    if($_SESSION['role'] == "landlord" || $_SESSION['role'] == "admin"){
         $properties = $_SESSION['props'];
         $propid = $_GET['manage_propid'];
         if(in_array($propid, $properties)){
@@ -48,7 +48,7 @@ if(isset($_SESSION['role']) && isset($_GET['manage_propid'])){
         header("Location: ../index.php");
     }
 } else if (isset($_SESSION['role']) && isset($_GET['update_propid'])) {
-    if($_SESSION['role'] == "landlord"){
+    if($_SESSION['role'] == "landlord" || $_SESSION['role'] == "admin"){
         if(isset($_POST['update'])){
             $propid = $_GET['update_propid'];
             $landlord_id = $_SESSION['id'];

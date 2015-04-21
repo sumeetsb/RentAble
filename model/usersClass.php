@@ -81,7 +81,13 @@ class UsersClass {
     
     public static function getAdmin($user, $pass){
         $db = Db_connect::getDB();
-        $q = "SELECT * FROM users WHERE username = $user AND password = **";
+        $q = "SELECT * FROM admin WHERE username = $user AND password = $pass";
+        $stm = $db->prepare($q);
+        $stm->execute();
+        $admin = $stm->fetchAll();
+        if(count($admin) == 1){
+            
+        }
     }
     
 }
