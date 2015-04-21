@@ -45,9 +45,9 @@ class SubletDB {
     /////////////////////////////////////////////////////////////////
     
     
-    public static function deleteApplication($message){
+    public static function deleteApplication($id){
         $db = Db_connect::getDB();
-        $SQL = "DELETE FROM subletapplications WHERE message = $message";
+        $SQL = "DELETE FROM subletapplications WHERE u_id = $id";
         $db->query($SQL);      
     }
     
