@@ -41,7 +41,7 @@ include ('../../view/header.php');
           var point = new google.maps.LatLng(
               parseFloat(markers[i].getAttribute("lat")),
               parseFloat(markers[i].getAttribute("lng")));
-          var html = "<b>" + name + "</b> <br/>" + address+"<br /><a href="+url+"?id="+id+">View Listing</a><br /><b></b>";
+          var html = "<b>" + name + "</b> <br/>" + address+"<br /><a href='../../"+url+"?propid="+id+"'>View Listing</a><br /><b></b>";
           
           var icon = customIcons[type] || {};
           var marker = new google.maps.Marker({
