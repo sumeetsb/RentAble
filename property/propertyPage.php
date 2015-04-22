@@ -1,7 +1,8 @@
 <?php
 include('../view/header.php');
-
-include('menu.php');
+if(isset($_SESSION['role'])){
+    include('menu.php');
+}
 ?>
 
 <h1>Property: <?php echo $p_name; ?></h1>
