@@ -1,12 +1,6 @@
 <?php
 include("model/search.php");
  $location="";
-  /* $gym="";
-   $pets="";
-   $elevator="";
-   $utilities="";
-   $laundry="";
-   $parking="";*/
    $output="";
    $closest="";
 
@@ -14,13 +8,20 @@ include("model/search.php");
 
 
 ?>
-
+<head>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+       <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+       <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+       <script src="js/search.js"></script>
+       
+</head>
 <article>
+        <div class="ui-widget">
         <form action="index.php" method="POST">
             <div id="textbox" >
-               <p> <input class="searchbar" type="text" name="location" placeholder=" Location eg: Toronto" >
+               <p> <input class="searchbar" id="searchinfo" type="text" name="location" placeholder=" Location eg: Toronto" >
                <input type="submit" name="search" value="Search" /></p>
-           
+            </div>
             </div>
             
         </form>
