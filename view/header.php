@@ -32,7 +32,7 @@
                 <?php include('loginreg.php'); ?>
                 
             </div>
-            <a href="<?php echo ROOT; ?>"><img id="logo" src="<?php echo ROOT;?>images/RentAble_HeaderLogo.png" alt="RentAble" height="93" width="165"></a>
+            <a href="<?php echo ROOT; ?>"><img id="logo" src="<?php echo ROOT;?>images/RentAble.svg" alt="RentAble" height="93" width="165"></a>
             
         </header>
         <div id="mainNav">
