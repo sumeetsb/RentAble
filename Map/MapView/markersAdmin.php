@@ -61,14 +61,14 @@ foreach ($result as $row)
       if($_SESSION['role'] == 'landlord' && in_array($row->id, $_SESSION['props'])){
 
       //Update
-      echo "<td><form action='updateMarker.php' method='post' id='update_marker'>";
+      echo "<td><form action='".ROOT."property?manage_propid=".$row->id."' method='post' id='update_marker'>";
       echo "<input type='hidden' name='marker_id' value='".$row->id."' />";
-      echo "<button id='edit' name='edit' class='btn btn-info'>Edit</button></form></td>";
+      echo "<button name='edit' class='btn btn-info'>Edit</button></form></td>";
       //Delete
-      echo "<td><form action='markersAdmin.php' method='post' id='delete_marker'>";
+      echo "<td><form action='".ROOT."property?update_propid=".$row->id."' method='post' id='delete_marker'>";
       echo "<input type='hidden' name='action' value='delete_marker' />";
       echo "<input type='hidden' name='marker_id' value='".$row->id."' />";
-      echo "<button id='edit' name='edit' class='btn btn-danger'>Delete</button></form></td></tr>";
+      echo "<button name='delete' class='btn btn-danger'>Delete</button></form></td></tr>";
     
       }
     }   
