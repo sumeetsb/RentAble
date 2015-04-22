@@ -1,5 +1,5 @@
 <?php
-
+include("model/search.php");
  $location="";
   /* $gym="";
    $pets="";
@@ -8,65 +8,45 @@
    $laundry="";
    $parking="";*/
    $output="";
+   $closest="";
 
 
+
+
+?>
+
+<article>
+        <form action="index.php" method="POST">
+            <div id="textbox" >
+               <p> <input class="searchbar" type="text" name="location" placeholder=" Location eg: Toronto" >
+               <input type="submit" name="search" value="Search" /></p>
+           
+            </div>
+            
+        </form>
+</article>
+<article>
+<?php
 if(isset($_POST['search']))
 {
 
 
-   if(isset($_POST['location']))
-   {
-     $location=($_POST['location']);
    
-   }
-        
-  /*if(isset($_POST['Gym']))
-   {
-      $gym=($_POST['Gym']);
-   
-   }
-   
-   if(isset($_POST['Pets']))
-   {
-     $pets=($_POST['Pets']);
-   }
-   
-    if(isset($_POST['Elevator']))
-   {
-     $elevator=($_POST['Elevator']);
-   
-   }
-   
-    if(isset($_POST['Utilities']))
-   {
-    $utilities=($_POST['Utilities']);
-   }
-  
-   if(isset($_POST['Parking']))
-   {
-       
-   $parking=($_POST['Parking']);
-   
-   }
-   
-    if(isset($_POST['Laundry']))
-   {
-       
-   $parking=($_POST['Laundry']);
-   
-   }*/
-   
+if(empty ($_POST['location'])){
+     $qerror= "This is Blank<br/>";
+}
+        else{
+         $location=($_POST['location']);
+ $checkLocation=search::check($location,$closest);
+  $output="No Properties Found";
+        }
 
-   
-     include("model/search.php");
-   
-        $search=search::SearchProperty ($location, $laundry, $parking, $pets, $gym, $elevator, $utilities);
-    
+    $search=search::SearchProperty ($location);
     //if the search comes up empty return erro message, else return finding
 
+     
         
-        
-         if($search->rowCount() > 0 )
+         if($search)
             {
              foreach($search as $ser)  
             {
@@ -76,8 +56,7 @@ if(isset($_POST['search']))
                 $city=$ser['city'];
                 $province=$ser['province'];
                 $postal=$ser['postal_code'];
-                $features=$ser["features"];
-                
+            
                 
                 
             
@@ -88,7 +67,7 @@ if(isset($_POST['search']))
                 ; 
                 
                }
-                     
+            
          }
                 
              
@@ -109,27 +88,8 @@ if(isset($_POST['search']))
     
 }//end of isset for search
 
-
-
 ?>
-
-<article>
-        <form action="index.php" method="POST">
-            <div id="textbox" >
-               <p> <input class="searchbar" type="text" name="location" placeholder=" Location eg: Toronto" >
-               <input type="submit" name="search" value="Search" /></p>
-               
-            <!--    <input type="radio" name="Elevator" value="Elevator" />Elevator
-                <input type="radio" name="Gym" value="Gym" />Gym
-                 <input type="radio" name="Laundry" value="Laundry" />Laundry 
-                  <input type="radio" name="Pets" value="Pets" />Pets
-                   <input type="radio" name="Parking" value="Parking" />Parking
-                    <input type="radio" name="Utilities" value="Utilities" />Utilities-->
-            </div>
-            
-        </form>
 </article>
-
 
 <article>
         <?php echo $output ; ?>
