@@ -7,6 +7,10 @@ if(isset($_SESSION['role'])){
 
 <h1>Property: <?php echo $p_name; ?></h1>
 <p>Address: <?php echo $p_street . ", " . $p_city . ", " . $p_province; ?></p>
+<?php
+
+include('featurelist.php');
+?>
 
 <?php
 include('gallery.php');
