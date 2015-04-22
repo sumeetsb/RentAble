@@ -58,6 +58,8 @@ foreach ($result as $row)
       echo "</td>";
       echo '<td>' . $type = $row->type;
       echo "</td>";
+      if($_SESSION['role'] == 'landlord' && in_array($row->id, $_SESSION['props'])){
+
       //Update
       echo "<td><form action='updateMarker.php' method='post' id='update_marker'>";
       echo "<input type='hidden' name='marker_id' value='".$row->id."' />";
@@ -68,7 +70,7 @@ foreach ($result as $row)
       echo "<input type='hidden' name='marker_id' value='".$row->id."' />";
       echo "<button id='edit' name='edit' class='btn btn-danger'>Delete</button></form></td></tr>";
     
-          
+      }
     }   
     echo "</tbody></table>";
     echo "<a href='map.php'>Back to Map Search</a>";
