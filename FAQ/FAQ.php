@@ -45,7 +45,7 @@ $displayAll=getFAQ::showResults();
 
 		$OUTAnswer= $ser['answer'];
                 
-                $output .='<div> Question:' . $OUTQuestion . '<br/>Answer: ' . $OUTAnswer . '</div>' ; 
+                $output .=' <h3> Question:' . $OUTQuestion . '</h3><div><p>Answer: ' . $OUTAnswer . '</p></div>' ; 
             }
          }
            
@@ -62,10 +62,24 @@ $displayAll=getFAQ::showResults();
 <html>
     <head>
         <title>FAQ</title>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+       <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+       <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+  <script>
+    //REFERENCE https://jqueryui.com/accordion/
+  $(function() {
+   $("#accordion").accordion({
+            collapsible: true,
+            heightStyle: "content",
+            active: false
+        });
+  });
+  </script>
     </head>
     <body>
 <?php include("../view/header.php");     ?>  
-      <form action="index.php" method="post">
+      <form action="FAQ.php" method="post">
     
         <label for ="question">Got A Question?</label>
         <input type="text" name="input" placeholder="Question?"/>
@@ -75,9 +89,10 @@ $displayAll=getFAQ::showResults();
       </form>
       
     
-      
-      <p> <?php echo $output; ?></p>
-      
+      <div id="accordion">
+	<?php echo $output; ?>
+      </div>
+
       
     <!--  <table>  
     <?php// foreach ($displayAll as $dis ):  ?>

@@ -1,8 +1,14 @@
 <?php
 //add session
-require('../model/FAQClass.php');
+
 require('../model/config.php');
 
+
+include("../view/header.php");  
+ if(isset($_SESSION['admin'])){
+        
+        
+require('../model/FAQClass.php');
 
 $displayAll=getFAQ::showResults();
 $FAQ_id="";
@@ -26,12 +32,13 @@ if(isset($_POST['update'])){
 <html>
     <head>
         <title>Admin- FAQ</title>
+        
     </head>
     
     
    
     <body>
-    <?php include("../view/header.php"); ?>     
+  
       <a href="insertFAQ.php">Insert New Question and Answer</a>
       <table>  
         <?php foreach ($displayAll as $dis ):  ?>
@@ -66,6 +73,9 @@ if(isset($_POST['update'])){
       </table>  
         
         
-         <?php include("../view/footer.php"); ?>
+         <?php
+ }
+ 
+ include("../view/footer.php"); ?>
     </body>
 </html>

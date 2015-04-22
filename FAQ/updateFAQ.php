@@ -5,7 +5,7 @@
 require("../model/config.php");
  require('../model/FAQClass.php');
  
- if(isset($_SESSION['user'])){
+ if(isset($_SESSION['admin'])){
         
         
         
