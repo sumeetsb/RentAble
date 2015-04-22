@@ -36,5 +36,5 @@
             
         </header>
         
-        <div id="wrapper">
+        <div class="wrapper">
             <?php include 'adminMenu.php'; ?>

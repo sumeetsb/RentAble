@@ -168,7 +168,6 @@ header li:nth-child(3){
     color: red;
 }
 .wrapper {
-    height: 100%;
     min-height: 100%;
     width: 1100px;
     margin: 0px auto;
