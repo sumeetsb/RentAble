@@ -5,11 +5,10 @@ require ('../model/features.php');
         $displayfeature=feature::GetFeaturesByID($propid);
         
 ?>
- <?php echo "<p>Features: </ps>"; ?>
    
         <?php foreach ($displayfeature as $dis ):  ?>
       
-       
+        <?php echo "<p>Features: </ps>"; ?>
         <p><?php echo $dis['features']; ?></p>
         
         
