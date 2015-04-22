@@ -23,3 +23,11 @@ input:focus {
         width: 98%;
     }
 }
+
+#stylebox{
+    width:100%;
+    height: 100%;
+    padding: 5px;
+    margin: 15px;
+    border:2px #fcda6b  solid;
+}
