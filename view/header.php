@@ -33,18 +33,18 @@
                 
             </div>
             <a href="<?php echo ROOT; ?>"><img id="logo" src="<?php echo ROOT;?>images/RentAble.svg" alt="RentAble" height="93" width="165"></a>
-            
-        </header>
-        <div id="mainNav">
+            <div id="mainNav">
                     <nav>
                         <ul>
-                            <li><a href="<?php echo ROOT; ?>Forum/ForumView">Forums</a></li>
-                            <li><a href="<?php echo ROOT; ?>Map/MapView/map.php">Rentals Map</a></li>
+                            <li><a href="<?php echo ROOT;?>Forum/ForumView">Forums</a></li>
+                            <li><a href="<?php echo ROOT;?>Map/MapView/map.php">Rentals Map</a></li>
                             <li><a href="<?php echo ROOT;?>LandlordDirectory">Landlord Directory</a></li>
                             <li><a href="<?php echo ROOT;?>FAQ">FAQ</a></li>
                         </ul>
                     </nav>
                 </div>
+        </header>
+       
         <?php include 'adminMenu.php'; ?>
         
         <div class="wrapper">

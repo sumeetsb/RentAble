@@ -63,36 +63,44 @@ body{
 }
 
 header {
-   font-size: 1.3em;
+   font-size: 1em;
    background-color: #fbf195; 
    height: 68px;
    //text-align: center;
-   margin: 0px 0px 0px 0px;
+   margin: 0px 0px 60px 0px;
 }
 
 #mainNav{
-    text-align: center;
-    margin: 0 auto;
+    //text-align: center;
+   // margin: 0 auto;
     padding: 10px 0;
-    background: #fcda6b;
-    border-bottom: 5px #A4E9EF solid;
+    border: 1px solid black;
 }
 
 #mainNav li{
-    font-size: 1.1em;
     display: inline-block;
     padding: 0 10px;
-    border-right: 1px solid grey;
+   // border-right: 1px solid grey;
 }
 
 #logo {
-    position: absolute;
-    margin: 10px 0px 0px 30px;
+   position: relative;
+   float: left;
+    margin: 10px 0px 0px 65px;
+    border: 1px solid black;
 }
 
-header li, footer li {
+header li {
     display: inline;
-    margin: 0 20px;
+    margin: 0px 10px;
+}
+
+header li:nth-child(1){
+    margin: 0px 0px 0px 30px;
+}
+
+header ul{
+    margin: 17px 0px 0px 30px;
 }
 
 h1 {
@@ -130,9 +138,6 @@ a:hover {
 ul {
 }
 
-header li:nth-child(3){
-    margin-left: 250px;
-}
 .adminNav li {
     display: inline-block;
     padding: 0 5px;
@@ -149,15 +154,15 @@ header li:nth-child(3){
 
 
 #adminLog{
-    font-size: .8em;
-    position: absolute;
-    left: 0;
-    padding-top: 20px;
-    padding-left: 5px;
+    font-size: 1em;
+    position: fixed;
+    float:right;
+    margin: 0px 20px 10px 0px;
+    bottom: 0;
 }
 
 #headerlog {
-    font-size: .8em;
+    font-size: 1em;
     position: absolute;
     right: 0;
     padding-top: 20px;
