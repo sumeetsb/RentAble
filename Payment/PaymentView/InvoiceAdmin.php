@@ -6,6 +6,7 @@ require_once '../../Model/PaymentModel/InvoiceClass.php';
 require_once '../../Model/PaymentModel/DBFunctionsClass.php';
 echo "<a href='createInvoice.php' class='btn btn-primary'>Insert new Invoice</a><br />";
 
+  if(isset($_SESSION['admin'])){
 if (isset($_POST['action'])){
         $invoice_id = $_POST['invoice_id'];
         DBFunctionsClass::deleteInvoice($invoice_id);
@@ -49,16 +50,17 @@ foreach ($result as $row)
       //Update
       echo "<td><form action='updateInvoice.php' method='post' id='update_invoice'>";
       echo "<input type='hidden' name='invoice_id' value='".$row->id."' />";
-      echo "<button id='edit' name='edit' class='btn btn-info'>Edit</button></form></td>";
+      echo "<button  name='edit' class='btn btn-info'>Edit</button></form></td>";
       //Delete
       echo "<td><form action='invoiceadmin.php' method='post' id='delete_invoice'>";
       echo "<input type='hidden' name='action' value='delete_invoice' />";
       echo "<input type='hidden' name='invoice_id' value='".$row->id."' />";
-      echo "<button id='edit' name='edit' class='btn btn-danger'>Delete</button></form></td></tr>";
+      echo "<button  name='edit' class='btn btn-danger'>Delete</button></form></td></tr>";
     
           
     }   
     echo "</tbody></table>";
+     }else {echo "You do not have permission";}
 ?>       
 </body>
 </html>

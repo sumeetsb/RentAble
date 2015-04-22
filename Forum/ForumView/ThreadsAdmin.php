@@ -13,6 +13,7 @@ require_once '../../Model/ForumModel/DBFunctionsClass.php';
     </head>
     <body>
  <?php
+  if(isset($_SESSION['admin'])){
  //Execute Delete
  if (isset($_POST['action'])){
         $post_id = $_POST['post_id'];
@@ -54,7 +55,7 @@ foreach ($result as $row)
     echo '<input type="submit" class="btn btn-primary btn-lg" value="Add Message" />';
     echo '</form>';
    
-    
+     }else {echo "You do not have permission";}
 
 include ('../../view/footer.php'); 
 

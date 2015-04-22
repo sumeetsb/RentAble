@@ -4,7 +4,14 @@ require_once '../../Model/PaymentModel/DBconnect.php';
 require_once '../../Model/PaymentModel/InvoiceClass.php';
 require_once '../../Model/PaymentModel/DBFunctionsClass.php';
 require_once ('../../view/header.php'); 
-$result = DBFunctionsClass::getInvoiceById($_POST['invoice_id']);
+$cssArray[] = "register.css";
+
+if(isset($_POST['invoice_id'])){
+    $result = DBFunctionsClass::getInvoiceById($_POST['invoice_id']);
+} else {
+    $result = DBFunctionsClass::getInvoiceById($id);
+}
+
     foreach ($result as $row){           
 ?>
 <!DOCTYPE html>
@@ -17,7 +24,7 @@ $result = DBFunctionsClass::getInvoiceById($_POST['invoice_id']);
     </head>
     <body>
         <legend>Update Invoice</legend>
-        <form class="form-horizontal" action="../PaymentController/execUpdateInvoice.php?id=<?php $row->id ?>" method="post">
+        <form class="form-horizontal" action="../PaymentController/execUpdateInvoice.php?id=<?php echo $row->id ?>" method="post">
     <fieldset style="margin-left: 2%; ">
 
        <label class="control-label" for="p_id">Property ID</label>
@@ -65,11 +72,18 @@ echo '</select>';
   <label class="control-label" for="btn"></label>
   <div class="controls">
     <input type="hidden" name='id' value="<?php echo $id = $row->id;?>"/>
-    <button id="btn" name="btn" class="btn btn-primary">Submit</button>
+    <button id="btn" name="update" class="btn btn-primary">Submit</button>
   </div>
 </div>
  <?php  
     }
+    if(isset($errors))
+        {
+        foreach ($errors as $er)
+            {
+            echo '<p class="error">'.$er.'</p>';
+            }
+        }
 include ('../../view/footer.php'); 
 ?>
   </body>

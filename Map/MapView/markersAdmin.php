@@ -5,7 +5,7 @@ require_once '../../Model/MapModel/db_connectt.php';
 require_once '../../Model/MapModel/propertiesClass.php';
 
 
-echo "<a href='addMarker.php' class='btn btn-primary'>Insert new property</a><br />";
+
 
 if (isset($_POST['action'])){
         $marker_id = $_POST['marker_id'];
@@ -58,7 +58,7 @@ foreach ($result as $row)
       echo "</td>";
       echo '<td>' . $type = $row->type;
       echo "</td>";
-      if($_SESSION['role'] == 'landlord' && in_array($row->id, $_SESSION['props'])){
+      if(($_SESSION['role'] == 'landlord' && in_array($row->id, $_SESSION['props'])) || isset($_SESSION['admin'])){
 
       //Update
       echo "<td><form action='".ROOT."property?manage_propid=".$row->id."' method='post' id='update_marker'>";
@@ -73,6 +73,7 @@ foreach ($result as $row)
       }
     }   
     echo "</tbody></table>";
+    echo "<a href='addMarker.php' class='btn btn-primary'>Insert new property</a><br /><br />";
     echo "<a href='map.php'>Back to Map Search</a>";
 ?>       
 </body>

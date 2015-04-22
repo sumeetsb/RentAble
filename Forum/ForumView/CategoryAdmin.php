@@ -13,7 +13,9 @@ require_once '../../Model/ForumModel/DBFunctionsClass.php';
     </head>
     <body>
  <?php
-  if (isset($_POST['action'])){
+ if(isset($_SESSION['admin'])){
+  
+     if (isset($_POST['action'])){
         $thread_id = $_POST['thread_id'];
         DBFunctionsClass::deleteThread($thread_id);
         }
@@ -75,7 +77,7 @@ else
                 echo '</table>';
             }
         }
-
+ }else {echo "You do not have permission";}
 include ('../../view/footer.php'); 
 ?>        
     </body>

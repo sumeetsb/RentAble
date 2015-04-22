@@ -16,6 +16,7 @@ require_once ('../../view/header.php');
     </head>
     <body>
  <?php
+  if(isset($_SESSION['admin'])){
 if($_SERVER['REQUEST_METHOD'] != 'POST')
 {
     //the form hasn't been posted yet, display it
@@ -38,6 +39,7 @@ else
     $result = DBFunctionsClass::addCategory($category);
     header('Location: ../ForumView/index.php');
 }
+ }else {echo "You do not have permission";}
 ?>
   </body>
 </html>

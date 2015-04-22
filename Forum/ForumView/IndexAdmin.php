@@ -15,6 +15,7 @@ require_once ('../../view/header.php');
     </head>
     <body>
  <?php
+ if(isset($_SESSION['admin'])){
  //Execute Delete
  if (isset($_POST['action'])){
         $cat_id = $_POST['cat_id'];
@@ -61,6 +62,8 @@ else
         include ('../../view/footer.php'); 
 
     }
+     }else {echo "You do not have permission";}
+
     ?>
         </body>
 </html>
