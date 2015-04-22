@@ -10,7 +10,6 @@ include("../view/header.php");
         
 require('../model/FAQClass.php');
 
-$displayAll=getFAQ::showResults();
 $FAQ_id="";
 
 if(isset($_POST['delete'])){
@@ -27,6 +26,8 @@ if(isset($_POST['update'])){
     $Answer=$_POST['Answer'];
 }
 
+
+$displayAll=getFAQ::showResults();
 ?>
 
 <html>

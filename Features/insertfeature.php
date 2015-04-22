@@ -19,10 +19,10 @@ include("../model/features.php");
 if(isset($_SESSION['role'])){
     if($_SESSION['role'] == "landlord"){
         
+        
+        
         //get the id from the http 
         $propid=$_GET['propid'];
-        //get the features and display with foreach 
-        $displayfeature=feature::GetFeaturesByID($propid);
    
 if(isset($_POST['insert']))
 {
@@ -81,7 +81,16 @@ if(isset($_POST['insert']))
 }//end of post insert
 
 
+if(isset($_POST['delete'])){
+    
+    $featid=$_POST['f-id'];
+    feature::DeleteFeature($featid);
+    
+}//end of delete
 
+     //get the features and display with foreach 
+        $displayfeature=feature::GetFeaturesByID($propid);
+   
 
 
 ?>
@@ -142,13 +151,7 @@ if(isset($_POST['insert']))
     
    <?php 
     
-
-if(isset($_POST['delete'])){
-    
-    $featid=$_POST['f-id'];
-    feature::DeleteFeature($featid);
-    
-}?>
+?>
     
 
 <?php
