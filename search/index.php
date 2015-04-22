@@ -38,7 +38,7 @@ if(empty ($_POST['location'])){
         else{
          $location=($_POST['location']);
  $checkLocation=search::check($location,$closest);
-  $output="No Properties Found";
+ 
         }
 
     $search=search::SearchProperty ($location);
