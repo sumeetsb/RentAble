@@ -54,11 +54,11 @@ if(empty ($_POST['location'])){
                 $city=$ser['city'];
                 $province=$ser['province'];
                 $postal=$ser['postal_code'];
-            
+                $img=$ser['img_path'];
                 
                 
             
-                   $output .='<div><p><a href="'. ROOT .'property/?propid='. $pid .'">' . $pname . 
+                   $output .='<div id="stylebox"><p><a href="'. ROOT .'property/?propid='. $pid .'">' . $pname . 
                 ' </a></p><p>Address: ' . $street . ', ' . $city . ', ' .$province . ', ' . $postal .  
                 ' </div>'
                 
