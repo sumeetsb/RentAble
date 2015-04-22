@@ -50,7 +50,7 @@ if(empty ($_POST['location'])){
             {
              foreach($search as $ser)  
             {
-                $pid = $ser['id']; //$ser['id']; need search to grab id of property too
+                $pid = 1; //$ser['id']; need search to grab id of property too
                 $pname=$ser['name'];
                 $street=$ser['street'];
                 $city=$ser['city'];
