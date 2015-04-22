@@ -28,10 +28,10 @@ require ('../model/propimage.php');
 <?php foreach ($gal_images as $gal_image): ?>
 
 <!--showing thumbnails of images-->
-<form action='index.php?propid=<?php echo $propid?>' method='post'>
-    <button type ='submit' class='thumb' style='background-image: url("<?php echo $gal_image[2]?>")' >
-    </button>
-    <input type='hidden' name='image_url' value='<?php echo $gal_image[2]?>'>
+    <form action='index.php?propid=<?php echo $propid?>' method='post'>
+        <button type ='submit' class='thumb' style='background-image: url("<?php echo $gal_image[2]?>")' >
+        </button>
+        <input type='hidden' name='image_url' value='<?php echo $gal_image[2]?>'>
     </form>
 <?php endforeach?>
 <!-- div for large image -->

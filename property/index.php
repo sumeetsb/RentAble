@@ -97,7 +97,9 @@ if(isset($_SESSION['role']) && isset($_GET['manage_propid'])){
     }
         
 } else if(isset($_SESSION['role']) && isset($_GET['propid'])){
-    $properties = $_SESSION['props'];
+    if($_SESSION['role'] == 'tenant' || $_SESSION['role'] == 'landlord'){
+        $properties = $_SESSION['props'];
+    }
     $propid = $_GET['propid'];
     //if(in_array($propid, $properties)){
         ///Grab property from database and unpack details
