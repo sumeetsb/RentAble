@@ -18,7 +18,7 @@ require ('../model/propimage.php');
         if (isset($_POST['image_url'])){
             $bigimage_url=$_POST['image_url'];
             }
-        else {$bigimage_url=$allimages[0];}
+        if (isset($allimages[0]) && !isset($_POST['image_url'])) {$bigimage_url=$allimages[0];}
     }
     if (!isset($allimages[0])){
         $bigimage_url="../images/Image-Coming-Soon-Placeholder.png";

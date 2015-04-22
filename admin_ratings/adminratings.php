@@ -7,6 +7,8 @@ include('../view/header.php');
 
 ?>
 <?php
+$errorcomment = "";
+
 // checking for different actions of the form and validation
 if (isset($_POST['action'])){
         $rating_id = $_POST['rating_id'];

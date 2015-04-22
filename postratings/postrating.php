@@ -8,6 +8,8 @@ include('../view/header.php');
 ?>
 
 <?php 
+$errorcomment = "";
+
 // checking for the action of submitted form and validation
 if (isset($_POST['action'])){
     if ($_POST['action']=="showusers"){

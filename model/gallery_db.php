@@ -12,7 +12,7 @@ class Gallery_db {
     //function which gets all images
     public static function getAllimages() {
         $dbcon = Db_connect::getDB();
-        $query = "SELECT * FROM prop_images";
+        $query = "SELECT * FROM prop_images ORDER BY p_id";
         $result = $dbcon->query($query);
         $result->setFetchMode(PDO::FETCH_NUM);
         return $result;
