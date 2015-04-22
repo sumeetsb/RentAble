@@ -123,9 +123,9 @@ a:hover {
 }
 
 .adminNav{
-    padding-top: 20px;
+    text-align: center;
+    padding: 10px 0;
     margin: 10px auto;
-    display: block;
 }
 ul {
 }
@@ -134,7 +134,7 @@ header li:nth-child(3){
     margin-left: 250px;
 }
 .adminNav li {
-    float: left;
+    display: inline-block;
     padding: 0 5px;
     border-right: 1px solid grey;
 }
@@ -224,7 +224,13 @@ footer ul {
 
 /*------------------------------Mobile CSS-----------------------*/
 
-@media (max-width: 768px) {
+@media only screen and (max-width: 1099px){
+    .wrapper {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
   
   li {
       display: block;

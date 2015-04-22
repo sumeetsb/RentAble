@@ -15,7 +15,6 @@ include("model/search.php");
        <script src="js/search.js"></script>
        
 </head>
-<article>
         <div class="ui-widget">
         <form action="index.php" method="POST">
             <div id="textbox" >
@@ -25,8 +24,6 @@ include("model/search.php");
             </div>
             
         </form>
-</article>
-<article>
 <?php
 if(isset($_POST['search']))
 {
@@ -90,8 +87,5 @@ if(empty ($_POST['location'])){
 }//end of isset for search
 
 ?>
-</article>
 
-<article>
         <?php echo $output ; ?>
-</article>
