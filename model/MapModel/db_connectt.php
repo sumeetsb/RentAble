@@ -1,5 +1,5 @@
 <?php
-class Db_connect {
+class Db_connectt {
     private static $dns = "mysql:host=www.sumeetb.com;dbname=RentAble";
     private static $user = "rentable";
     private static $pass = "crazypass!!";

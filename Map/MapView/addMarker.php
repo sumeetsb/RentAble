@@ -1,7 +1,7 @@
 <?php
 require_once ('../../model/config.php');
 include ('../../view/header.php');
-require_once '../../Model/MapModel/db_connect.php';
+require_once '../../Model/MapModel/db_connectt.php';
 
 ;?>
 <html>
@@ -14,7 +14,8 @@ require_once '../../Model/MapModel/db_connect.php';
     <body>
 
     <?php
-     echo "<b>".$errorList."</b>" ?>
+    if ($_POST){
+    echo "<b>".$errorList."</b>"; }?>
               <!-- Form Name -->
 <legend>Insert new property</legend>
 <form class="form-horizontal" action="../MapController/execInsert.php" method="post">

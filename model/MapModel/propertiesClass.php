@@ -1,12 +1,12 @@
 <?php
 require_once('property.php');
-require_once 'db_connect.php';
+require_once 'db_connectt.php';
 
 
 class PropertiesClass {
     
     public static function getPropertiesByLandlord($landlord_id){
-        $db = Db_connect::getDB();
+        $db = Db_connectt::getDB();
     }
     
     public static function getPropertyById($p_id){
@@ -27,7 +27,7 @@ class PropertiesClass {
     
 //Map Markers
      public static function deleteMarker($marker_id) {
-        $dbcon = Db_connect::getDB();
+        $dbcon = Db_connectt::getDB();
         $query = "DELETE FROM properties
                   WHERE ID = '$marker_id'";
         $row_count = $dbcon->exec($query);
@@ -35,7 +35,7 @@ class PropertiesClass {
     }
     
      public static function addMarker($marker) {
-        $dbcon = Db_connect::getDB();
+        $dbcon = Db_connectt::getDB();
         $l_id = $marker->getLandLordId();
         $name = $marker->getName();
         $street = $marker->getStreet();
@@ -55,7 +55,7 @@ class PropertiesClass {
     }
        
      public static function getMarkers() {
-        $dbcon = Db_connect::getDB();
+        $dbcon = Db_connectt::getDB();
         $query = "SELECT * FROM properties";
         $result = $dbcon->query($query);
         $result->setFetchMode(PDO::FETCH_OBJ);
@@ -63,7 +63,7 @@ class PropertiesClass {
     }
     
     public static function getMarker($marker_id) {
-        $dbcon = Db_connect::getDB();
+        $dbcon = Db_connectt::getDB();
         $query = "SELECT * FROM properties
                   WHERE ID = '$marker_id'";
         $result = $dbcon->query($query);
@@ -72,7 +72,7 @@ class PropertiesClass {
     }    
     
     public static function updateMarker($marker, $marker_id) {
-        $dbcon = Db_connect::getDB();
+        $dbcon = Db_connectt::getDB();
         $l_id = $marker->getLandLordId();
         $name = $marker->getName();
         $street = $marker->getStreet();

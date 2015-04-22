@@ -1,6 +1,6 @@
 <?php 
 require_once ('../../Model/config.php');
-require_once '../../Model/MapModel/db_connect.php';
+require_once '../../Model/MapModel/db_connectt.php';
 include ('../../view/header.php'); 
 echo "<a href='markersAdmin.php' class='btn btn-info'>Marker's list</a><br />";?>
 <!DOCTYPE html >

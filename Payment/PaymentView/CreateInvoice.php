@@ -15,18 +15,25 @@ require_once ('../../view/header.php');
     </head>
     <body>
 <?php
+     if ($_POST){
+     echo "<b>".$errorList."</b>";
+     };
 
- echo "<form method='post' action='../PaymentController/execCreateInvoice.php'>
-        Enter Tenant ID:<br /> <input class='input-xlarge', type='text' name='tenant_id' /><br />
+     ?>
         
-        Property ID:<br /> <input class='input-xlarge' name='p_id' />
+        <form method='post' action='../PaymentController/execCreateInvoice.php'>
+        Enter Tenant ID:<br /> 
+        <input class='input-xlarge' type='text' name='tenant_id' value='<?php if(isset($_POST["tenant_id"])) {echo $_POST["tenant_id"];} ?>'/><br />
+        
+        Property ID:<br /> <input class='input-xlarge' name='p_id' value='<?php if(isset($_POST["p_id"])) {echo $_POST["p_id"];} ?>' />
         </input><br />
         
-         Amount:<br /> <input class='input-xlarge' name='amount' />
+         Amount:<br /> <input class='input-xlarge' name='amount' value='<?php if(isset($_POST["amount"])) {echo $_POST["amount"];} ?>' />
         </input><br />
         
         <input type='submit'  class='btn btn-primary btn-lg' value='Create Invoice' />
-     </form>";
+     </form>
+        <?php
      include ('../../view/footer.php'); 
      ?>
     </body>

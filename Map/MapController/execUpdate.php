@@ -2,7 +2,7 @@
 require_once ('../../Model/MapModel/propertiesClass.php');
 require_once ('../../model/config.php');
 require_once ('../../Model/MapModel/property.php');
-require_once '../../Model/MapModel/db_connect.php';
+require_once '../../Model/MapModel/db_connectt.php';
 //
 //function validateUserInput($userInput)
 //{

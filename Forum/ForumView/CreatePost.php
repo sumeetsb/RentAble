@@ -16,7 +16,7 @@ else
 {
     echo '<h1>Create Post</h1>';
     echo  '<form method="post" action="../ForumController/AddPost.php?id='.$_GET['id'].'">';
-    echo '<textarea class = "txt_post" name="PostContent"></textarea><br><br>';
+    echo '<textarea class = "txt_post" name="PostContent" ></textarea><br><br>';
     echo '<input type="submit" value="Add Message" />';
     echo '</form>';
 }
