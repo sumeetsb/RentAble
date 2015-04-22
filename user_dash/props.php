@@ -3,7 +3,9 @@
 ?>
 
 <nav>
+    <?php if(!empty($_SESSION['props'])){ ?>
     <h2>Properties List</h2>
+    <?php } ?>
     <ul>
         <?php
             if(!empty($_SESSION['props']) && $_SESSION['role'] == 'tenant'){
