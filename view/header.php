@@ -6,6 +6,14 @@
         <title>RentAble</title>
         <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="<?php echo ROOT; ?>css/main.css" />
+        <script src="../js/jquery-1.11.2.min.js"></script>
+<script src="../js/jquery-ui.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/jquery-ui.theme.min.css" />
+<script>
+  $(function() {
+    $( ".datepicker" ).datepicker();
+  });
+  </script>
         <?php
             if(!empty($cssArray)){
                 foreach($cssArray as $css){

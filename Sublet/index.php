@@ -24,6 +24,9 @@
   <?php
     require_once '../model/subletDB.php';
     require_once 'insert.php';
+    
+    include '../view/header.php';
+
   ?>
   
 </head>
