@@ -9,8 +9,13 @@ class Notice {
     private $date_cre;
     private $expiry;
     
-    public function __construct(){
-        
+    public function __construct($p_id, $u_id, $subject, $notice, $date_cre, $expiry = null){
+        $this->p_id = $p_id;
+        $this->u_id = $u_id;
+        $this->subject = $subject;
+        $this->notice = $notice;
+        $this->date_cre = $date_cre;
+        $this->expiry = $expiry;
     }
     
     public function getId(){

@@ -7,8 +7,11 @@ include '../view/header.php';
 
 <table class="notices">
 <?php
-    foreach($notices as $notice){
-        
+    foreach($notices as $v){
+        $subject = $v->getSubject();
+        $notice = $v->getNotice();
+        $date_cre = $v->getDateCreated();
+        $expiry = $v->getExpiry();
 ?>
     
 
