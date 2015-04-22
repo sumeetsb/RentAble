@@ -21,7 +21,13 @@
                 <?php include('adminlog.php'); ?>
             </div>
             <div id="headerlog">
-                <div>
+                <?php include('loginreg.php'); ?>
+                
+            </div>
+            <a href="<?php echo ROOT; ?>"><img id="logo" src="<?php echo ROOT;?>images/RentAble_HeaderLogo_197x62px.png" alt="RentAble" height="62" width="197"></a>
+            
+        </header>
+        <div id="mainNav">
                     <nav>
                         <ul>
                             <li><a href="<?php echo ROOT; ?>Forum/ForumView">Forums</a></li>
@@ -31,12 +37,7 @@
                         </ul>
                     </nav>
                 </div>
-                <?php include('loginreg.php'); ?>
-                
-            </div>
-            <a href="<?php echo ROOT; ?>"><img id="logo" src="<?php echo ROOT;?>images/RentAble_HeaderLogo_197x62px.png" alt="RentAble" height="62" width="197"></a>
-            
-        </header>
+        <?php include 'adminMenu.php'; ?>
         
         <div class="wrapper">
-            <?php include 'adminMenu.php'; ?>
+            

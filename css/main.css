@@ -69,7 +69,19 @@ header {
    text-align: center;
 }
 
-.mainNav{
+#mainNav{
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px 0;
+    background: #fcda6b;
+    border-bottom: 5px #fbf195 solid;
+}
+
+#mainNav li{
+    font-size: 1.1em;
+    display: inline-block;
+    padding: 0 10px;
+    border-right: 1px solid grey;
 }
 
 #logo {
@@ -163,10 +175,6 @@ header li:nth-child(3){
     margin: 0;
 }
 
-
-#headerlog div {
-    float: left;
-}
 
 .error {
     color: red;
