@@ -65,9 +65,8 @@ body{
 header {
    font-size: 1.3em;
    background-color: #fbf195; 
-   height: 68px;
+   height: 100px;
    text-align: center;
-   margin: 0px 0px 50px 0px;
 }
 
 #mainNav{
@@ -75,7 +74,7 @@ header {
     margin: 0 auto;
     padding: 10px 0;
     background: #fcda6b;
-    border-bottom: 5px #fbf195 solid;
+    border-bottom: 5px #A4E9EF solid;
 }
 
 #mainNav li{
@@ -88,7 +87,7 @@ header {
 #logo {
     position: absolute;
     margin-left: -80px;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 header li, footer li {
@@ -116,7 +115,7 @@ h3 {
 
 a {
     text-decoration: none;
-    color: #7c7c7c;
+    color: #828282;
 }
 
 a:hover {
@@ -218,8 +217,6 @@ footer {
 footer ul {
     padding: 11px 0 0 0; 
 }
-
-
 
 /*----------------------------Desktop CSS end-----------------------------*/
 
