@@ -17,9 +17,7 @@ $displayAll=getFAQ::showResults();
 
       if(isset($_POST['search'])){
         
-        if(empty ($_POST['input'])){
-            $error="no input <br/>";
-        }
+       
         
         //if validates
         
@@ -29,11 +27,8 @@ $displayAll=getFAQ::showResults();
         $search= getFAQ::getsearch($key);
         }
         
-        if(empty($search))
-        {
-            $output= "no results";
-        }
-    else
+        if($search)
+        
         {
             if($search->rowCount() > 0)
             {
@@ -51,6 +46,10 @@ $displayAll=getFAQ::showResults();
            
             
         }
+	else{
+            $output= "no results";
+        }
+    
         }
         
 
