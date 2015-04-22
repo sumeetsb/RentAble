@@ -24,6 +24,7 @@
                 <div>
                     <nav>
                         <ul>
+                            <li><a href="<?php echo ROOT;?>LandlordDirectory">Landlord Directory</a></li>
                             <li><a href="<?php echo ROOT;?>FAQ">FAQ</a></li>
                         </ul>
                     </nav>

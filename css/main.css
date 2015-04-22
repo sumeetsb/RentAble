@@ -110,7 +110,7 @@ a:hover {
     color: red;
 }
 
-nav{
+admin nav{
     padding-top: 20px;
     margin: 0 auto;
 }
@@ -154,10 +154,11 @@ header li:nth-child(3){
 
 #headerlog li {
     float: left;
-    border-left: 1px dashed grey;
     border-right: 1px dashed grey;
     padding: 5px;
+    margin: 0;
 }
+
 
 #headerlog div {
     float: left;
