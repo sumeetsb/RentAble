@@ -1,7 +1,57 @@
+.notices{
+    width: 1000px;
+}
+.notice {
+    padding: 0;
+    border: 1px dashed grey;
+}
 .noticeHead{
     margin-bottom: 10px;
+    background: #fff599;
+    border: 1px solid rgba(0,0,0,0);
+}
+.noticeHead p {
+    border-bottom: 1px dotted grey;
 }
 .time {
     font-size: .8em;
 }
 
+.noticeMessage {
+    padding: 20px;
+}
+
+tr td {
+    vertical-align: top;
+    padding: 5px;
+}
+
+#createNotice table {
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+
+input[type="text"], textarea{
+    width: 280px;
+}
+
+@media only screen and (max-width: 1099px){
+    .notices {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    
+    #createNotice table {
+        width: 100%;
+    }
+    
+    #noticeForm {
+        text-align: center;
+    }
+    
+    input[type="text"], textarea{
+        width: 100%;
+    }
+}

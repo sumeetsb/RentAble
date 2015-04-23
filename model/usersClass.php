@@ -15,6 +15,7 @@ class UsersClass {
         $u = $stm->fetch();
         if ($u != null){
             $user = new User($u["first_name"], $u["last_name"], $u["user_name"], $u["password"], $u["email"], $u["phone"], $u["role"], $u["age"]);
+            $user->setId($u['id']);
         } else {
             $user = null;
         }
