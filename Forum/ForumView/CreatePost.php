@@ -15,11 +15,18 @@ if($_SERVER['REQUEST_METHOD'] != 'POST')
 else
 {
     echo '<h1>Create Post</h1>';
-    echo  '<form method="post" action="../ForumController/AddPost.php?id='.$_GET['id'].'">';
+    echo  '<form method="post" action="../ForumController/execPostInsert.php">';
     echo '<textarea class = "txt_post" name="PostContent" ></textarea><br><br>';
-    echo '<input type="submit" value="Add Message" />';
+    echo '<input type="submit" name="insert" value="Add Message" />';
     echo '</form>';
 }
+if(isset($errors))
+        {
+        foreach ($errors as $er)
+            {
+            echo '<p class="error">'.$er.'</p>';
+            }
+        }
 include ('../../view/footer.php'); 
 
 

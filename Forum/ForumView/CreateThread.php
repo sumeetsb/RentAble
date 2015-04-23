@@ -16,9 +16,7 @@ require_once ('../../view/header.php');
     </head>
     <body>
  <?php
-    if($_SERVER['REQUEST_METHOD'] != 'POST')
-    {   
-                echo '<form method="post" action="">
+                echo '<form method="post" action="../ForumController/execThreadInsert.php">
                     Subject: <input type="text" name="thread_subject" /><br /><br />
                     Category:   '; 
                 $resultForCategories = DBFunctionsClass::getCategories();
@@ -30,21 +28,17 @@ require_once ('../../view/header.php');
                 echo '</select>'; 
                      
 //                echo 'Message: <textarea name="post_content" /></textarea>
-                 echo '<br /><br /><input type="submit" value="Create thread" />
+                 echo '<br /><br /><input type="submit" name="insert" value="Create thread" />
                  </form>';
                 include ('../../view/footer.php'); 
+                 if(isset($errors))
+        {
+        foreach ($errors as $er)
+            {
+            echo '<p class="error">'.$er.'</p>';
+            }
+        }
 
-    }
-    else
-    {
-                $thread_cat = $_POST['thread_cat'];
-                $thread_author = $_SESSION['id'];      
-                $thread_date = (new \DateTime())->format('Y-m-d H:i:s');
-                $thread_subject = $_POST["thread_subject"];
-                $thread = new ThreadClass($thread_subject, $thread_date, $thread_cat, $thread_author);
-                $resultForThread = DBFunctionsClass::addThread($thread);
-                header('Location: ../ForumView/index.php');                   
-    }
 ?>
   </body>
 </html>

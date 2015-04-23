@@ -5,7 +5,12 @@ require_once '../../Model/ForumModel/DBconnect.php';
 require_once '../../Model/ForumModel/CategoryClass.php';
 require_once '../../Model/ForumModel/DBFunctionsClass.php';
 require_once ('../../view/header.php'); 
+$cssArray[] = "register.css";
+
+if(isset($_POST['cat_id'])){
  $result = DBFunctionsClass::getSingleCategory($_POST['cat_id']);
+ } else {
+ $result = DBFunctionsClass::getSingleCategory($id);}
     foreach ($result as $row){  
 ?>
 <!DOCTYPE html>
@@ -45,11 +50,18 @@ require_once ('../../view/header.php');
   <label class="control-label" for="btn"></label>
   <div class="controls">
     <input type="hidden" name='id' value="<?php echo $cat_id = $row->cat_id;?>"/>
-    <button id="btn" name="btn" class="btn btn-primary">Submit</button>
+    <button  name="update" class="btn btn-primary">Submit</button>
   </div>
 </div>
  <?php  
     }
+      if(isset($errors))
+        {
+        foreach ($errors as $er)
+            {
+            echo '<p class="error">'.$er.'</p>';
+            }
+        }
 include ('../../view/footer.php'); 
 ?>
   </body>

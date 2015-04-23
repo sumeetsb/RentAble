@@ -6,10 +6,12 @@ require_once '../../Model/PaymentModel/DBFunctionsClass.php';
 require_once ('../../view/header.php'); 
 $cssArray[] = "register.css";
 
+
 if(isset($_POST['invoice_id'])){
     $result = DBFunctionsClass::getInvoiceById($_POST['invoice_id']);
 } else {
     $result = DBFunctionsClass::getInvoiceById($id);
+    
 }
 
     foreach ($result as $row){           

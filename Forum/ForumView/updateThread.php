@@ -3,8 +3,13 @@ require_once ('../../model/config.php');
 require_once '../../Model/ForumModel/DBconnect.php';
 require_once '../../Model/ForumModel/CategoryClass.php';
 require_once '../../Model/ForumModel/DBFunctionsClass.php';
-require_once ('../../view/header.php'); 
+require_once ('../../view/header.php');
+if(isset($_POST['thread_id'])){
 $result = DBFunctionsClass::getSingleThread($_POST['thread_id']);
+}else
+    {
+    $result = DBFunctionsClass::getSingleThread($id);
+    }
     foreach ($result as $row){  
 ?>
 <!DOCTYPE html>
@@ -16,7 +21,7 @@ $result = DBFunctionsClass::getSingleThread($_POST['thread_id']);
         <title></title>
     </head>
     <body>
-        <legend>Update Category</legend>
+        <legend>Update Thread</legend>
         <form class="form-horizontal" action="../ForumController/execThreadUpdate.php?id=<?php $row->thread_id ?>" method="post">
     <fieldset style="margin-left: 2%; ">
 
@@ -65,11 +70,18 @@ $result = DBFunctionsClass::getSingleThread($_POST['thread_id']);
   <label class="control-label" for="btn"></label>
   <div class="controls">
     <input type="hidden" name='id' value="<?php echo $cat_id = $row->thread_id;?>"/>
-    <button id="btn" name="btn" class="btn btn-primary">Submit</button>
+    <button  name="update" class="btn btn-primary">Submit</button>
   </div>
 </div>
  <?php  
     }
+    if(isset($errors))
+        {
+        foreach ($errors as $er)
+            {
+            echo '<p class="error">'.$er.'</p>';
+            }
+        }
 include ('../../view/footer.php'); 
 ?>
   </body>

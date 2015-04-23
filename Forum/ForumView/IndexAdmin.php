@@ -14,6 +14,7 @@ require_once ('../../view/header.php');
         <title></title>
     </head>
     <body>
+        
  <?php
  if(isset($_SESSION['admin'])){
  //Execute Delete
@@ -21,10 +22,7 @@ require_once ('../../view/header.php');
         $cat_id = $_POST['cat_id'];
         DBFunctionsClass::deleteCategory($cat_id);
         }
-//if ($_SESSION['role'] == 'landlord' )
-//    {
-//    echo "<h1>ты мой самый родной и любимый человек в этом мире!</h1>";
-//    }
+
 $result = DBFunctionsClass::getCategories();
 if($result == null)
 {
@@ -33,7 +31,7 @@ if($result == null)
 else
 {
     echo "<h1 class='main'>RentAble Forum-Manage Categories</h1>";
-    //prepare the table
+    echo '<a href="CreateCategoryAdmin.php">Create New Category</a>';
     echo '<table class="table-striped">
               <tr>
                 <th><b>Categories: </b></th>

@@ -4,7 +4,12 @@ require_once '../../Model/ForumModel/DBconnect.php';
 require_once '../../Model/ForumModel/PostClass.php';
 require_once '../../Model/ForumModel/DBFunctionsClass.php';
 require_once ('../../view/header.php'); 
+if(isset($_POST['post_id'])){
 $result = DBFunctionsClass::getSinglePost($_POST['post_id']);
+}else
+    {
+    $result = DBFunctionsClass::getSinglePost($id);
+    }
     foreach ($result as $row){  
 ?>
 <!DOCTYPE html>
@@ -65,12 +70,20 @@ $result = DBFunctionsClass::getSinglePost($_POST['post_id']);
   <label class="control-label" for="btn"></label>
   <div class="controls">
     <input type="hidden" name='id' value="<?php echo $post_id = $row->post_id;?>"/>
-    <button id="btn" name="btn" class="btn btn-primary">Submit</button>
+    <button id="btn" name="update" class="btn btn-primary">Submit</button>
   </div>
 </div>
  <?php  
     }
+    if(isset($errors))
+        {
+        foreach ($errors as $er)
+            {
+            echo '<p class="error">'.$er.'</p>';
+            }
+        }
 include ('../../view/footer.php'); 
+
 ?>
   </body>
 </html>
