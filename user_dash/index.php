@@ -25,6 +25,7 @@
     $months = array('January', 'February', 'March', 'April','May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
     if(isset($_SESSION['user'])){
         if(isset($_GET['manage_user'])){
+            //IF user wants to manage profile
             $fname = $_SESSION['fname'];
             $lname = $_SESSION['lname'];
             $email = $_SESSION['email'];
@@ -36,6 +37,7 @@
             exit();
         }
         if(isset($_POST['update'])){
+            //IF user has attempted updating profile
             $validator = new Validation();
             $validator->todoVal("First Name", $_POST['fname'], "required");
             $validator->todoVal("Last Name", $_POST['lname'], "required");

@@ -6,3 +6,16 @@
 table {
     margin: 0 auto;
 }
+
+@media only screen and (max-width: 768px){
+    #login {
+        width: 100%;
+        margin: 0;
+    }
+    
+    
+    #login table {
+        margin: 0;
+        width: auto;
+    }
+}

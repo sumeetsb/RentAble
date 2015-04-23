@@ -61,18 +61,47 @@ body{
     min-height: 100%;
     position: relative;
 }
+#hamburg {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    float: right;
+    background-color: #fbf195;
+    background: url('../images/hamburger.png') no-repeat right;
+    background-size: 60px 60px;
+    padding-left: 60px;
+    border-left: 2px #e78f08 solid;
+    height: 68px;
+    width: 70px;
+    cursor: pointer;
+}
+#hamburg p {
+    color: #808080;
+    position: absolute;
+    left: 10px;
+    top: 20px;
+}
 
-header {
+#hamburg:active {
+    background-color: #ddd;
+}
+
+#headerID {
    font-size: 1em;
-   background-color: #fbf195; 
+   background-color: #fbf195;
+   border-bottom: 2px #e78f08 solid;
    height: 68px;
    //text-align: center;
-   margin: 0px 0px 60px 0px;
+   margin: 0px 0px 20px 0px;
+}
+
+header {
 }
 
 #mainNav{
-    //text-align: center;
-   // margin: 0 auto;
+    text-align: center;
+    margin: 0 auto;
     padding: 10px 0;
 }
 
@@ -84,7 +113,7 @@ header {
 #logo {
    position: relative;
    float: left;
-    margin: 10px 0px 0px 65px;
+    margin: 10px 0px 0px 45px;
 }
 
 header li {
@@ -165,6 +194,8 @@ ul {
 #headerlog {
     font-size: 1em;
     position: absolute;
+    top: 0;
+    float: right;
     right: 0;
     padding-top: 20px;
     padding-right: 5px;
@@ -247,20 +278,57 @@ footer ul {
 @media only screen and (max-width: 1099px){
     .wrapper {
         width: 100%;
+        margin: 0;
     }
 }
 
 @media only screen and (max-width: 768px) {
-  
-  li {
-      display: block;
-    padding: 15px 0px 0px 0px;
-}  
+    #hamburg {
+        display: inline-block;
+    }
+    #logo{
+        margin: 0;
+    }
+    #logreg {
+        width: 100%;
+    }
+    #headerlog {
+        float: none;
+        text-align: center;
+        position: relative;
+        top: 0;
+        right: 0;
+        margin: 0;
+        
+    }
+    #mainNav {
+        width: 100%;
+        clear: both;
+        margin-bottom: 20px;
+        background: white;
+    }
+    #mainNav ul {
+        margin: 0;
+    }
+    #mainNav li {
+        display: list-item;
+        margin: 0;
+        padding: 0;
+    } 
+    #mainNav li:last-child {
+        border-bottom: 1px grey solid;
+    }
+    #mainNav a {
+        display: inline-block;
+        padding: 10px 0;
+        width: 100%;
+        border-top: dashed 1px black;
+    }
+    #mainNav a:active {
+        background: #eee;
+    }
     
-nav {
-    padding-top: 0px;
-}
-
-
-    
+    nav {
+        padding-top: 0px;
+    }
 }
