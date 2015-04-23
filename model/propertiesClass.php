@@ -4,6 +4,21 @@ require_once('property.php');
 
 class PropertiesClass {
     
+    public static function getAllProperties(){
+        $db = Db_connect::getDB();
+        $q = "SELECT * FROM properties";
+        $stm = $db->prepare($q);
+        $stm->execute();
+        $results = $stm->fetchAll();
+        $properties = array();
+        foreach($results as $result){
+            $property = new Property($result['landlord_id'], $result['name'], $result['street'], $result['postal_code'], $result['city'], $result['province'], $result['latitude'], $result['longitude'], $result['type']);
+            $property->setId($result['id']);
+            $properties[] = $property;
+        }
+        return $properties;
+    }
+    
     public static function getPropertiesByLandlord($landlord_id){
         $db = Db_connect::getDB();
         $q = "SELECT * FROM properties WHERE landlord_id = :id";
@@ -13,9 +28,10 @@ class PropertiesClass {
         $stm->execute();
         $results = $stm->fetchAll();
         $props = array();
-        foreach ($results as $row){
-            $prop = new Property();
-            $props[] = $prop;
+        foreach ($results as $result){
+            $property = new Property($result['landlord_id'], $result['name'], $result['street'], $result['postal_code'], $result['city'], $result['province'], $result['latitude'], $result['longitude'], $result['type']);
+            $property->setId($result['id']);
+            $props[] = $property;
         }
         return $props;
     }

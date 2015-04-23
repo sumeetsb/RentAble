@@ -1,0 +1,13 @@
+#manageNotices {
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+
+#manageNotices th {
+    font-weight: bold;
+    border-bottom: 1px grey solid;
+}
+
+#manageNotices th:last-child {
+    border-bottom: none;
+}

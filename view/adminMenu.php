@@ -8,6 +8,7 @@
         <li><a href="<?php echo ROOT; ?>admin_ratings">Ratings Admin</a></li>
         <li><a href="<?php echo ROOT; ?>Map/MapView/markersAdmin.php">Map Admin</a></li>
         <li><a href="<?php echo ROOT; ?>FAQ/adminFAQ.php">FAQ Admin</a></li>
+        <li><a href="<?php echo ROOT; ?>admin_noticeboard">Noticeboard Admin</a></li>
     </ul>
 </nav>
 <?php }
