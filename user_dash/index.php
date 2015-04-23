@@ -20,7 +20,7 @@
     $year = "";
     $pass = "";
     $age = "";
-    $role = "";
+    $role = $_SESSION['role'];
     $phone = "";
     $months = array('January', 'February', 'March', 'April','May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
     if(isset($_SESSION['user'])){
@@ -60,19 +60,24 @@
             $fdate = new DateTime($_POST['year']. "-" . $_POST['month']."-" . $_POST['day']);
             $sdate = new DateTime();
             $age = $sdate->diff($fdate)->y;
-            if(isset($_POST['role'])){
-                $role = $_POST['role'];
-            } else {
-                $role = 'tenant';
-            }
             $phone = $_POST['phone'];
             if(empty($errors)){
+                
                 $user = new User($fname, $lname, $uname, $pass, $email, $phone, $role, $age);
+                $user->setId($_SESSION['id']);
+                $_SESSION['user'] = $user->getUname();
+                $_SESSION['id'] = $user->getId();
+                $_SESSION['email'] = $user->getEmail();
+                $_SESSION['fname'] = $user->getFname();
+                $_SESSION['lname'] = $user->getLname();
+                $_SESSION['pass'] = $user->getPword();
+                $_SESSION['phone'] = $user->getPhone();
                 UsersClass::updateUser($user);
                 header("Location: index.php");
                 exit();
             } else {
                 include('manage_user.php');
+                exit();
             }
         }
         include('dashboard.php');

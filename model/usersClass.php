@@ -45,6 +45,7 @@ class UsersClass {
     
     public static function updateUser(User $user){
         $db = Db_connect::getDB();
+        $id = $user->getId();
         $fname = $user->getFname();
         $lname = $user->getLname();
         $uname = $user->getUname();
@@ -53,6 +54,10 @@ class UsersClass {
         $age = $user->getAge();
         $phone = $user->getPhone();
         $role = $user->getRole();
+        
+        $q = "UPDATE users SET first_name = '$fname', last_name = '$lname', user_name = '$uname', password = '$pass', email = '$email', phone = '$phone', age = $age WHERE id = $id";
+        $stm = $db->prepare($q);
+        $stm->execute();
     }
     
     //Method to make new user for users table
