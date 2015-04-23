@@ -3,15 +3,28 @@
 }
 .notice {
     padding: 0;
-    border: 1px dashed grey;
+    border-bottom: 1px dashed grey;
 }
 .noticeHead{
     margin-bottom: 10px;
+    padding: 0 10px;
     background: #fff599;
-    border: 1px solid rgba(0,0,0,0);
+    border: 1px dashed rgba(0,0,0,0);
+    -webkit-border-top-left-radius: 20px;
+    -moz-border-radius-topleft: 20px;
+    border-top-left-radius: 20px;
 }
-.noticeHead p {
+.author {
     border-bottom: 1px dotted grey;
+}
+
+.isLLord {
+    color: red;
+}
+.delLink {
+    padding-right: 5px;
+    padding-top: 5px;
+    float: right;
 }
 .time {
     font-size: .8em;

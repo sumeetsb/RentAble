@@ -8,7 +8,7 @@ class Noticeboard {
     public static function getAllNoticesOfProperty($pid){
         $db = Db_connect::getDB();
         
-        $q = "SELECT * FROM notices WHERE p_id = :pid";
+        $q = "SELECT * FROM notices WHERE p_id = :pid AND (expiry > CURDATE() OR expiry IS NULL) ORDER BY date_cre DESC";
         $stm = $db->prepare($q);
         $stm->bindParam(":pid", $pid);
         $stm->execute();
@@ -19,8 +19,29 @@ class Noticeboard {
             $date_cre->setTimezone(new DateTimeZone('America/New_York'));
             $date = $date_cre->format("Y-m-d H:i:s");
             $notice = new Notice($result['p_id'], $result['u_id'], $result['subject'], $result['notice'], $date, $result['expiry']);
+            $notice->setId($result['id']);
             $notices[] = $notice;
         }
         return $notices;
+    }
+    
+    public static function deleteNotice($id){
+        $db = Db_connect::getDB();
+        $q = "DELETE FROM notices WHERE id = :id";
+        $stm = $db->prepare($q);
+        $stm->bindParam(":id", $id);
+        $stm->execute();
+    }
+    
+    public static function postNotice(Notice $notice){
+        $db = Db_connect::getDB();
+        $pid = $notice->getPId();
+        $uid = $notice->getUId();
+        $subject = $notice->getSubject();
+        $message = $notice->getNotice();
+        $q = "INSERT INTO notices (p_id, u_id, subject, notice) VALUES($pid, $uid, '$subject', '$message')";
+        
+        $stm = $db->prepare($q);
+        $stm->execute();
     }
 }
