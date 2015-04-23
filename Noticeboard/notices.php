@@ -7,7 +7,7 @@ include '../view/header.php';
 
 <div id="createNotice">
     <h3>Post to Notice Board</h3>
-    <form id="noticeForm" action="index.php" method="post">
+    <form id="noticeForm" action="index.php?propid=<?php echo $pid; ?>" method="post">
         <table>
             <tr>
                 <td>Subject: </td>
@@ -20,28 +20,34 @@ include '../view/header.php';
         </table>
         <input type="submit" name="postNotice" value="Post Notice" />
     </form>
+    <?php foreach($errors as $err){
+        echo '<p class="error">' . $err . "</p>";
+    } ?>
 </div>
+
 <div class="notices">
+    
     <h2>Current Notices</h2>
 <?php
     foreach($notices as $v){
         $u_id = $v->getUId();
-        
+        $n_id = $v->getId();
         $user = UsersClass::getUserById($u_id);
         $fname = $user->getFname();
         $lname = $user->getLname();
         $full_name = $fname . ' ' . $lname;
+        $idClass = "";
+        $roleClass = "";
+        if($u_id == $_SESSION['id']){
+                $idClass = 'myNotice';
+            }
         $role = $user->getRole();
         if($role == 'landlord'){
             $roleClass = 'noticeLandlord';
-        } else {
+        } else if ($role == 'tenant') {
             $roleClass = 'noticeTenant';
-            if($u_id == $_SESSION['id']){
-                $idClass = 'myNotice';
-            }
+            
         }
-        
-        
         
         $subject = $v->getSubject();
         $notice = $v->getNotice();
@@ -49,9 +55,10 @@ include '../view/header.php';
         $expiry = $v->getExpiry();
 ?>
 <div class="notice">
-    <div class="noticeHead <?php echo $roleClass; ?><?php echo isset($idClass) ? " ".$idClass : "";?>">
-        <h3><?php echo $subject; ?></h3>
-        <p><?php echo "By " . $full_name . "<span class='time'> at " . $date_cre . "</span>"; ?></p>
+    <div class="noticeHead <?php echo $roleClass; ?> <?php echo $idClass; ?>">
+        <?php if($u_id == $_SESSION['id']){ ?> <p class="delLink"><a onclick="return confirm('Are you sure you want to delete this notice?')" href="index.php?propid=<?php echo $pid; ?>&delete_id=<?php echo $n_id; ?>">Delete</a></p>  <?php } ?>
+        <h3><?php echo $subject; ?> <?php echo $roleClass == 'noticeLandlord' ? '- <span class="isLLord">Landlord</span>' : ''; ?></h3>
+        <p class="author"><?php echo "By " . $full_name . "<span class='time'> at " . $date_cre . "</span>"; ?></p>
     </div>
     <div class="noticeMessage">
         <p><?php echo $notice; ?></p>

@@ -9,7 +9,7 @@ class Notice {
     private $date_cre;
     private $expiry;
     
-    public function __construct($p_id, $u_id, $subject, $notice, $date_cre, $expiry = null){
+    public function __construct($p_id, $u_id, $subject, $notice, $date_cre = null, $expiry = null){
         $this->p_id = $p_id;
         $this->u_id = $u_id;
         $this->subject = $subject;
