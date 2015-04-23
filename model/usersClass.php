@@ -6,6 +6,21 @@ require_once('adminUser.php');
 
 class UsersClass {
     
+    public static function getUserById($id){
+        $db = Db_connect::getDB();
+        $q = "SELECT * FROM users where id = :id";
+        $stm = $db->prepare($q);
+        $stm->bindParam(":id", $id);
+        $stm->execute();
+        $u = $stm->fetch();
+        if ($u != null){
+            $user = new User($u["first_name"], $u["last_name"], $u["user_name"], $u["password"], $u["email"], $u["phone"], $u["role"], $u["age"]);
+        } else {
+            $user = null;
+        }
+        return $user;
+    }
+    
     //Method to obtain user for login
     public static function getUser($user, $pass){
         $db = Db_connect::getDB();
