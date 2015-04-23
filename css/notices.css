@@ -38,7 +38,9 @@ tr td {
     vertical-align: top;
     padding: 5px;
 }
-
+#createNotice {
+    margin-bottom: 20px;
+}
 #createNotice table {
     border-collapse: separate;
     border-spacing: 10px;

@@ -4,6 +4,24 @@ require_once('db_connect.php');
 require_once('notice.php');
 
 class Noticeboard {
+    public static function getAllNotices(){
+        $db = Db_connect::getDB();
+        
+        $q = "SELECT * FROM notices";
+        $stm = $db->prepare($q);
+        $stm->execute();
+        $results = $stm->fetchAll();
+        $notices = array();
+        foreach ($results as $row){
+            $date_cre = new DateTime(date("Y-m-d H:i:s", strtotime($row['date_cre'])), new DateTimeZone('America/Los_Angeles'));
+            $date_cre->setTimezone(new DateTimeZone('America/New_York'));
+            $date = $date_cre->format("Y-m-d H:i:s");
+            $notice = new Notice($row['p_id'], $row['u_id'], $row['subject'], $row['notice'], $date, $row['expiry']);
+            $notice->setId($row['id']);
+            $notices[] = $notice;
+        }
+        return $notices;
+    }
     
     public static function getAllNoticesOfProperty($pid){
         $db = Db_connect::getDB();

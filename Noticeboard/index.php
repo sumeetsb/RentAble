@@ -19,6 +19,8 @@ if(isset($_SESSION['role'])){
         if(in_array($pid, $props)){
             if(isset($_GET['delete_id'])){
                 Noticeboard::deleteNotice($_GET['delete_id']);
+                header("Location: index.php?propid=$pid");
+                exit();
             }
             if(isset($_POST['postNotice'])){
                 $validator = new Validation();

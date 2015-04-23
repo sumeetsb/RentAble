@@ -58,6 +58,10 @@ class User {
         $this->last_name = $lname;
     }
     
+    public function getFullName(){
+        return $this->first_name . " " . $this->last_name;
+    }
+    
     public function getUname(){
         return $this->user_name;
     }
