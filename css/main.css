@@ -288,6 +288,8 @@ footer ul {
     }
     #logo{
         margin: 0;
+        margin-top: 5px;
+        margin-left: 5px;
     }
     #logreg {
         width: 100%;
