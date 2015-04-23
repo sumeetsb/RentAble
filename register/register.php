@@ -11,19 +11,19 @@ include('../view/header.php');
             </tr>
             <tr>
                 <td>First Name:</td>
-                <td><input type="text" name="fname" /></td>
+                <td><input type="text" name="fname" value="<?php echo $fname; ?>" /></td>
             </tr>
             <tr>
                 <td>Last Name:</td>
-                <td><input type="text" name="lname" /></td>
+                <td><input type="text" name="lname" value="<?php echo $lname; ?>" /></td>
             </tr>
             <tr>
                 <td>Enter Birth Date:<br /> (M/D/Y)</td>
                 <td>
                     <select name="month">
                         <?php 
-                            foreach($months as $month){
-                                echo '<option value="'.$month.'">'.$month.'</option>';
+                            foreach($months as $mon){
+                                echo '<option value="'.$mon.'">'.$mon.'</option>';
                             }
                         ?>
                     </select>/
@@ -45,19 +45,19 @@ include('../view/header.php');
             </tr>
             <tr>
                 <td>Email:</td>
-                <td><input type="text" name="email" /></td>
+                <td><input type="text" name="email" value="<?php echo $email; ?>" /></td>
             </tr>
             <tr>
-                <td>Phone:</td>
-                <td><input type="text" name="phone" /></td>
+                <td>Phone (ex: 416-466-6666):</td>
+                <td><input type="text" name="phone" value="<?php echo$phone; ?>"/></td>
             </tr>
             <tr>
                 <td>Username:</td>
-                <td><input type="text" name="uname" /></td>
+                <td><input type="text" name="uname" value="<?php echo $uname; ?>"/></td>
             </tr>
             <tr>
                 <td>Password:</td>
-                <td><input type="password" name="pass" /></td>
+                <td><input type="password" name="pass" value="<?php echo $pass; ?>" /></td>
             </tr>
             <tr>
                 <td>Re-enter Password:</td>
@@ -65,7 +65,7 @@ include('../view/header.php');
             </tr>
             <tr>
                 <td>Are you registering <br /> as a Landlord?</td>
-                <td><input type="checkbox" name="role" value="landlord" /> Yes</td>
+                <td><input type="checkbox" name="role" value="landlord" <?php echo $role == 'landlord' ? 'checked' : ''; ?> /> Yes</td>
             </tr>
             <tr>
                 <td colspan="2"><input type="submit" name="register" value="Register" /></td>
@@ -74,7 +74,9 @@ include('../view/header.php');
         </table>
     </form>
     <?php 
-        echo '<p class="error">'.$error.'</p>';
+    foreach($errors as $err){
+        echo '<p class="error">'.$err.'</p>';
+    }
     ?>
 </div>
 

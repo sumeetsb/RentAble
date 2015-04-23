@@ -29,6 +29,8 @@
                 $_SESSION['role'] = $login->getRole();
                 $_SESSION['fname'] = $login->getFname();
                 $_SESSION['lname'] = $login->getLname();
+                $_SESSION['pass'] = $login->getPword();
+                $_SESSION['phone'] = $login->getPhone();
                 if($login->getRole() == 'tenant'){
                     $_SESSION['props'] = UsersClass::getPropertiesOfTenant($login->getId());
                 } else {

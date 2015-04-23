@@ -43,6 +43,18 @@ class UsersClass {
         }
     }
     
+    public static function updateUser(User $user){
+        $db = Db_connect::getDB();
+        $fname = $user->getFname();
+        $lname = $user->getLname();
+        $uname = $user->getUname();
+        $email = $user->getEmail();
+        $pass = $user->getPword();
+        $age = $user->getAge();
+        $phone = $user->getPhone();
+        $role = $user->getRole();
+    }
+    
     //Method to make new user for users table
     public static function makeUser(User $user){
         $db = Db_connect::getDB();
@@ -75,7 +87,6 @@ class UsersClass {
                 $pArray[] = $prop['p_id'];
             }
         }
-        
         return $pArray;
     }
     

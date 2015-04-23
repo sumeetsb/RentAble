@@ -1,14 +1,28 @@
 <?php
 require_once('../model/config.php');
-require_once('../model/user.php');
-require_once('../model/usersClass.php');
 
+function classloader($class) {
+    $classStr = '../model/' . strtolower($class) . '.php';
+    require_once $classStr;
+}
 
-$error = "";
+spl_autoload_register('classloader');
+ 
 
 ///IF a user is logged in, go back to home
 ///ELSE show registration form
-
+$errors = array();
+$fname = "";
+$lname = "";
+$email = "";
+$uname = "";
+$day = "";
+$month = "";
+$year = "";
+$pass = "";
+$age = "";
+$role = "";
+$phone = "";
 if(isset($_SESSION['user'])){
     header("Location: ../index.php");
 } else {
@@ -17,32 +31,29 @@ if(isset($_SESSION['user'])){
     
     
     if(isset($_POST['register'])){
-        ///IF register button hit, do validation
-        //
-        //
-        ///Currently using quick validation, will implement validation class soon
         
-        $val = true;
-        foreach($_POST as $v){
-            if($v == $_POST['pass2']){
-                if($v != $_POST['pass']){
-                    $val = false;
-                    $error = "Passwords don't match.<br />";
-                    break;
-                }
-            }
-            if(empty($v)){
-                $val = false;
-                break;
-            }
-            
-        }
-        if($val == true){
+        $validator = new Validation();
+        $validator->todoVal("First Name", $_POST['fname'], "required");
+        $validator->todoVal("Last Name", $_POST['lname'], "required");
+        $validator->todoVal("Email", $_POST['email'], "required");
+        $validator->todoVal("Email", $_POST['email'], "email");
+        $validator->todoVal("User Name", $_POST['uname'], "required");
+        $validator->todoVal("Password", $_POST['pass'],"required" );
+        $validator->todoVal("Password", array($_POST['pass'], $_POST['pass2']), "passwords");
+        $validator->todoVal("Phone Number", $_POST['phone'], "required");
+        $validator->todoVal("Phone Number", $_POST['phone'], "phone");
+        $validator->validate();
+        $errors = $validator->errors;    
+        
+        
             $fname = $_POST['fname'];
             $lname = $_POST['lname'];
             $email = $_POST['email'];
             $uname = $_POST['uname'];
             $pass = $_POST['pass'];
+            $day = $_POST['day'];
+            $month = $_POST['month'];
+            $year = $_POST['year'];
             $fdate = new DateTime($_POST['year']. "-" . $_POST['month']."-" . $_POST['day']);
             $sdate = new DateTime();
             $age = $sdate->diff($fdate)->y;
@@ -52,6 +63,7 @@ if(isset($_SESSION['user'])){
                 $role = 'tenant';
             }
             $phone = $_POST['phone'];
+        if(empty($errors)){
             try {
                 ///IF form valid, make user in users table, include thank you message and stop script
                 
@@ -59,13 +71,12 @@ if(isset($_SESSION['user'])){
                 UsersClass::makeUser($user);
                 include('thankyou.php');
                 exit();
-            } catch (Exception $ex) {
+            } catch (PDOException $ex) {
                 echo $ex->getMessage();
             }
-        } else {
-            $error .= "FORM ERROR WHAT?!";
         }
     }
+    
     ///IF user not logged in and register button not hit yet, show registration form
     
     include('register.php');

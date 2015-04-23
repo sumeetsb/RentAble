@@ -29,7 +29,7 @@ if(isset($_SESSION['role'])){
                 $validator->validate();
                 $errors = $validator->errors;
                 if(empty($errors)){
-                    $postNotice = new Notice($pid, $_SESSION['id'],$_POST['subject'], $_POST['notice']);
+                    $postNotice = new Notice($pid, $_SESSION['id'],htmlspecialchars($_POST['subject']), htmlspecialchars($_POST['notice']));
                     Noticeboard::postNotice($postNotice);
                 }
             }

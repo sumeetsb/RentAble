@@ -2,6 +2,7 @@
 $cssArray[] = "notices.css";
 include '../view/header.php';
 ?>
+<script type="text/javascript" src="../js/notices.js"></script>
 
 <h1><?php echo $pname; ?> Notice Board</h1>
 
@@ -23,6 +24,18 @@ include '../view/header.php';
     <?php foreach($errors as $err){
         echo '<p class="error">' . $err . "</p>";
     } ?>
+    
+</div>
+<div>
+    <p>Filter Noticeboard:</p>
+    <form>
+        <select id="filterNotices" name="filterNotices">
+            <option value="all">Show All Notices</option>
+            <option value="mine">Show Only My Notices</option>
+            <option value="tenant">Show Only Tenants</option>
+            <option value="landlord">Show Landlord Notices</option>
+        </select>
+    </form>
 </div>
 
 <div class="notices">
@@ -54,8 +67,8 @@ include '../view/header.php';
         $date_cre = $v->getDateCreated();
         $expiry = $v->getExpiry();
 ?>
-<div class="notice">
-    <div class="noticeHead <?php echo $roleClass; ?> <?php echo $idClass; ?>">
+<div class="notice <?php echo $roleClass; ?> <?php echo $idClass; ?>">
+    <div class="noticeHead">
         <?php if($u_id == $_SESSION['id']){ ?> <p class="delLink"><a onclick="return confirm('Are you sure you want to delete this notice?')" href="index.php?propid=<?php echo $pid; ?>&delete_id=<?php echo $n_id; ?>">Delete</a></p>  <?php } ?>
         <h3><?php echo $subject; ?> <?php echo $roleClass == 'noticeLandlord' ? '- <span class="isLLord">Landlord</span>' : ''; ?></h3>
         <p class="author"><?php echo "By " . $full_name . "<span class='time'> at " . $date_cre . "</span>"; ?></p>

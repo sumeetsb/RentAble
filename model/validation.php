@@ -33,6 +33,18 @@ class Validation{
                 if($this->isLong($val['Value']) == false){
                     $this->errors[] = "The field " . $val['Name'] . " must be a decimal number between -180 and 180.";
                 }
+            } else if (strtolower($val['Type']) == "email"){
+                if($this->email($val['Value']) == false) {
+                    $this->errors[] = "The field " . $val['Name'] . " must be a valid email format.";
+                }
+            } else if (strtolower($val['Type']) == "passwords"){
+                if($this->passwords($val['Value'][0], $val['Value'][1]) == false){
+                    $this->errors[] = $val['Name'] . " fields must match.";
+                }
+            } else if (strtolower($val['Type']) == "phone"){
+                if($this->phone($val['Value']) == false){
+                    $this->errors[] = "The field " . $val['Name'] . " must be a valid phone number.";
+                }
             }
             
         }
@@ -43,6 +55,31 @@ class Validation{
             return false;
         }else{
             return true;
+        }
+    }
+    
+    private function phone($field){
+        $phoneregex = "/^\+?[0-9]+(\([0-9]+\))?[0-9-]*[0-9]$/";
+        if(!preg_match($phoneregex, $field)){
+            return false;
+        } else {
+            return true;
+        }
+    }
+    
+    private function passwords($f1, $f2){
+        if($f1 == $f2){
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    private function email($field){
+        if(filter_var($field, FILTER_VALIDATE_EMAIL)){
+            return true;
+        } else {
+            return false;
         }
     }
 

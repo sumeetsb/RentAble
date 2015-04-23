@@ -57,9 +57,10 @@ class Noticeboard {
         $uid = $notice->getUId();
         $subject = $notice->getSubject();
         $message = $notice->getNotice();
-        $q = "INSERT INTO notices (p_id, u_id, subject, notice) VALUES($pid, $uid, '$subject', '$message')";
-        
+        $q = "INSERT INTO notices (p_id, u_id, subject, notice) VALUES($pid, $uid, :subject, :message)";
         $stm = $db->prepare($q);
+        $stm->bindParam(":subject", $subject);
+        $stm->bindParam(":message", $message);
         $stm->execute();
     }
 }
