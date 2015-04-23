@@ -15,8 +15,9 @@ class Noticeboard {
         $results = $stm->fetchAll();
         $notices = array();
         foreach ($results as $result){
-            $date_cre = strtotime($result['date_cre']);
-            $notice = new Notice();
+            $date_cre = new DateTime(date("Y-m-d H:i:s", strtotime($result['date_cre'])), new DateTimeZone('America/Los_Angeles'));
+            $date_cre->setTimezone(new DateTimeZone('America/New_York'));
+            $notice = new Notice($result['p_id'], $result['u_id'], $result['subject'], $result['notice'], $$date_cre, $result['expiry']);
             $notices[] = $notice;
         }
         return $notices;
