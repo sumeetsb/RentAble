@@ -19,9 +19,9 @@ if(isset($_POST['submit'])){
 }
 ?>
 
-<form action="Index.php" method="POST" >
+<form action="Index.php" method="POST" class="styledform">
     <span>Search</span>
-    <input type="search" name="search" />
+    <input type="search" name="search" placeholder="Search Landlords"/>
     <br />
     <input type="submit" name="submit" />
     

@@ -192,6 +192,18 @@ ul {
     padding-bottom: 100px;
 }
 
+.styledform input{
+    font-family: 'Roboto Slab', serif;
+    font-size: 1em;
+    width: 200px;
+    height:25px;
+} 
+
+.styledform input[type="submit"] {
+ width:70px;
+} 
+
+
 table {
     text-align: left;
     border-collapse: separate;
