@@ -9,6 +9,7 @@ include ('../../view/header.php');
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
     <title>RentAble map search</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+     <link rel="stylesheet" type="text/css" href="../../css/main.css" />
     <link rel="stylesheet" href="../../css/mapcss/css/map.css">
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
     <script type="text/javascript">
