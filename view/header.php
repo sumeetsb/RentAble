@@ -38,6 +38,7 @@
                         <ul>
                             <li><a href="<?php echo ROOT;?>Forum/ForumView">Forums</a></li>
                             <li><a href="<?php echo ROOT;?>Map/MapView/map.php">Rentals Map</a></li>
+                            <li><a href="<?php echo ROOT;?>find_a_friend">Find A Roommate</a></li>
                             <li><a href="<?php echo ROOT;?>LandlordDirectory">Landlord Directory</a></li>
                             <li><a href="<?php echo ROOT;?>FAQ">FAQ</a></li>
                         </ul>
