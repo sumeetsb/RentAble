@@ -133,10 +133,13 @@ if(isset($_POST['search']))
 <!DOCTYPE HTML>
     <html>
         <head>
-            <title>Find a Friend</title>
+            <title>Find a Roommate</title>
         </head>
         <body>
+
             <?php include('../view/header.php'); ?>
+
+<h3>Find A Roommate</h3>
            <form action="find_friend.php" method="post">
              <p>Gender:</p>
             <input type="checkbox" name="gender" value="Female">Female
