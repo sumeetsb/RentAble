@@ -14,6 +14,12 @@ include '../view/header.php';
         $fname = $user->getFname();
         $lname = $user->getLname();
         $full_name = $fname . ' ' . $lname;
+        $role = $user->getRole();
+        if($role == 'landlord'){
+            $roleClass = 'noticeLandlord';
+        } else {
+            $roleClass = 'noticeTenant';
+        }
         
         $subject = $v->getSubject();
         $notice = $v->getNotice();
@@ -22,7 +28,7 @@ include '../view/header.php';
 ?>
 
 <div class="notices">
-    <div class="noticeHead">
+    <div class="noticeHead <?php echo $roleClass; ?>">
         <h3><?php echo $subject; ?></h3>
         <p><?php echo "By " . $full_name . "<span class='time'> at " . $date_cre . "</span>"; ?></p>
     </div>
