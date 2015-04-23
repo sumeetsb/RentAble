@@ -24,7 +24,7 @@ include '../view/header.php';
 <div class="notices">
     <div class="noticeHead">
         <h3><?php echo $subject; ?></h3>
-        <p><?php echo "By " . $full_name . " at " . $date_cre; ?></p>
+        <p><?php echo "By " . $full_name . "<span class='time'> at " . $date_cre . "</span>"; ?></p>
     </div>
     <div class="notice">
         <p><?php echo $notice; ?></p>
